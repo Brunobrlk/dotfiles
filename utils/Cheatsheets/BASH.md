@@ -1,0 +1,7 @@
+# Terminal
+    CTRL + a = Go to start of the command
+    CTRL + e = Go to end of the command
+    CTRL + k = Delete until the end -> Using tmux, first press <leader>
+    CTRL + u = Delete until the start 
+    CTRL + r = Search for past commands, if its not yet keep pressing CTRL + r until get the command
+    type <command> = Returns the command describing where it comes from and its origin form, useful for aliases

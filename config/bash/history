@@ -1,0 +1,4411 @@
+apt list
+cd /etc/apt
+ls
+cat sources.list
+cd sources.list.d/
+ls
+cat official-package-repositories.list 
+clear
+ls
+cd
+clear
+sudo apt purge gnome-online-accounts
+sudo apt remove gnome-online-accounts
+sudo apt purge gnome-online-accounts
+neofetch 
+flatpak list
+flatpak search allacrity
+flatpak search alacritty
+neofetch
+cd .config/
+ls
+cd
+clear
+mkdir tmp
+cd tmp/
+curl -o go.tar.gz https://dl.google.com/go/go1.24.4.linux-amd64.tar.gz
+ls
+tar -xzf go.tar.gz 
+ls
+cd go/
+ls
+cd bin/
+ls
+echo $PATH 
+export PATH="$PATH:$HOME/tmp/go/bin"
+cd ..
+ls
+cd ..
+ls
+mkdir Src
+cd Src/
+ls
+git clone https://github.com/asdf-vm/asdf.git --branch v0.18.0
+ls
+cd asdf/
+ls
+make
+ls
+pwd
+ls
+echo $PATH
+sudo apt update
+sudo apt show git
+clear
+sudo apt install flatpak
+flatpak 
+flatpak list
+flatpak remotes
+flatpak search android
+flatpak search git
+clear
+apt show git
+apt show gcc
+gcc --version
+clear
+make --version
+apt show make
+apt show git
+apt install git
+git clone https://github.com/Brunobrlk/dev-environment.git
+cd dev-environment/
+ls
+clear
+xed
+xed dev_environment_setup 
+clear
+fg
+clear
+cd .lo
+cd
+cd .local/
+ls
+mkdir bin
+cd
+ls
+cd dev-environment/
+ls
+clear
+ls
+cat install_allacrity.sh 
+cat install_brave.sh 
+git version
+curl 
+flatpak search brave
+flatpak install brave
+apt purge celluloid 
+clear
+ls
+apt autoremove 
+ls
+cat install_asdf.sh 
+flatpak search asdf
+clear
+ls
+cd home/
+ls
+la
+mv .bash* ~
+cd
+ls
+la
+cat .bashrc 
+cd -
+ls
+la
+ls .config/
+cp .config/* ~/.config/
+cp -r .config/* ~/.config/
+ls
+la
+..
+ls
+cd ..
+ls
+la
+apti build-essential gdb curl libbz2-dev libffi-dev liblzma-dev libncursesw5-dev libreadline-dev libsqlite3-dev libssl-dev libxml2-dev libxmlsec1-dev llvm make tk-dev wget xz-utils zlib1g-dev bash file git unzip xz-utils jq zip clang cmake ninja-build libgtk-3-dev bat htop tldr tree scrcpy
+sudo apt install -y build-essential gdb curl libbz2-dev libffi-dev liblzma-dev libncursesw5-dev libreadline-dev libsqlite3-dev libssl-dev libxml2-dev libxmlsec1-dev llvm make tk-dev wget xz-utils zlib1g-dev bash file git unzip xz-utils jq zip clang cmake ninja-build libgtk-3-dev bat htop tldr tree scrcpy
+clear
+apt update
+cat install_asdf.sh 
+cd
+clear
+cd -
+clear
+cat install_asdf.sh | less
+cd
+cat .bashrc 
+cat .bash_aliases 
+cat .bash_env_vars 
+cd .local/bin/
+ls
+ln -s /home/brunobrlk/Src/asdf/asdf asdf
+ls
+kk
+ll
+cd -
+cd dev-environment/
+ls
+cat install_asdf.sh 
+echo $PATH 
+vi install_asdf.sh 
+bash install_
+bash install_asdf.sh 
+cat install_asdf.sh 
+ls
+cat install_lunarvim.sh 
+vi install_lunarvim.sh 
+flatpak search chrome
+flatpak install com.google.Chrome
+flatpak install com.google.Chrome -y
+flatpak list
+flatpak search docker
+flatpak search spotify
+flatpak search teamviewer
+flatpak search team
+flatpak install com.todoist.Todoist
+flatpak install -y com.todoist.Todoist
+clear
+flatpak list
+ls
+bash update_dots.sh 
+clear
+cd
+clear
+chbash 
+chenv 
+vim
+cdconf
+ls
+clear
+ls
+mkdir bash
+mv ~/.bash_history bash/
+ls
+cd bash/
+ls
+la
+mv .bash_history bash_history
+ls
+history 
+clear
+ls
+..
+ls
+cd
+clear
+la
+cat .lesshst 
+clear
+cd
+cdconf 
+ls
+mkdir less
+ls
+mv ~/.lesshst less/
+cd less/
+ls
+mv .lesshst lesshst
+ls
+clear
+ls
+clear
+la
+..
+ls
+cd
+clear
+ls
+la
+neofetch 
+ls
+cd
+ls
+fc-list 
+clear
+fc-list | grep -i nerd
+man type
+type --help
+clear
+ls
+gemini
+neofetch 
+clear
+neofetch 
+clear
+neofetch 
+clear
+neofetch 
+clear
+neofetch 
+clear
+neofetch 
+neofetch --sixel
+neofetch --sixel /home/brunobrlk/Pictures/MyPhotos/kiritoPC.jpg 
+neofetch --tycat /home/brunobrlk/Pictures/MyPhotos/kiritoPC.jpg 
+fc-list 
+man fc-list
+clear
+cheatsheet 
+cd .utils/Cheatsheets/
+vim
+cd
+cd .cache/
+ls
+cd thumbnails/
+ls
+cdconf 
+ls
+l
+la
+cheatsheet 
+çs
+ls
+./install
+./install.sh 
+cheatsheet 
+./install.sh && cheatsheet
+clear
+cdconf 
+cd alacritty/
+ls
+vim
+cd
+cdpro
+cd shell-scripts/
+ls
+vim
+cdconf 
+cd neofetch/
+ls
+vim
+neofetch 
+clear
+man fc-list
+clear
+b
+
+cheatsheet bash
+cheatsheet network-infor
+cheatsheet network-info
+cheatsheet so-info
+clear
+cdnotes 
+ls
+vim volleyball_teams.md
+rm volleyball_teams.md 
+clear
+ls
+..
+ls
+cd Cheatsheets/
+vim
+cdnotes 
+cat passwords.txt 
+btop
+cdconf 
+ls
+cd btop/
+ls
+ls themes/
+ls /usr/local/share/btop/themes/
+ls
+vim
+btop
+cdconf 
+cd btop/
+ls
+vim
+btop
+clear
+vim btop.conf 
+btop
+vim btop.conf
+btop
+clear
+ls
+vim btop.conf 
+btop
+vim
+btop
+vim btop.
+vim btop.conf 
+btop
+vim btop.conf 
+btop
+vim btop.conf 
+btop
+vim btop.conf 
+btop
+btop 
+btop
+vim btop.conf 
+btop
+clear
+cd Music/
+ls
+type yt
+ls
+yt-dlp -t mp3 https://www.youtube.com/watch?v=NFdCfLDq4Qg
+
+yt-dlp -f 'ba[acodec^=mp3]/ba/b' -x --audio-format
+yt-dlp -f 'ba[acodec^=mp3]/ba/b' -x --audio-format mp3 https://www.youtube.com/watch?v=NFdCfLDq4Qg
+ls
+yt https://www.youtube.com/watch?v=NFdCfLDq4Qg
+yt-dlp https://www.youtube.com/watch?v=NFdCfLDq4Qg
+ls
+yt-dlp --version
+ls
+pip list
+pip3 list
+
+python3 -m pip install -U "yt-dlp[default]"
+which pip
+pip install -U "yt-dlp[default]"
+which yt-dlp 
+asdf list plugin
+asdf list all
+asdf list all plugin
+asdf list all
+asdf plugin list
+asdf plugin list all
+nala remove yt-dlp 
+clear
+pipx install -U "yt-dlp[default]"
+pip install -U "yt-dlp[default]"
+ls
+clear
+yt-dlp -t mp3 https://www.youtube.com/watch?v=NFdCfLDq4Qg
+which yt-dlp 
+clear
+yt-dlp -f 'ba[acodec^=mp3]/ba/b' -x --audio-format mp3 https://www.youtube.com/watch?v=NFdCfLDq4Qg
+man yt-dlp 
+pip list
+notify-send hello
+neofetch 
+clear
+./update_dots.sh 
+clear
+ls
+cd
+clear
+cdsrc
+ls
+ls /dev/
+ls /dev/snd/
+ps -e | grep -E 'pipewire|pulseaudio|jackd'
+systemctl --user status pipewire.service
+systemctl --user status pulseaudio.service
+pw-cli info 0
+ps -e | grep mpd
+lsof -p $(pidof mpd) | grep -E 'snd|pipe|pulse|jack'
+ps -e | grep -E 'pipe'
+ps -e | grep -E 'mp'
+systemctl status mpd
+systemctl --user status mpd
+clear
+nala show mpd
+clear
+type yt
+man yt-dlp
+history 
+clear
+ls
+clear
+chalias 
+src
+cdnotes 
+ls
+cat ambitions.txt 
+cat analyze-boot.txt 
+clear
+rm analyze-boot.txt 
+ls
+cat android-networking.txt 
+cat android_st
+cat android_stores.md 
+clear
+ls
+cat android_studio_config.txt 
+cat app_distribution_variables.txt 
+clear
+ls
+l
+clear
+l
+cat cicd_tools.txt 
+l
+cat commits.txt 
+which cat
+bat commits.txt 
+clear
+ls
+bat distros.md 
+bat dmenu_script_ideas.md 
+bat english_words.md 
+clear
+ls
+bat features_to_learn.txt 
+bat firebase.txt 
+bat gradle.properties 
+cat gradle.properties 
+rm gradle.properties 
+ls
+bat habits.txt 
+clear
+ls
+bat jenkins.md 
+bat mangadexapi.md 
+ll
+clear
+ls
+bat passwords.txt 
+clear
+ls
+bat thinking.txt 
+bat tmp.txt 
+rm tmp.txt 
+bat utilities.txt 
+clear
+l
+bat varejo.txt 
+bat vpn.txt 
+bat webtoon_sites.txt 
+bat xdg_notes.txt 
+bat windows.txt 
+clear
+l
+ls Test
+ls TestPage/
+bat tech_names.md 
+bat Study-Guide.md 
+clear
+l
+bat priorities.txt 
+clear
+bat setup_environment 
+clear
+l
+rm setup_environment 
+bat server 
+bat ssh.md 
+rm server 
+clear
+l
+bat linux_media-players.txt 
+clear
+cd
+vim
+yt https://www.youtube.com/watch?v=NFdCfLDq4Qg
+ls
+cd Music/
+ls
+cd
+cd Videos/
+ls
+rm 'Just The Two Of Us [NFdCfLDq4Qg].webm' 
+ls
+cd
+cd Music/
+ls
+la
+yt-dlp -t mp3 https://www.youtube.com/watch?v=NFdCfLDq4Qg
+ls
+open Just\ The\ Two\ Of\ Us\ \[NFdCfLDq4Qg\].mp3 
+mpv
+ls
+clear
+cdconf 
+cd mp
+cd mpd/
+ls
+vim
+ls
+..
+ks
+ls
+rm -rf mpd/
+ls
+cd mpc
+ls
+cd rmpc/
+ls
+vim
+..
+rm -rf rmpc/
+ls
+cd mpv/
+ls
+..
+ls
+cd 
+cd .local/
+ls
+cd state/
+ls
+mkdir mpd
+ls
+apt show mpc
+nala install mpc
+clear
+ls
+mpd
+ls
+mkdir -p playlists
+mpd
+netstat 
+ports
+man mpd
+mpd --kill
+ports
+mpd --kill
+mpd
+apt show mpd
+apt install mpd
+clear
+ls .config/
+ls /etc/
+cat /etc/mpd.conf 
+sudo cat /etc/mpd.conf 
+clear
+systemctl status mpd
+cd
+cdconf 
+mkdir -p mpd
+ls
+cd mp
+cd mpd/
+ls
+vim
+systemctl status mpd
+man bash
+ports
+clear
+mpd
+systemd status mpd
+systemctl status mpd.conf 
+systemctl status mpd.service
+systemctl --user status mpd.service
+systemctl --user start mpd.service
+systemctl status --user mpd.service
+clear
+btop
+systemctl status --user mpd.service
+systemctl start --user mpd.service
+systemctl status --user mpd.service
+clear
+systemctl enable --user mpd.service
+mpc update
+clear
+vim
+clear
+man cargo
+cargo --help
+cargo --list
+cargo info
+clear
+ls
+cargo install rmpc --locked
+ls
+cd ~/.local/bin/
+ls
+ln -s /home/brunobrlk/.config/asdf/installs/rust/1.89.0/bin/rmpc rmpc
+la
+cd /home/brunobrlk/.config/asdf/installs/rust/1.89.0/bin/rmpc
+ls
+cd /home/brunobrlk/.config/asdf/installs/rust/1.89.0/bin/
+ls
+cd
+clear
+rmpc --version
+rmpc --help
+rmpc status
+rmpc version
+clear
+rmpc config > ~/.config/rmpc/config.ron
+mkdir ~/.config/rmpc
+ls
+rmpc config > ~/.config/rmpc/config.ron
+ls
+ports
+ls
+btop
+man systemct
+man systemctl
+systemctl restart mpd.service
+systemctl restart --user mpd.service
+rmpc
+ports
+rmpc
+sudo netstat -tlnpu
+systemctl restart --user mpd.service
+ports
+rmpc
+clear
+mpc 
+mpc --help
+man mpc
+mpc --host=127.0.0.1 --port=6600
+ls
+clear
+mpc --host=127.0.0.1 --port=6600
+rmpc
+echo $MPD_HOST 
+chenv 
+cdpro
+cd
+cd Music/
+ls
+mkdir Playlists
+ls
+clear
+mpd
+mpc update
+ls
+ports
+mpd --kill
+mpd
+btop
+clear
+cd
+ls
+vim .profile 
+cdconf 
+vim
+rmpc
+mpc 
+cd
+clear
+man playerctl
+
+playerctl -l
+playerctl pause
+playerctl stop
+playerctl -a stop
+playerctl -a pause
+playerctl -l pause
+playerctl -l
+clear
+playerctl -l
+playerctl statys
+playerctl status
+playerctl play-pause
+rmpc 
+clear
+ls
+cd rmpc/
+ls
+mkdir themes
+rmpc theme > themes/nord.ron
+rmpc 
+clear
+rmpc 
+clear
+cd
+ivm
+vim
+bash Install/asdf.sh 
+
+bash Install/asdf.sh 
+apt show playerctl
+nala install playerctl
+man playerctl
+playerctl play
+playerctl pause
+playerctl play
+playerctl pause
+apt show mpc
+nala show mpc
+nala show mpv
+clear
+ls
+cd nemo/
+ls
+cat desktop-metadata 
+ls
+cat desktop-metadata 
+cd
+ls
+la
+cd .local/
+ls
+cd state/
+ls
+cd cinnamon/
+ls
+..
+ls
+..
+ls
+cd share/
+ls
+cd nemo/
+ls
+cd actions/
+ls
+..
+ls
+cd scripts/
+ls
+..
+ls
+..
+ls
+cd
+clear
+ls
+clear
+cd
+cd .local/bin/
+ls
+ln -s /home/brunobrlk/Src/yazi/target/release/yazi yazi
+ln -s /home/brunobrlk/Src/yazi/target/release/ya ya
+ls
+clear
+nala show ffmpeg
+nala show poppler
+nala show 7zip
+nala show imagemagick
+nala show zoxide
+apt install fzf
+apt show fzf
+nala show fzf
+fzf --version
+clear
+nala show fzf
+cdsrc 
+ls
+git clone https://github.com/sxyazi/yazi.git
+ls
+cd yazi/
+ls
+cargo build --release --locked
+ls
+clear
+ls
+cd target/
+ls
+cd release/
+ls
+clear
+cd
+clear
+yazi
+ya
+cdsrc 
+ls
+clear
+ls
+cd
+cd .local/bin/
+ls
+clear
+ls
+ll
+rm deep-clean-mint 
+ls
+clear
+ls
+ll
+clear
+ll
+which btop
+which fzf
+which scrcpy 
+scrcpy --version
+clear
+ll
+clear
+cmake --version
+clear
+cd
+cdpro
+cd DebianGenesis/
+clear
+bash Install/ueberzugpp.sh 
+sudo apt-get install libxcb-image-dev
+sudo apt-get install libxcb-image0-dev
+ls
+cd
+cdsrc
+ls
+cd ueberzugpp/
+ls
+cd build/
+ls
+cmake -DCMAKE_BUILD_TYPE=Release ..
+apt install libxcb-res0-dev
+cmake -DCMAKE_BUILD_TYPE=Release ..
+cmake -DCMAKE_BUILD_TYPE=Release -DENABLE_X11=OFF -DENABLE_OPENCV=OFF ..
+ls
+cmake --build .
+ls
+cmake --install build
+ls
+pwd
+cmake --install build
+cmake --install
+..
+ls
+cmake --install build
+sudo cmake --install build
+which ueberzug
+clear
+yazi
+ls
+nala show cli11
+vim
+yazi
+man bash
+clear
+clear
+yazi
+cdpro
+cd DebianGenesis/
+ls
+bash Install/yazi.sh 
+ls
+clear
+yazi
+echo $TERM
+echo $TERM, $TERM_PROGRAM, $XDG_SESSION_TYPE
+cd
+clear
+cd .config/
+ls
+ka
+la
+yazi
+yazi --debug
+cargo install resvg
+yazi --debug
+yazi
+cd .local/bin/
+ls
+ya
+ya --help
+ya pkg
+ya pkg list
+ya pkg
+ya
+cd
+cd .config/asdf/shims/
+ls
+echo $PATH
+ls
+..
+ls
+cd installs/
+ls
+cd rust/
+ls
+cd 1.90.0/
+ls
+cd toolchains/
+ls
+cd 1.90.0-x86_64-unknown-linux-gnu/
+ls
+cd bin/
+ls
+..
+ls
+ls lib
+..
+ls
+..
+ls
+cd bin/
+ls
+cargo
+cargo --lisat
+cargo --list
+cargo cargo info
+cargo info
+cargo list
+cargo --list
+cargo
+cargo tree
+cargo install --list
+clear
+cd
+clear
+ls
+yazi --debug
+cargo install --list
+la
+cd .config/asdf/
+ls
+cd downloads/
+ls
+cd rust/
+ls
+..
+ls
+..
+ls
+cd installs/
+ls
+cd rust/
+ls
+ls 1.89.0/
+rust --version
+cargo --version
+which cargo
+clear
+asdf list
+ls
+cd 1.89.0/
+ls
+cd bin/
+ls
+la
+ll
+which rmpc 
+cargo install --list
+clear
+cd
+cd .local/state/yazi/
+ls
+bat yazi.log 
+ls
+bat yazi.log 
+cd /tmp/
+ls
+cd yazi-1000/
+ls
+nemo
+nemo .
+ls
+clear
+la
+..
+ls
+clear
+ueberzug layer
+clear
+cd
+cd .local/state/
+ls
+cd yazi/
+ls
+cat yazi.log 
+bat yazi.log 
+{"action":"add","identifier":"yazi","x":134,"y":1,"max_width":67,"max_height":22,"path":"/tmp/yazi-
+       │ 1000/b89f40daa34b9b0543015d58da2aad38"}
+{"action":"add","identifier":"yazi","x":134,"y":1,"max_width":67,"max_height":22,"path":"/tmp/yazi-
+       │ 1000/b89f40daa34b9b0543015d58da2aad38"}
+ueberzug
+ueberzug layer
+{"action":"add","identifier":"yazi","x":134,"y":1,"max_width":67,"max_height":22,"path":"/tmp/yazi-1000/b89f40daa34b9b0543015d58da2aad38"}
+ueberzug layer
+clear
+yazi
+YAZI_LOG=debug yazi
+clear
+yazi
+yazi --debug
+apt show 7zz
+apt show 7z
+apt show chafa
+nala show chafa
+yazi --debug
+YAZI_LOG=debug yazi
+clear
+yazi debug
+yazi --debug 
+7z --version
+7z --help
+7z --help | grep ver
+clear
+cd .config/alacritty/
+ls
+clear
+vim
+apt show kitty
+cdsrc 
+ls
+clear
+rmpc 
+clear
+ls
+yazi
+yazi
+clear
+ls
+cdsrc 
+ls
+git clone https://github.com/kovidgoyal/kitty.git && cd kitty
+./dev.sh build
+cd /etc/apt/
+ls
+cat sources.list
+cd sources.list.d/
+ls
+cat aslatter-ppa-noble.list 
+clear
+rmpc 
+clear
+rmpc 
+cd
+cd Music/
+ls
+man yt
+type yt
+ls
+yt-dlp -f 'ba[acodec^=mp3]/ba/b' -x --audio-format mp3 --write-thumbnail https://www.youtube.com/watch?v=52avIJWQWAY&list=PLdsBXi6N0GRhkmwVDsqnzksXm8-kUnPgL
+yt-dlp -f 'ba[acodec^=mp3]/ba/b' -x --audio-format mp3 --write-thumbnail https://www.youtube.com/watch?v=PvM79DJ2PmM&list=PLdsBXi6N0GRhkmwVDsqnzksXm8-kUnPgL&index=8
+ls
+clear
+neofetch 
+clear
+nala install kitty
+clear
+ls
+yazi 
+cd .local/
+cd bin/
+ls
+ln -s $HOME/.config/asdf/installs/rust/1.89.0/bin/resvg resvg
+yazi --debug
+yazi
+man bash
+cargo install --list
+cargo --version
+asdf list
+yazi --debug
+clear
+cd /usr/local/
+l
+la
+ls bin/
+rm bin/ueberzug*
+ls
+ls lib/
+cd bin/
+ls
+sudo rm ueberzug
+sudo rm ueberzugpp 
+ls
+clear
+..
+ls
+cd lib/
+ls
+cd pkgconfig/
+ls
+..
+ls
+cd cmake/
+ls
+cd fmt/
+ls
+..3
+ls
+cd
+clear
+cdsrc 
+ls
+cd ueberzugpp/
+ls
+cat README.md 
+clear
+ls
+cd scripts/
+ls
+..
+ls
+cd build/
+ls
+..
+ls
+rm -rf ueberzugpp/
+ls
+clear
+ls
+clear
+cd
+vim
+cd
+clear
+cargo --install list
+cargo install --list
+man cargo
+cargo install
+cargo --help
+cargo --list
+cargo install --help
+cargo --list
+clear
+yazi --debug
+which rg
+rg --version
+apt show rg
+cd .config/asdf/installs/rust/1.89.0/
+ls
+cd bin/
+ls
+./rg --version
+./fd --version
+fd --version
+rg --version
+asdf list
+pip list
+pip 
+pip list
+pip uninstall yt-dlp
+which yt-dlp 
+pip uninstall yt-dlp
+pipx 
+pipx list
+pipx install yt-dlp
+which yt-dlp 
+pipx list
+clear
+ls
+clear
+yt-dlp version
+yt-dlp --version
+clear
+pip list
+cd
+ls
+la
+clear
+ls
+cd .config/asdf/
+ls
+cd installs/
+ls
+cd golang/
+ls
+cd 1.25.1/
+ls
+cd go/
+ls
+cd bin/
+ls
+..2
+ls
+..
+ls
+..
+ls
+cd pipx
+ls
+cd 1.7.1/bin/
+ls
+..3
+ls
+..
+ls
+cd downloads/
+l
+clear
+yazi
+history
+history | fzf
+yazi
+clear
+ls
+cdsrc
+ls
+cd scrcpy/
+ls
+clear
+ls
+bat README.md 
+ls release/
+cat install_release.sh 
+..
+ls
+cd kitty/
+ls
+..
+ls
+cd yazi/
+ls
+which pip
+asdf list
+pip list
+cd /usr/lib
+ls
+cd python3
+ls
+cd dist-packages/
+yazi
+ls
+la
+cdconf 
+ls
+cd asdf/
+ls
+la
+asdf current
+asdf list
+clear
+asdf list
+asdf current
+cp .tool-versions .config/asdf/
+ls
+cd .config/asdf/
+ls
+la
+mv .tool-versions tool-versions
+asdf current
+asdf current
+asdf version
+cdsrc 
+ls
+cd asdf/
+ls
+git s
+clear
+ls
+git s
+git status
+git log
+git checkout -
+git s
+git c HEAD
+git 
+git ch HEAD
+git s
+clear
+echo $XDG_CONFIG_HOME/
+clear
+clear
+chenv 
+asdf list
+asdf set neovim 0.11.4 
+asdf lis
+la
+cat .tool-versions 
+asdf set -u neovim 0.11.4
+asdf list
+rm .tool-versions 
+ls
+asdf list
+asdf set -u neovim 0.11.4 
+asdf list
+chenv 
+asdf set -u flutter 3.35.3-stable 
+chenv 
+ls
+la
+cp .config/asdf/tool-versions .
+mv tool-versions .tool-versions
+ls
+asdf current
+mv .tool-versions tool-versions
+asdf current 
+clear
+ls
+rm tool-versions 
+ls
+la
+cdconf 
+cd asdf/
+ls
+rm tool-versions
+l
+ls
+vim
+asdf list
+asdf set neovim latest
+asdf list
+ls
+la
+asdf set neovim 0.11.4 
+asdf list
+asdf set neovim -u 0.11.4 
+vim
+ls
+la
+nvim
+cd
+clear
+ls
+la
+asdf list
+asdf set neovim 0.11.4 
+asdf set -u neovim 0.11.4 
+chenv 
+nano .bash_env_vars 
+asdf list
+asdf set -u neovim 0.11.4 
+asdf list
+la
+cat .tool-versions 
+rm .tool-versions 
+ls
+ls
+cdconf 
+cd asdf/
+ls
+asdf list
+asdf
+asdf env
+asdf info
+ls
+cat tool-versions 
+clear
+asdf info
+ls
+asdf list
+asdf set flutter 3.35.3-stable 
+asdf list
+asdf
+asdf set
+man asdf set
+man asdf
+asdf
+asdf -h
+asdf set -h
+asdf -h
+asdf current
+ls
+cd
+clear
+ls
+la
+cat .tool-versions 
+ls
+asdf current
+rm .tool-versions 
+ls
+asdf current
+clear
+chenv 
+l
+la
+cat .fzf.bash 
+rm .fzf.bash 
+ls
+la
+builtin cd -- /home/brunobrlk/.config/asdf/installs/python/3.13.7t/lib/python3.13t/test/leakers
+clear
+cd
+clear
+ls
+la
+cat .wget-hsts 
+ls .shiv/
+asdf list
+chenv 
+asdf set
+asdf list
+asdf info
+clear
+ls
+chenv 
+asdf set neovim 0.11.4 
+chenv 
+asdf list
+clear
+cdconf 
+ls
+mkdir wget
+cd wget/
+vim wgetrc
+cdconf 
+ls
+mkdir -p gtk-2.0
+cd gtk-2.0/
+ls
+mv ~/.gtkrc-2.0 .
+ls
+mv .gtkrc-2.0 gtkrc
+ls
+cdconf 
+ls
+mkdir -p X11
+la
+clear
+la
+cd .nv
+ls
+cd ComputeCache/
+ls
+..
+ls
+..
+ls
+la
+cdconf 
+ls
+mkdir -p npm
+ls
+cd npm/
+ls
+vim npmrc
+cd
+clear
+la
+rm -r .npm/
+ls
+la
+clear
+ls
+la
+la .nv
+la .nv/ComputeCache/
+rm -r .nv
+ls
+la
+clear
+la
+clear
+la
+ls .java/
+la
+clear
+la
+rm -rf .java/
+clear
+cat $XDG_DATA_HOME 
+echo $XDG_DATA_HOME 
+cd .local/share/
+ls
+ls themes/
+ls icons/
+cd
+clear
+la
+rm -rf .icons/
+rm -rf .themes/
+ls
+la
+clear
+la
+apt remove firefox
+la
+rm -rf .mozilla/
+la
+clear
+la
+rm -rf .wget-hsts 
+la
+clear
+la
+cat .dmrc 
+la
+clear
+la
+clear
+la
+feh
+man feh
+feh --no-
+feh --no-fehbg
+la
+rm .fehbg 
+echo $EDITOR
+echo $TERM_PROGRAM
+echo $TERM
+cd
+la
+ls .npm/
+chenv 
+chalias 
+chenv 
+asdf list
+la
+cat .tool-versions 
+asdf list
+asdf current
+asdf set neovim 0.11.4 
+asdf list
+la
+cat .tool-versions 
+asdf set flutter 3.35.3-stable 
+asdf list
+cat .tool-versions 
+rm .tool-versions 
+asdf list
+cd .config/asdf/
+ls
+la
+cat tool-versions 
+cd
+clear
+asdf current
+asdf list
+asdf set java openjdk-17 
+asdf set kotlin 2.2.20 
+asdf set rust 1.89.0 
+asdf set sqlite 3.50.4 
+asdf set gradle 7.6.3 
+asdf set golang 1.25.1 
+asdf list
+asdf set python 3.13.7t 
+asdf set pipx 1.7.1 
+asdf list
+asdf set nodejs 22.14.0 
+asdf list
+asdf current
+clear
+ls
+la
+cat .fzf.bash 
+chbash 
+la
+clear
+la
+vim
+man bash
+feh
+clear
+feh
+man feh
+feh --version
+clear
+la
+ls .shiv/
+la
+cd .shiv/
+ls
+la
+cd pipx_4fe7cea779bc4a83254b152e8b32187f4ba9e7517424c55de4cf59ef968439b7/
+ls
+cd site-packages/
+ls
+la
+duh
+ls
+cd bin/
+ls
+clear
+l
+cd
+clear
+cdconf 
+mkdir shiv
+ls
+rm -rf shiv/
+..
+ls
+cd .cache/
+ls
+man feh
+./install.sh 
+clear
+clear
+chenv 
+vim
+yazi
+type nala
+nala sss
+nala show kkk
+nala show bash
+nala update
+type nala
+clear
+type nala
+nala show kk
+nala update
+type nala
+nala show kk
+nala show bash
+nala update
+nala show bash
+nala show kkk
+nala update
+cdnotes 
+ls
+vim unstable-apt-mirrors.txt 
+src
+ls
+chalias 
+src
+..
+chenv 
+chalias 
+src
+clear
+..
+ls
+cd brunobrlk/
+ls
+clear
+chalias 
+src
+type nala
+nala show bash
+nala update
+cd /etc/apt
+ls
+cd sources.list.d/
+vim nala-sources.list 
+cd
+clear
+cat .bashrc 
+chenv 
+chalias 
+ls
+vim .bashrc 
+clear
+rsync -av ~/.config/asdf/tool-versions config/asdf/
+nala update
+nala show bash
+src
+clear
+nala show kk
+nala show bash
+nala update
+src
+type nala
+src
+type nala
+nala update
+type src
+cd
+cat .bashrc 
+chenv 
+chalias 
+chbash 
+cat .bashrc 
+chalias 
+clear
+src
+chalias 
+src
+chalias 
+cdconf 
+cd bash/
+ls
+cat history 
+ls
+cat bash_history 
+rm bash_history 
+ls
+cd
+clear
+ls
+la
+cdnotes 
+l
+vim email.md
+flatpak search mails
+flatpak install -y com.getmailspring.Mailspring
+clear
+cdsrc 
+ls
+cd
+ls
+cd .local/
+ls
+cd share/
+ls
+cd themes/
+ls
+mv ~/Src/mailspring-nord-theme/ .
+ls
+mv ~/Src/rofi-themes-collection/ .
+ls
+ls Adapta-Nokto/
+ls Alacritty/
+cd
+clear
+ls
+la
+cat .sudo_as_admin_successful
+clear
+bat --config-dir
+cd .config/bat
+ls
+bat --list-themes
+type bat
+bat --list-themes
+cdpro
+cd
+clear
+bat .bash
+bat .bashrc 
+la
+cdmobile 
+ls
+cdpro
+ls
+cd Scoreboard
+ls
+bat README.md 
+cheatsheet 
+cheatsheet ssh
+cheatsheet tmux
+clear
+cheatsheet tmux
+cheatsheet ssh
+bat --list-themes | fzf --preview="batcat --theme={} --color=always README.md"
+man feh
+bat --list-themes | fzf --preview="batcat --theme={} --color=always README.md"
+cd
+clear
+ls
+cd .gradle/
+ls
+cat gradle.properties 
+java --version
+ls
+..
+la
+asdf list
+asdf list all java
+asdf list all java | grep open
+asdf list all java | grep opensd
+asdf list all java | grep openj
+asdf list all java | grep openjd
+asdf install java openjdk-21
+clear
+asdf where java
+asdf current java
+asdf where java
+echo $JAVA_HOME 
+java --version
+asdf list
+asdf list all java | grep jb
+asdf list all java
+asdf list all java | grep jdk
+asdf list all java | grep 17
+cdpro
+cd Scoreboard
+ls
+clear
+gw -q javaToolchains
+asdf list
+asdf list all java | grep correto
+asdf list all java | grep corretto
+asdf install java corretto-17.0.16.8.1
+asdf list
+gw -q javaToolchains
+asdf list
+asdf set java corretto-17.0.16.8.1 
+cclear
+asdf list
+la
+asdf current
+asdf set java corretto-17.0.16.8.1 
+asdf list
+asdf set java -u corretto-17.0.16.8.1 
+asdf list
+asdf reshim java
+asdf list
+gw -q javaToolchains
+./gradlew :app:tasks | grep -i bundle
+chenv 
+src
+clear
+gw -q javaToolchains
+ls
+cdpro
+ls
+cd
+ls
+bat .bashrc 
+bat .bashrc --theme=TwoDark
+bat .bashrc --theme=Catppuccin
+man bat
+clear
+bat --help
+bat --help | grep conf
+bat
+bat -h
+bat --list-themes
+bat --list-themes | fzf --preview="bat --theme={} --color=always /path/to/file"
+bat --list-themes | fzf --preview="bat --theme={} --color=always .bashrc"
+batcat --list-themes | fzf --preview="bat --theme={} --color=always .bashrc"
+bat --list-themes | fzf --preview="batcat --theme={} --color=always .bashrc"
+cd .utils/Cheatsheets/
+bat FZF.md 
+bat GIT
+bat GIT.md 
+bat SSH
+bat SSH.md 
+clear
+la
+bat LINUX.md 
+bat --list-themes | fzf --preview="batcat --theme={} --color=always LINUX.md"
+cdpy
+ls
+cd FlaskSample/
+ls
+bat --list-themes | fzf --preview="batcat --theme={} --color=always app.py"
+cd
+cdconf 
+ls
+mkdir bat
+cd bat
+bat --generate-config-file
+ls
+bat --config-file
+vim
+ls
+la
+cd .android/
+ls
+cdconf 
+ls
+mkdir android
+ls
+cd
+ls
+la
+mv .android/* .config/android/
+ls
+la
+cd .android/
+ls
+cd ..
+rm -rf .android/
+ls
+clear
+la
+ls .android/
+la
+cd .android/
+ls
+cd avd/
+ls
+..
+ls
+..
+ls
+rm -rf .android/
+ls
+la
+cd .android/
+ls
+la
+echo $ANDROID_USER_HOME 
+rm -rf .android/
+ls
+la
+cd .android/
+ls
+la
+..
+ls
+la
+mv .config/android/* .android/
+ls
+rm -rf .config/android/
+ls
+la
+ls .android/
+clear
+ls
+la
+mkdir .config/android
+mv .android/* .config/android/
+ls
+la
+ls .android/
+ls
+la
+rm -rf .android/
+ls
+la
+cdpro
+cd Scoreboard
+ls
+clear
+gw -q javaToolchains
+asdf list java
+./gradlew :app:tasks | grep -i bundle
+clear
+java --version
+cd
+java --version
+cd -
+clear
+gw clean
+gw assembleDebug
+echo $9
+echo $0
+ls
+clear
+echo $JDK_HOME
+echo $JAVA_HOME 
+echo $STUDIO_JDK
+asdf where java
+chenv 
+cdconf 
+cd Google/AndroidStudio2024.3.2/
+ls
+grep -R gradleJvm ~/.config/Google/AndroidStudio*/options/
+la
+asdf list
+la
+cd .gradle/
+ls
+la
+la .android/
+ls
+cd $ANDROID_HOME
+ls
+cd emulator/
+ls
+./emulator -help-environment
+cd
+clear
+la
+rm -rf .android/
+la
+mv .config/android/* .android/
+ls
+rm -rf .config/android/
+ls
+chenv 
+cdconf 
+ls
+cd Google/
+ls
+cd AndroidStudio2024.3.2/
+ls
+yazi
+man ls
+cheatsheet ssh
+cheatsheet
+cheatsheet notation
+clear
+mkdir -p "$(bat --config-dir)/themes"
+ls
+wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Macchiato.tmTheme
+ls
+clear
+bat cache --build
+bat --list-themes | fzf --preview="batcat --theme={} --color=always config"
+bat cache --build
+bat --list-themes | fzf --preview="batcat --theme={} --color=always config"
+bat --list-themes | fzf --preview="batcat --theme={} --color=always ~/.bashrc"
+bat --list-themes | fzf --preview="batcat --theme={} --color=always ~/.utils/Cheatsheets/LINUX.md"
+bat --list-languages
+cdpro
+cd Scoreboard
+ls
+git s
+bat -d setup_environment 
+bat setup_environment 
+bat --style=numbers setup_environment
+bat --style=full setup_environment
+bat --style=changes setup_environment
+git diff
+clear
+ls
+cd
+ls
+cdpro
+ls
+cd shell-scripts/
+git s
+git diff
+git s
+bat --style=full bin/cheatsheet 
+git diff
+bat --style=full bin/cheatsheet 
+..
+ls
+clear
+bat --style=changes bin/cheatsheet
+cd shell-scripts/
+bat --style=changes bin/cheatsheet
+bat --style=changes,rule bin/cheatsheet
+bat --style=rule bin/cheatsheet
+bat bin/cheatsheet
+bat --style=header bin/cheatsheet
+bat --style=snip bin/cheatsheet
+bat --style=full bin/cheatsheet
+clear
+cd
+clear
+la
+bat .bashrc 
+man feh
+cheatsheet ssh
+cheatsheet notation
+clear
+yazi
+clear
+man ls
+clear
+fzf --preview="batcat --color=always
+wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Latte.tmTheme
+wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Frappe.tmTheme
+wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Macchiato.tmTheme
+wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Mocha.tmTheme
+clear
+man bat
+bat --help
+ls
+la
+bat .bashrc 
+bat .bashrc -p
+cat .bashrc 
+clear
+bat .bashrc -p
+bat .bashrc
+chenv 
+chalias 
+clear
+cat .bashrc 
+src
+cat .bashrc 
+clear
+ls
+bat .bashrc 
+chalias 
+src
+bat .bashrc 
+.bashrc
+bat
+bat help
+bat --help
+bat --help | bat
+cdco
+cdconf 
+ls
+cd ideavim/
+ls
+cat ideavimrc 
+ls
+clear
+ls
+cat ideavimrc 
+clear
+asdf list
+asdf list all java
+asdf list all java | grep corretto
+asdf list all java | grep corretto-17
+asdf current java
+asdf install java corretto-17.0.10.8.1
+asdf 
+asdf uninstall java corretto-17.0.16.8.1 
+asdf list
+asdf set -u java corretto-17.0.10.8.1 
+asdf list
+clear
+cdconf 
+ls
+clear
+cd bat
+ls
+vim
+cd
+clear
+cd Development/
+ls
+cat cs50.txt 
+clear
+ls
+cd Yaml/
+ls
+cat syntax.yaml 
+ls
+src
+cat syntax.yaml 
+clear
+ls
+bat -d TODO.md
+bat TODO.md
+clear
+src
+bat -d TODO.md
+clear
+clear
+vim
+clear
+la
+tmux
+ls
+cd
+cleaar
+ls
+clear
+la
+cd .utils/
+ls
+cd
+clear
+ls
+cd Src/
+ls
+mv AndroidStudio/ android-studio
+ls
+clear
+ls
+cd
+clear
+la
+cd Development/
+ls
+cd OpenSource/
+ls
+git clone https://github.com/siuyutpang/dotfiles.git
+ls
+mv dotfiles/ dotfiles-siu
+ls
+cd dotfiles-siu/
+ls
+la
+clear
+cd
+ls
+la
+rm .ideavimrc 
+ls
+echo $XDG_CONFIG_HOME 
+echo $XDG_CONFIG_HOME/ideavim
+cd $XDG_CONFIG_HOME/ideavim
+ls
+la
+cat ideavimrc 
+cdsrc 
+ls
+mv android-studio/ AndroidStudio
+clear
+man kitty
+clear
+kitty --start-as fullscreen
+echo 'deb http://download.opensuse.org/repositories/home:/justkidding/xUbuntu_24.04/ /' | sudo tee /etc/apt/sources.list.d/home:justkidding.list
+curl -fsSL https://download.opensuse.org/repositories/home:justkidding/xUbuntu_24.04/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/home_justkidding.gpg > /dev/null
+sudo apt update
+sudo apt install ueberzugpp
+clear
+la
+kitty --start-as fullscreen
+ls
+la
+clear
+ueberzug
+ueberzug --help
+ueberzug --version
+yazi
+clear
+yazi
+cdconf 
+ls
+cd tmux/
+ls
+vim
+clear
+yazi
+nala show ueberzug
+clear
+echo $EDITOR
+y
+yazi
+clear
+yazi --debug
+clear
+vim
+ya pkg add yazi-rs/flavors:catppuccin-macchiato
+y
+clear
+chalias 
+src
+y
+clear
+y
+ls
+y
+src
+cat $EDITOR 
+y
+clear
+y
+cdconf 
+y
+chenv 
+y
+man bash
+clear
+clear
+y
+vim
+cdconf 
+cd tmux
+ls
+vim
+htop
+btop
+clear
+ls
+vim
+cdpro
+cd Scoreboard
+vim
+clear
+clear
+vim
+cd
+cd .local/share/tmux/
+ls
+cd resurrect/
+ls
+ckear
+clear
+ls | wc
+ls
+..
+duh
+clear
+cd
+cdconf 
+y
+cd
+cdconf 
+cd lvim/
+vim
+clear
+vim
+man bash
+tmux show -g default-command
+clear
+vim
+clear
+vim
+clear
+vim
+man bash
+clear
+vim
+clear
+ls
+la
+cat Session.vim 
+vim
+tmux ls
+clear
+cdpro
+ls
+cdconf 
+ls
+cd lvim/
+ls
+vim
+cdconf
+cd tmux/
+vim
+clear
+vim
+clear
+vim
+clear
+cdconf 
+cd tmux/
+vim
+clear
+cd
+clear
+y
+vim
+la
+ls
+asdf list
+cd
+clear
+cat .bashrc 
+cd
+cat .bashrc 
+..
+ls
+clear
+..
+ls
+cd Archived/
+ls
+y
+clear
+vim
+cd
+cdconf 
+cd bash/
+ls
+clear
+vim
+chenv 
+clear
+vim .bashrc 
+clear
+y
+cheatsheet yazi
+clear
+y
+clear
+y
+clear
+vim
+ls
+la
+cd .local/bin/
+ls
+cat lvim 
+lvim
+cd
+cdconf 
+cd lvim/
+ls
+cat config.lua 
+lvim
+clear
+asdf list
+nvim
+asdf list
+lvim 
+type lvim
+..
+ls
+vim
+clear
+cd bash
+ls
+vim
+vi
+code .
+cdsrc 
+ls
+la
+vim
+y
+vim
+vi
+lvim
+cd .local/bin/
+ls
+cat lvim 
+nvim --version
+asdf list
+asdf current
+asdf set -u neovim system
+asdf list
+asdf set -u neovim 
+asdf set -u neovim 0.11.4 
+asdf list
+clear
+la
+..
+ls
+..
+ya
+clear
+vim
+cd .local/
+ls
+cd bin/
+ls
+la
+ll
+asdf list
+y
+clear
+cd
+clear
+cat .bashrc 
+asdf list
+lvim
+bat .bashrc 
+vim
+nvim
+asdf reshim 
+vim
+cd .config/asdf/
+ls
+cd shims/
+ls
+./nvim --version
+src
+vim
+cat .bashrc 
+echo $PATH
+src
+echo $PATH
+src
+chenv 
+vijm
+vim
+clear
+notify-send hello
+cdconf 
+cd tmux/
+vim
+..
+cd bash
+ls
+clear
+vim
+..
+ls
+cd bash
+ls
+vim
+cd
+vim .bashrc 
+cd
+cdpro
+vim
+ls
+la
+clear
+la
+cat .bash_history 
+rm .bash_history 
+la
+clear
+vim
+cdconf 
+cd tmux/
+vim
+y
+vim
+flatpack list
+flatpak list
+flatpak remove com.getmailspring.Mailspring
+clear
+ls
+feh -F
+thunderbird 
+nala install sxhkd
+dconf dump /org/cinnamon/desktop/keybindings/ > dconf-shortcuts.conf
+ls /org
+whatapp
+man feh
+ls
+feh backups_diolinux.png 
+man feh
+feh .
+man feh
+clear
+y
+ls
+qimgv linux_
+qimgv linux_cut_command.png 
+y
+whatapp
+vim
+clear
+vim
+cdconf 
+nala show sxhkd
+mkdir -p sxhkd
+cd sxhkd/
+vim sxhkdrc
+dconf reset -f /org/cinnamon/desktop/keybindings/
+lear
+clear
+man sxhkd
+
+man sxhkd
+clear
+la
+clear
+rofi -show combi
+y
+clear
+vim
+reboot
+whatapp
+neofetch 
+nala show xplayer
+xreader
+nala show pix
+clear
+y
+clear
+cdconf 
+ls
+man feh
+apt show qimgv
+nala install qimgv
+nala remove qimgv
+clear
+flatpak search image
+flatpak search qview
+flatpak search image viewer
+flatpak search "image viewer"
+clear
+flatpak search image viewer | grep viewer
+flatpak install com.interversehq.qView
+flatpak remove com.interversehq.qView
+ls
+LC_ALL=C pacman -V|sed -r "s#[0-9]+#$(date -u +%m)#g"|base32|head -1
+docker run archlinux
+dkps
+dklog
+dkimgs
+dkrun archlinux
+dkps
+dkpsa
+ports
+dkpsa
+dkimg
+dkpsa
+clear
+dk
+dkls
+dkpsa
+clear
+dkps
+dkpsa
+dkimgs
+dkrmimg archlinux
+dkpsa
+dkvols
+dkps
+dkms
+dklog
+dkpsa
+type dkrm
+dkrm c34d24df9031
+dkpsa
+dkrm 1d4f089beceb
+dkrun archlinux:multilib-devel-20250928.0.426921
+dkpsa
+dkps
+dkrun archlinux:multilib-devel-20250928.0.426921
+dkpsa
+clear
+docker images
+docker logs
+docker info
+clear
+dkrmall 
+dkpsa
+dkrmvols
+dkvols
+dkpsa
+dkimgs
+dkrun archlinux
+dkpsa
+dkrun archlinux --interactive
+clear
+la
+cd
+clear
+docker run -it --name arch archlinux:latest
+btop 
+flatpak search brave
+clear
+dconf dump /org/cinnamon/desktop/keybindings/ > dconf-shortcuts.conf
+dconf dump /org/cinnamon/desktop/keybindings/ > cinnamon-shortcuts.conf
+nemo
+dconf dump /org/cinnamon/desktop/keybindings/ > cinnamon-shortcuts.conf
+dconf dump /org/cinnamon/desktop/keybindings/ > cinnamon-shortcuts2.conf
+ls
+clear
+y
+vim
+cd
+la
+cat .profile 
+vim .profile 
+clear
+la
+cat .bash_logout 
+cat .vim-bookmarks 
+rm .vim-bookmarks 
+ls
+clear
+ls
+la
+ls .skiko/
+ls .skiko/a74a70d02bc964ef0a37f10ff7b0494f4fe08311fec1b54987c329e26d272789/
+nala show sxhkd 
+nala history
+clear
+la
+ls -lt ~/.skiko/
+cd .skiko/
+ls
+cd a74a70d02bc964ef0a37f10ff7b0494f4fe08311fec1b54987c329e26d272789/
+ls
+nala history
+flatpak history
+clear
+nala history
+grep -r --color -i "skiko" ~/.local/share/flatpak ~/.var/app /usr/share /opt ~/.config 2>/dev/null
+ps -eF | grep -i skiko
+ls -lt ~/.skiko/
+clear
+cd
+clear
+ls -lt ~/.skiko/
+journalctl --since "2025-09-29 23:17" --until "2025-09-00 00:00" | grep -i skiko
+journalctl --since "2025-09-29 23:17" --until "2025-09-00 00:01" | grep -i skiko
+journalctl --since "2025-09-29 23:17" --until "2025-09-30 00:00" | grep -i skiko
+journalctl --since "2025-09-29 23:15" --until "2025-09-30 05:00" | grep -i skiko
+journalctl --since "2025-09-29 23:15" --until "2025-09-30 05:00"
+journalctl --since "2025-09-29 23:15" --until "2025-09-30 00:00"
+clear
+ls -lt ~/.skiko/
+ll
+clear
+ps aux | grep -E 'notify|notification'
+rsync -av "$SCRIPT_PATH/.tool-versions" "$HOME"
+ls
+clear
+echo $XDG_
+ps aux | grep -E 'notify|notification'
+nala update
+nala autoremove
+sudo nala autoremove
+clear
+./update_dots.sh 
+clear
+nala remove kitty
+cd
+vim
+cdpro
+ls
+clear
+la
+mv DebianGenesis/ debian-genesis
+ls
+mv Scoreboard scoreboard-lite
+ls
+mv Scoreboard-Privacy-Policy/ scoreboard-policy
+ls
+clear
+la
+mv AdmobDashboard/ admob-dashboard/
+ls
+clear
+la
+cd debian-genesis/
+vim
+pt slender
+pt wake
+pt deck
+neofetch 
+adb devuces
+adb devices
+clear
+sudo apt install android-tools-fastboot
+sudo nala install android-tools-fastboot
+fastboot devices
+fastboot reboot
+clear
+dkpsa
+dkps
+dkvols
+dkrmall 
+dkpsa
+dkimgs
+dkrmimg b82680043225
+dkpsa
+dkimgs
+clear
+nemo
+vim
+cd Downloads/
+ls
+cd ISOs/
+ls
+la
+ll
+sudo chown brunobrlk:brunobrlk debian-13.1.0-amd64-netinst.iso 
+ll
+sudo chown brunobrlk:brunobrlk 
+sudo chown brunobrlk:brunobrlk Fedora-KDE-Desktop-Live-42-1.1.x86_64.iso 
+sudo chown brunobrlk:brunobrlk ubuntu-24.04.3-desktop-amd64.iso 
+ll
+sudo chown brunobrlk:brunobrlk linuxmint-22.2-cinnamon-64bit.iso 
+ll
+clear
+ll
+chmod 644 linuxmint-22.2-cinnamon-64bit.iso 
+ll
+clear
+showconsolefont 
+cat /etc/vconsole.conf 
+nala show evtest
+nala install evtest
+clear
+evtest 
+evtest /dev/input/event12
+sudo evtest /dev/input/event12
+man evtest 
+evtest 
+nala remove evtest
+showkey --scanco
+showkey --scancodes
+showkey
+$ xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }'
+xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }'
+localectl status
+fc-list 
+cat /etc/vconsole.conf 
+neofetch 
+clear
+mmcli -L
+apt show modemmanager
+clear
+ls
+ls | wc
+ls
+la
+la | grep wc
+la | wc
+clear
+man wc
+l
+ll
+clear
+y
+cat /etc/hostname 
+cat /etc/locale.conf 
+clear
+apt show intel-microcode
+nala show intel-microcode
+clear
+y
+cdpro
+ls
+clear
+ls
+cd Archived/
+ls
+..
+s
+..
+ls
+cd Work/
+ls
+cd Teste-Aiko/
+ls
+clear
+ls
+..
+ls
+cdpro
+ls
+cd
+cd AndroidStudioProjects/
+ls
+..
+rm -rf AndroidStudioProjects/
+ls
+clear
+btop
+cdpro
+..
+cd Mobile/
+ls
+cd Android/
+ls
+cd JetpackCompose/
+ls
+vim
+cd
+clear
+ls
+clear
+btop
+cdpro
+ls
+..
+ls
+cd Work/
+ls
+vim
+ls
+..
+ls
+cd Projects/
+ls
+ls Archived/
+..
+ls
+ls OpenSource/
+cdmobile 
+cd Mobile/
+ls
+cd Android/
+ls
+cd ClassicViews/
+ls
+ls Github/
+y
+cdpro
+..
+cd Work/
+ls
+cd NbaApp/
+ls
+cd app/
+cdmain
+..
+cdmain
+ks
+ls
+clear
+ls
+cd data/
+ls
+tree -L 1
+tree -L 2
+tree -L 3
+tree -L 4
+tree -L
+tree
+clear
+ln -s .config/ideavim/ideavimrc .ideavimrc
+ls
+clear
+ls
+vim
+cdpro
+cd scoreboard-lite/
+vim
+inxi -v 8
+noef
+neofetch 
+cd .local/share/applications/
+ls
+cp android-studio-ladybug.desktop .
+cp android-studio-ladybug.desktop ..
+..
+mv android-studio-ladybug.desktop android-studio-narwhal.desktop
+mv android-studio-narwhal.desktop applications/
+cd -
+vim android-studio-narwhal.desktop 
+cdpro
+cd debian-genesis/
+vim
+clear
+la
+ls
+clear
+la
+ls
+la
+ll
+la
+clear
+la
+ls
+clear
+fc-list
+clear
+ls
+clear
+ls
+clear
+ls
+java --version
+asdf where java
+cd
+clear
+cd .config/Google/AndroidStudio2025.1.4
+ls
+cd options/
+ls
+vim terminal
+vim terminal-font.xml 
+vim terminal.xml 
+vim
+cd
+chenv 
+flatpak list
+cdmobile 
+ls
+cdnative 
+ls
+cd Github/
+ls
+git clone https://github.com/material-components/material-components-android.git
+man crl
+clear
+..
+ls
+clear
+ls
+cdmobile 
+chalias 
+cdmobile 
+src
+cdmobile 
+clear
+cdnative 
+ls
+cd
+clear
+cdnative 
+ls
+cd ClassicViews/
+ls
+cd AndroidApis/
+ls
+clear
+..
+ls
+vim
+cd Github/
+ls
+..
+ls
+..
+ls
+cdwo
+..2
+cd Work/
+ls
+vim
+cd
+clear
+ls
+la
+rm .ideavimrc 
+cat .bash_history 
+rm .bash_history 
+ls
+clear
+la
+history 
+clear
+ls
+ls Public/
+rm -rf Public/
+ls
+clear
+la
+rm -rf .mozilla/
+ls
+rm -rf .skiko/
+rm .vim-bookmarks
+la
+clear
+la
+cdsrc 
+ls
+rm -rf kitty/
+ls
+asdf list
+tmux --version
+tmux version
+tmux -V
+clear
+ls
+cd
+clear
+y
+clear
+cdpro
+cd scoreboard-
+cd scoreboard-lite/
+clear
+ls
+clear
+ls
+vim
+cdsrc 
+ls
+cd AndroidStudio/
+ls
+tar -xzf android-studio-narwhal.gz
+ls
+mv android-studio android-studio-narwhal
+ls
+clear
+cd
+vi
+vim
+clear
+/home/brunobrlk/Src/AndroidStudio/android-studio-narwhal/bin/studio
+cd
+cd .local/share/applications/
+ls
+cat defaults.list 
+echo $PATH
+clear
+ls /usr/local/games/
+ls /snap/bin
+clear
+cd
+clear
+cd .config/asdf/
+ls
+cd installs/
+echo $PATH
+ls ~
+rm ~/hello 
+cd
+y
+type avd30
+clear
+echo $PATH 
+cd .local/share/lvim/mason/bin/
+ls
+ll
+cd
+cd .config/asdf/installs/neovim/0.11.4/bin/
+ls
+which nvim
+clear
+echo $PATH
+clear
+cd .local/bin/
+ls
+ll
+which lvim 
+duh
+ls
+la
+ll
+clear
+emu
+cd
+clear
+echo $PATH 
+chenv 
+src
+echo $PATH 
+clear
+which adb
+adb version
+echo $PATH 
+cd $ANDROID_HOME
+ls
+ls platform-tools/
+./adb version
+cd platform-tools/
+./adb version
+adb version
+apt show adb
+fastboot --version
+./fastboot --version
+nala history 
+nala show android-tools-fastboot
+nala show android-libbase
+clear
+ls
+..
+echo $PATH 
+cd cmdline-tools/latest/bin/
+ls
+..
+ls
+..
+ls
+cd emulator/
+ls
+ls bin64/
+clear
+ls
+cd .local/bin/
+ln -s $ANDROID_HOME/emulator/emulator emulator
+emulator --version
+emulator --help
+emulator -version
+clear
+cd
+clear
+emulator -list-avds
+man emulator
+emulator -help | less
+emulator -help | bat
+clear
+emulator -list-avds
+cd
+vim
+ls
+cd material-components-android
+gwrun
+type gwrun
+cdconf 
+cd sxhkd/
+vim
+cdsrc 
+ls
+cd AndroidStudio/
+ls
+rm android-studio-narwhal.gz 
+ls
+cd android-studio-narwhal/
+ls
+ls bin/
+pwd
+cd .local/
+ls
+cd share/applications/
+ls
+cat defaults.list 
+cat lvim.desktop 
+clear
+cat android-studio-narwhal.desktop 
+cdconf 
+cd sxhkd/
+vim
+cd
+y
+cd
+cdpro
+ls
+cd
+cdnative 
+ls
+cd ClassicViews/
+ls
+cd AndroidApis/
+ls
+..
+vim
+..
+ls
+cd Github/
+ls
+cd material-components-android
+ls
+vim
+cd
+cdnotes 
+ls
+vim bottomsheet-trash,kt
+ls
+cdpro
+ls
+..
+ls
+cdmobile 
+ls
+cdnative 
+ls
+cd cla
+cd ClassicViews/
+ls
+cd Github/
+ls
+clear
+git clone https://github.com/material-components/material-components-android-codelabs.git
+git clone https://github.com/material-components/material-components-android-motion-codelab.git
+clear
+adb devices
+adb list
+ls
+clear
+vim
+cd
+cd Development/Work/NbaApp/
+ls
+clear
+ls
+gw assembleDebug
+clear
+gw assembleDebug
+cdpro
+..
+cd Work/NbaApp/
+ls
+clear
+cdpro
+ls
+..
+cd Work/
+ls
+cd Teste-WeFit/
+ls
+vim
+cdpro
+cd scoreboard-lite/
+ls
+vim
+cdpro
+..
+cd Work/Dantas/
+ls
+cd EcommerceDantas/
+vim
+cdpro
+cdnative 
+ls
+cd ClassicViews/
+ls
+cd Github/
+lls
+ls
+git clone https://github.com/gastsail/CocktailApp.git
+clear
+ls
+cd CocktailApp/
+git l
+clear
+git lol
+git ll
+clear
+ls
+cheatsheet
+cheatsheet --edit
+clear
+cd .utils/Cheatsheets/
+vim
+cheatsheet ideavim
+clear
+cd
+y
+clear
+cd
+clear
+cd .utils/Cheatsheets/
+vim IDEAVIM.md 
+btop 
+cheatsheet ideavim
+adb devices
+fastboot reboot
+chalias 
+cdnative 
+ls
+cdcompose 
+ls
+..
+ls
+cdcompose 
+ls
+cd ComposeNavigationSample/
+ls
+clear
+ls
+clear
+ls
+clear
+ls
+cat gradle.properties 
+clear
+ls
+cat build.gradle.kts 
+ls
+cat settings.gradle.kts 
+clear
+ls
+cat build.gradle.kts 
+clear
+ll
+clear
+..
+ll
+clear
+la
+src
+lsa
+lsandroid 
+ls
+lsandroid 
+clear
+lsandroid 
+la
+ll
+cdconf 
+ls
+cd starship/
+ls
+vim starship.toml 
+nala install qutebrowser
+clear
+cdpro
+cdnative 
+ls
+cd JetpackCompose/
+ls
+cd Github/
+ls
+ll
+ls
+..
+ls
+..
+ls
+..
+ls
+cd Android/
+ls
+clear
+cd ClassicViews/
+ls
+cd AndroidApis/
+ls
+clear
+ls
+..
+ls
+cd MapsTesting/
+ls
+clear
+ls
+cat local.properties 
+cat gradle.properties 
+cat build.gradle.kts 
+ls
+clear
+ca build.gradle.kts 
+cat build.gradle.kts 
+clear
+cat build.gradle.kts 
+src
+lsandroid 
+..
+lsandroid 
+src
+lsandroid 
+clear
+lsandroid 
+ls MultiModuleSample/
+cd MultiModuleSample/
+ls
+cat gradle
+cat gradle.properties 
+cat build.gradle.kts 
+clear
+ls
+..
+ls
+clear
+ls
+lsandroid 
+ls
+src
+lsandroidx
+..
+ls
+clear
+ls
+ls JetpackCompose/
+mv JetpackCompose/* .
+ls
+mv ClassicViews/Github/* Github/
+ls
+ls ClassicViews/Github/
+rm -rf ClassicViews/Github/
+mv ClassicViews/* .
+ls
+clear
+ls
+ls ClassicViews/
+rm -rf ClassicViews/
+ls
+ls JetpackCompose
+rm -rf JetpackCompose
+ls
+lsandroidx
+lsandroid
+ls
+clear
+ls
+lsandroid
+src
+lsandroid
+lsapt
+lsattr
+clear
+lsandroidx
+src
+lsandroid
+lsandroidx
+src
+lsandroidx
+src
+clear
+lsandroidx
+clear
+lsandroid
+lsandroidx
+ls
+lsandroid
+lsandroidx
+clear
+src
+lsandroidx
+src
+lsandroidy
+src
+lsandroidy
+clear
+src
+clear
+lsandroid
+cd Github/
+lsandroid
+git clone https://github.com/icylian/MDPings.git
+lsandroid
+cd MDPings/
+ls
+cat build.gradle.kts 
+clear
+ls
+la
+..
+ls
+..
+ls
+lsandroid
+ls JetpackComposeApp/
+cat JetpackComposeApp/build.gradle.kts
+ks
+ls
+cd Github/
+ls
+cat MDPings/build.gradle.kts 
+chalias 
+src
+lsandroid
+src
+lsandroid
+src
+lsandroidx
+chalias 
+..
+cdpro
+cd scoreboard-lite/
+ls
+..
+ls
+mv scoreboard-policy/ policy
+ls
+clear
+cd scoreboard-lite/
+ls
+vim
+cdnative 
+ls
+cdnative 
+ls
+lsandroid 
+chalias 
+grep -q "*compose*" "$gradle_file"
+ls
+grep -q "*compose*" MultiModuleSample/build.gradle.kts 
+grep -q "compose" MultiModuleSample/build.gradle.kts 
+grep -q "libs.plugins.kotlin.compose" MultiModuleSample/build.gradle.kts 
+grep -q "libs.plugi" MultiModuleSample/build.gradle.kts 
+grep -q "plugi" MultiModuleSample/build.gradle.kts 
+grep -q "plugikk" MultiModuleSample/build.gradle.kts 
+grep -q "plugi*" MultiModuleSample/build.gradle.kts 
+grep -q "*plugi*" MultiModuleSample/build.gradle.kts 
+grep -q "composer" MultiModuleSample/build.gradle.kts 
+grep -q "compose" MultiModuleSample/build.gradle.kts 
+chalias 
+ls
+lsandroid 
+clear
+src
+lsandroid 
+cd Github/
+lsandroid 
+git clone https://github.com/vishal2376/bookie.git
+lsandroid 
+git clone https://github.com/OneDroid/RadioWave.git
+lsandroid 
+clear
+ls
+git clone https://github.com/tawhidmonowar/SEEFood.git
+ls
+lsandroid 
+vim
+nala show pomodoro
+nala show gnome-pomodoro
+clear
+git add .
+git ls
+git s
+git cm -m "Teste NbaApp- Bruno Guimarães"
+clear
+git remote add origin git@github.com:Brunobrlk/nba_app.git
+git branch -M master
+git push -u origin master
+btop 
+clear
+cdnative 
+ls
+cd Github/
+ls
+cd material-components-android
+vim
+cdpro
+..
+cd Work/
+ls
+cd NbaApp/
+git remote add origin git@github.com:Brunobrlk/nba_app.git
+git init
+git status
+vim .gitignore 
+git add .
+git config --global core.excludesfile
+git s
+clear
+ls
+git s
+ls
+cdpro
+ls
+cdmobile 
+ls
+cd Android/
+ls
+cd AndroidApis/
+..
+cd ImplementingFeatures/
+git init
+clear
+git s
+cd /
+ls
+cd bin.usr-is-merged/
+ls
+la
+ll
+..
+ls
+ll
+clear
+ls
+ls
+cd .config/
+..
+cd .utils/Gitignore-Templates/
+ls
+cat gitignore-android 
+git ch
+git conf
+clear
+cd
+cdconf 
+ls
+cd git/
+ls
+cat con
+cat config 
+clear
+ls
+ignore
+vim ignore
+git s
+clear
+cdpro
+ls
+cd scoreboard-lite/
+ls
+git s
+vim .gitignore 
+vim
+clear
+cdconf 
+ls
+clear
+ls
+cd git/
+ls
+cd
+clear
+cheatsheet adb
+man adb
+type adbdump
+man adb
+clear
+type adblsperm
+cheatsheet adb
+cheatsheet asdf
+clear
+cheatsheet asdf
+clear
+cheatsheet chrome
+cheatsheet notation
+cheatsheet chrome
+clear
+cheatsheet chrome
+clear
+cheatsheet and-rest
+cheatsheet and-res
+clear
+cheatsheet fzf
+cheatsheet ideavim
+clear
+cheatsheet linux
+cheatsheet ssh
+clear
+cd .utils/
+ls
+cd Cheatsheets/
+ls
+vim
+cheatsheet asdf
+cheatsheet adb
+clear
+cheatsheet adb
+cheatsheet asdf
+clear
+ls
+clear
+ls
+cd app/
+ls
+cd src/
+ls
+cd main/
+ls
+cd java/com/example/nbaapp/
+ls
+tree
+..
+ls
+..3
+ls
+cd res/
+ls
+tree
+clear
+cdmain
+ls
+cd di/
+ls
+tree
+pt fold
+cler
+clear
+cd pro
+cdnative 
+ls
+cd Github/
+ls
+vim
+cd
+ls
+cd .config/
+ls
+cd
+ls
+la
+v
+chalias 
+clear
+cdnotes 
+ls
+vim passwords.txt 
+cdnative 
+cdcompose 
+ls
+..
+ls
+cd Android/
+ls
+cd gi
+cd Github/
+ls
+gcl axelbrians/jikan-client-compose
+ls
+lsandroid 
+cd jikan-client-compose/
+vim
+ls ~/.utils/
+clear
+ls ~/.utils/
+cdpro
+ls
+cd debian-genesis/
+ls
+vim
+v
+cdnotes 
+v
+fastboot
+fastboot reboot
+clear
+ls
+..2
+ls
+cd nbaapp/
+ls
+tree
+clear
+git s
+git clear
+clear
+git add .
+git s
+ls
+la
+rofi
+bash add_dependency.sh 
+mv add_dependency.sh add_dependency
+mv add_dependency ~/.local/bin/
+git add .
+git s
+git cm -m "Add paging, refactor project architecture, refactor names"
+clear
+git s
+git restore .
+git s
+git restore
+git restore .
+git s[
+git s
+git diff
+clear
+git restore .
+git s
+git restore .
+git s
+git conf
+git rh
+git s
+git diff
+git add -m "style"
+git cma
+git s
+clear
+git l
+git s
+git ss
+clear
+git status
+git ll
+git s
+git stash .
+git stash
+git clean
+git s
+git fsck --name-objects
+git s
+..
+ls
+cp -r NbaApp/ ~
+ls ~
+ls ~/NbaApp/
+git-repair --force
+git repair
+cd NbaApp/
+git l
+git ch b49b286
+git s
+git ll
+git ch 420a56e
+git stash
+
+git ch 420a56e --force
+git s
+clear
+git s
+git ll
+git lol
+clear
+git s
+git restore gradle/libs.versions.toml 
+git s
+git restore build.gradle.kts 
+git s
+git add .
+git s
+git cm -m "better namings"
+git s
+git tree
+git l
+git s
+clear
+git restore
+git restore .
+git s
+ls
+chmod +x add_dependency 
+echo "hello-world"
+echo "hello-world" | tr ' ' '.'
+echo "hello-world"
+echo "hello-world" | grep s
+echo "hello-world" | grep hel
+a=$(echo "hello-world" | tr '-' '.')
+echo $a
+cdbash
+ls
+cdscripts 
+ls
+cd tmp/
+ls
+..
+ls
+vim
+cd
+cd .local/bin/
+lsl
+vim
+cdpro
+cd scoreboard-lite/
+ls
+vim
+git s
+git tree
+git log --tree
+clear
+git s
+git ll
+git s
+git diff
+clear
+fastboot reboot
+git s
+git add .
+git s
+git cm -m "refactor namings"
+clear
+git s
+git ll
+cdpro
+..
+cd Work/
+ls
+cd NbaApp/
+ls
+cdmain 
+vim
+./update_dots.sh 
+cdpro
+cd debian-genesis/
+vim
+cdnotes 
+vim bpk
+clear
+cdconf 
+cd Google/
+ls
+cd AndroidStudio2025.1.4
+ls
+cd fileTemplates/
+ls
+duh
+git s
+git add .
+git s
+git amend
+git s
+git ll
+cdconf 
+cd Google/
+ls
+cd AndroidStudio2025.1.4
+ls
+cd fileTemplates/
+ls
+vim
+ls
+..
+ls
+cd keymaps/
+ls
+cat XWin\ copy.xml 
+clear
+ls
+..
+ls
+cd templates/
+ls
+vim
+..
+ls
+cd options/
+ls
+,,
+..
+ls
+cd fileTemplates/
+ls
+vim
+cdpro
+ls
+cdwo
+..
+ls
+cd Work/
+ls
+vim
+fg
+fastboot reboot
+cdpro
+cd scoreboard-lite/
+ls
+add_dependency 
+cdpro
+..
+cd Work/
+cd NbaApp/
+ls
+clear
+cdmain
+ls
+tree
+cdmobile 
+cdandroid 
+ls
+cd Github/
+ls
+git clone https://github.com/radek606/Charades-Android.git
+ls
+lsandroid 
+cheatsheet 
+cheatsheet linux
+git s
+ls
+tree
+type cpbuff
+tree | xclip -selection clipboard
+clear
+ls
+vim libs.txt
+./install
+./install.sh 
+cdandroid 
+cd Github/
+git clone https://github.com/xtvj/CleanX.git
+,,
+..
+ls
+vim
+..
+ls
+..
+ls
+cdpro
+ls
+vim
+cdandroid 
+..2
+cd Work/
+cd NbaApp/
+ls
+vim
+ls
+..
+ls
+..
+ls
+cdandroid 
+ls
+cd MapsTesting/
+ls
+cdmain 
+ls
+ll
+vim
+cd
+cdnotes 
+ls
+clear
+mkdir testproject
+cd test
+cd testproject/
+vim
+cdpro
+ls
+cd
+clear
+cd .local/bin/
+ls
+vim add_dependency 
+cp add_dependency ~/Development/Projects/shell-scripts/
+cdbash
+cdpro
+cd shell-scripts/
+ls
+mv add_dependency bin/
+ls
+vim
+cdandroid 
+ls
+vim
+git s
+git diff
+clear
+git diff
+ls
+cdpro
+..
+cd Work/
+ls
+cd NbaApp/
+vim
+cdandroid 
+ls
+cd Github/
+git clone https://github.com/tasks/tasks.git
+clear
+ls
+cd
+clear
+ls
+clear
+cdpro
+ls
+cdandroid 
+cd Github/
+ls
+clear
+ls
+git clone https://github.com/Droid-ify/client.git
+git clone https://github.com/oxyroid/M3UAndroid.git
+fastboot reboot
+git s
+clear
+ls
+git s
+git l
+git diff HEAD~1
+git diff HEAD~2
+clear
+git s
+ls
+./install.sh 
+cdpro
+cd shell-scripts/
+vim
+cdandroid 
+ls
+cd ImplementingFeatures/
+vim
+git s
+git add .
+git cm -m "Refactor: Improve naming, add remotekeys into its own source, loading adapter and remove Result from room"
+clear
+cdandroid 
+cd ImplementingFeatures/
+vim
+cd
+chalias 
+src
+cdwork 
+cd NbaApp/
+ls
+vim
+cdnotes 
+ls
+cdpro
+ls
+cd
+ls
+cd Development/
+ls
+cd Projects/
+ls
+..
+cd Work/
+ls
+..
+ls
+clear
+ls
+cdandroid 
+ls
+cdnotes 
+çs
+ls
+cd Test
+ls
+..
+cd TesP
+cd TestPage/
+ls
+..
+ls
+cd testproject/
+ls
+cat CoreApplication.kt 
+cat libs.txt 
+..
+çs
+ls
+cd Test
+ls
+cd
+ls
+cd NbaApp/
+ls
+vim
+git s
+git log
+clear
+git stash list
+git stash --help
+cdpro
+cd shell-scripts/
+ls
+vim
+cdpro
+cd scoreboard-lite/
+ls
+vim
+ls
+..
+ls
+..
+ls
+cdandroid 
+cdwork 
+ls
+vim
+fastboot reboot
+scrcpy 
+tree -L
+ls
+tree
+cdmain
+ls
+tree
+clear
+git s
+git add .
+git diff
+clear
+git add .
+git cm -m
+git cm
+git s
+git diff
+scrcpy --otg
+clear
+cdnotes 
+vim commit.md
+cdconf 
+cd git/
+ls
+vim ignore 
+chalias 
+git s
+git amend
+git s
+clear
+git l
+clear
+git s
+git l
+git s
+git diff
+git s
+git diff
+git add .
+git cm -m "refactor load logic, string resources, add material loading indicators, fix ui state bugs, fix ui mappers"
+clear
+git s
+git l
+scrcpy -S
+scrcpy --list-apps 
+scrcpy --new-display=1920x1080
+scrcpy --new-display
+scrcpy --new-display=1920x1080 --start-app=com.supercell.clashroyale
+scrcpy --new-display --start-app=com.supercell.clashroyale
+scrcpy --video-codec=h265 --max-size=1920 --max-fps=60
+scrcpy --video-codec=h265 --max-fps=60 scrcpy --new-display=1920x1080/420
+scrcpy --new-display=1920x1080/420 --start-app=com.supercell.clashroyale
+scrcpy ---S new-display=1920x1080/420 --start-app=com.supercell.clashroyale
+scrcpy -S new-display=1920x1080/420 --start-app=com.supercell.clashroyale
+scrcpy new-display=1920x1080/420 --start-app=com.supercell.clashroyale -S
+scrcpy new-display=1920x1080/420 -S --start-app=com.supercell.clashroyale
+scrcpy new-display=1920x1080/420 --turn-screen-off --start-app=com.supercell.clashroyale
+scrcpy new-display=1920x1080/420 --start-app=com.supercell.clashroyale
+scrcpy --new-display=1920x1080/420 --start-app=com.supercell.clashroyale
+scrcpy --no-window
+scrcpy --window-borderless
+cdpro
+ls
+cdmobile 
+ls
+cd
+cd .utils/
+ls
+cd CodeGists/
+ls
+src
+chalias 
+src
+cbox 
+cbox
+scrcpy
+cbox 
+cdpro
+cd shell-scripts/
+vim
+cdandroid 
+ls
+cd Github/
+ls
+vim
+ls
+git clone https://github.com/android/nowinandroid.git
+cd nowinandroid/
+ls
+vim 
+cdsrc 
+ls
+git clone https://github.com/garawaa/lottie-to-avd.git
+cd lottie-to-avd/
+ls
+cp ~/Downloads/tmp/Baseketball.json .
+cp ~/Downloads/tmp/basketball\ spin.json .
+ls
+mv basketball\ spin.json bask.json
+node lottie-to-avd.js -i bask.json 
+node lottie-to-avd.js -i sample.json 
+npm install xml-js
+node lottie-to-avd.js -i sample.json 
+ls
+node lottie-to-avd.js -i bask.json 
+ls
+cat bask.
+cat bask.json 
+node lottie-to-avd.js -i Baseketball.json 
+node lottie-to-avd.js -i codetag.json 
+node lottie-to-avd.js -i code01.json 
+node lottie-to-avd.js -i coderun.json 
+cdandroid 
+ls
+cd Github/
+ls
+git clone https://github.com/alexjlockwood/adp-delightful-details.git
+cdsrc 
+ls
+cd AndroidStudio/
+ls
+cd android-studio-dolphin/
+ls
+ls bin/
+./stu
+cd bin/
+./studio.sh 
+..2
+cd android-studio-bumblebee/
+./bin/studio.sh 
+cdconf 
+cd git/
+ls
+cat ignore 
+git s
+git add .
+git s
+git cm -m "Add: scoreboard-lite privacy policy"
+git push
+git s
+git add .
+git cm -m "Add: AdMob app-ads.txt file for ads integration"
+git push
+python -m http.server
+..
+ls
+cd policy/
+ls
+cp index.html ../app-policies/scoreboard-lite/
+cdnotes 
+ls
+cd TestPage/
+ls
+python3 -m http.server
+ls
+cat index.html
+vim
+.
+..
+mkdir testpage
+cd testp
+cd testpage/
+vim index.html
+ls
+git s
+git l
+git amend
+git push
+git pushf
+git s
+git add .
+git amend
+git s
+git pushf
+git s
+ls
+brave index.html 
+ls
+open index.html 
+ls
+python3 -m http.server
+cdpro
+ls
+mkdir app-policies
+ls
+cd app-policies/
+ls
+vim
+..
+ls
+rm -rf app-policies/
+gh git@github.com:Brunobrlk/app-policies.git
+gcl git@github.com:Brunobrlk/app-policies.git
+gcl app-policies.git
+git clone git@github.com:Brunobrlk/app-policies.git
+ls
+cd app-policies/
+ls
+vim
+clear
+ls
+clear
+vim
+..
+cduti
+cd
+cdnotes 
+..
+ls
+cdnotes 
+ls
+cd TestPage/
+ls
+python -m http.server
+clear
+vim
+clear
+git s
+git add .
+git cm -m "First version of the site. portifolio, personal information, contact info, skills"
+clear
+git push
+git add .
+git cm -m "Update: Links to download scoreboard-lite"
+git push
+ls
+tree
+clear
+git s
+git cma "rename scoreboard policy"
+git s
+git cma -m "rename scoreboard policy"
+git s
+git add .
+git amend
+git s
+git push
+cd
+ls
+la
+git s
+ls
+cd utils/
+ls
+cd DockerContainers/
+ls
+tree
+git s
+ls
+tree
+type dkup
+ls
+cd
+ls
+la
+cdpro
+cd debian-genesis/
+ls
+vim
+ls
+chmod +x update.sh
+ls
+git s
+chmod -x update.sh 
+ls
+clear
+bash ./update.sh 
+git s
+bash update.sh 
+git s
+git add .
+git s
+git cm -m "Add: Update script and dot files"
+git push

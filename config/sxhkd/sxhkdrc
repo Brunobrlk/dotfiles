@@ -1,0 +1,63 @@
+# ------------------------
+# App launchers
+# ------------------------
+
+# VS Code
+super + v
+    flatpak run com.visualstudio.code
+
+# Terminal (fullscreen + tmux)
+super + t
+    alacritty -o 'window.startup_mode="Fullscreen"' -e tmux
+
+# DBeaver
+super + b
+    flatpak run io.dbeaver.DBeaverCommunity
+
+# Android Studio
+super + a
+    /home/brunobrlk/Src/AndroidStudio/android-studio-narwhal/bin/studio %f
+
+# Todoist
+super + q
+    flatpak run com.todoist.Todoist
+
+# Postman
+super + p
+    flatpak run com.getpostman.Postman
+
+# Insomnia
+super + i
+    flatpak run rest.insomnia.Insomnia
+
+# Rofi launcher
+super + Return
+    rofi -show combi
+
+# Next wallpaper (custom script)
+super + w
+    random_wallpaper
+
+# Browser
+super + g
+    flatpak run com.brave.Browser
+
+# File Manager
+super + o
+    nemo
+
+# Email Client
+super + e
+    thunderbird
+
+# ------------------------
+# Tools & screenshots
+# ------------------------
+
+# Flameshot (region = current monitor)
+Print
+    flameshot gui --region 1920x1080+0+0
+
+# Flameshot (free selection)
+shift + Print
+    flameshot gui

@@ -1,0 +1,17 @@
+    private fun roundedCropGlide() {
+        val multitransform = MultiTransformation(
+            CenterCrop(), RoundedCorners(30)
+        )
+
+        val requestOptions = RequestOptions().transform(multitransform)
+
+        val load1 = Glide.with(this)
+            .asGif()
+            .apply(requestOptions)
+            .load(R.drawable.jeanne_smile)
+
+        val load2 = Glide.with(this).asGif().circleCrop().load(R.drawable.jeanne_smile)
+
+        load1.into(_binding.imageviewBackgroundScene)
+        load2.into(_binding.imageviewMainScene)
+    }

@@ -1,0 +1,16 @@
+configuration {
+    modes: "drun,run,window,ssh";
+    combi-modes: [drun,run];
+    show-icons: true;
+
+    timeout {
+        action: "kb-cancel";
+        delay:  0;
+    }
+    filebrowser {
+        directories-first: true;
+        sorting-method:    "name";
+    }
+}
+
+@theme "/home/brunobrlk/.config/rofi/themes/rounded-nord-dark.rasi"

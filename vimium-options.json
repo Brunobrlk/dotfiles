@@ -1,0 +1,19 @@
+{
+  "keyMappings": "",
+  "linkHintCharacters": "sadjklewcmpgh",
+  "settingsVersion": "2.3",
+  "exclusionRules": [
+    {
+      "passKeys": "0 1 2 3 4 5 6 7 8 9 < > N P c f j k l m",
+      "pattern": "https?://www.youtube.com/watch*"
+    },
+    {
+      "passKeys": "1234",
+      "pattern": "https?://web.ankiapp.com/*"
+    },
+    {
+      "passKeys": "f",
+      "pattern": "https?://9animetv.to/watch*"
+    }
+  ]
+}

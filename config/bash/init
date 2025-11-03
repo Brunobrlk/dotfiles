@@ -1,0 +1,8 @@
+# ASDF
+. <(asdf completion bash)
+
+# Starship
+eval "$(starship init bash)"
+
+# Fuzzy Finder
+eval "$(fzf --bash)"

@@ -1,0 +1,12 @@
+services:
+  web:
+    image: nginx
+    container_name: nginx
+    volumes:
+      - ./templates:/etc/nginx/templates
+    ports:
+      - "${DK_NGINX}:80"
+    environment:
+      NGINX_HOST=${NGINX_HOST}
+      NGINX_PORT=${NGINX_PORT}
+      TEST=${MY_VAR}
