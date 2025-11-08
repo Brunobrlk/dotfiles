@@ -1,3 +1,13 @@
+#!/bin/bash
+
+# Author: Bruno Guimarães
+# Description: Get the most recent dot files
+# Version: 1.0
+# Last Updated: YYYY-MM-DD
+
+
+# -----------------------------------------------------------------------------
+# Copy dot files
 dconf dump /org/cinnamon/desktop/keybindings/ > cinnamon-shortcuts.conf
 
 rsync -av ~/.bashrc .
@@ -26,6 +36,7 @@ rsync -av ~/.config/wget config
 rsync -av ~/Development/android_studio_settings.zip .
 rsync -av ~/.config/Google/AndroidStudio2025.1.4/fileTemplates .
 
+
 rsync -av \
     --include='Cheatsheets/***' \
     --include='DockerContainers/***' \
@@ -33,3 +44,7 @@ rsync -av \
     --include='Gitignore-Templates/***' \
     --exclude='*' \
     ~/.utils/ ./utils/
+
+## .ssh and .gnupg are sensitive folders, thus only save it locally
+
+## vimium_c: Google Chrome > Vimium options > Export Settings
