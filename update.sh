@@ -34,8 +34,6 @@ rsync -av --exclude='plugins' ~/.config/tmux config
 rsync -av ~/.config/wget config
 
 rsync -av ~/Development/android_studio_settings.zip .
-rsync -av ~/.config/Google/AndroidStudio2025.1.4/fileTemplates .
-
 
 rsync -av \
     --include='Cheatsheets/***' \
