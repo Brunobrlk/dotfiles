@@ -50,4 +50,3 @@ Use only for things related to code. that'll be used when coding/editing once le
 
 # Inspect code
 <leader>ic
-

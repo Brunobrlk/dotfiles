@@ -1,4 +1,6 @@
 -- Theme
+lvim.colorscheme = "catppuccin-macchiato"
+
 require("catppuccin").setup({
     transparent_background = true,
     custom_highlights = function(colors)
@@ -20,11 +22,8 @@ require("catppuccin").setup({
         }
     end,
 })
-vim.g.bookmark_sign = ""
-vim.g.bookmark_annotation_sign = ""
-lvim.colorscheme = "catppuccin-macchiato"
 
--- Others
+-- Neovim
 local opts = vim.opt
 opts.wrap = true
 opts.shiftwidth = 4
@@ -32,4 +31,4 @@ opts.tabstop = 4
 opts.smartindent = true
 opts.autoindent = true
 opts.expandtab = true
-
+opts.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"

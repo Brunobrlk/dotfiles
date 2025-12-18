@@ -19,9 +19,14 @@ lvim.autocommands = {
         }
     },
     -- {
-    --     "VimEnter",
+    --     "SessionLoadPost",
     --     {
-    --         command = "NvimTreeOpen"
+    --         callback = function()
+    --             -- avoid reopening if already open
+    --             if not require("nvim-tree.view").is_visible() then
+    --                 vim.cmd("NvimTreeOpen")
+    --             end
+    --         end,
     --     },
     -- },
 }

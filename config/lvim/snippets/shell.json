@@ -2,32 +2,234 @@
     "bang": {
         "prefix": "bang",
         "body": [
+            "#!/usr/bin/env bash"
+        ],
+        "description": "basic bash header"
+    },
+    "init_script": {
+        "prefix": "init",
+        "body": [
             "#!/usr/bin/env bash",
-            "# -*- coding: utf-8 -*-",
-            "# vim: set ft=sh et ts=4 sw=4 sts=4:\n",
-            "# Bash safeties: exit on error, no unset variables, pipelines can't hide errors",
-            "set -o errexit",
-            "set -o nounset",
-            "set -o pipefail\n",
-            "${1}"
+            "# Author: Bruno Guimarães",
+            "# Description:",
+            "# Version: 1.0",
+            "# Last Updated: ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}",
+            "",
+            "set -euo pipefail",
+            "IFS=$'\\n\\t'",
+            "",
+            "# ──────────────────────────────────────────────────────────────────────────────",
+            "# Constants / Config",
+            "# ──────────────────────────────────────────────────────────────────────────────",
+            "", 
+            "# ──────────────────────────────────────────────────────────────────────────────",
+            "# Functions",
+            "# ──────────────────────────────────────────────────────────────────────────────",
+            "",
+            "# ──────────────────────────────────────────────────────────────────────────────",
+            "# Main",
+            "# ──────────────────────────────────────────────────────────────────────────────",
+            "main() {",
+            "  ${0}",
+            "}",
+            "",
+            "# ──────────────────────────────────────────────────────────────────────────────",
+            "# Entry Point",
+            "# ──────────────────────────────────────────────────────────────────────────────",
+            "# Only run main if script is executed (not sourced)",
+            "[[ \"${BASH_SOURCE[0]}\" == \"\\${0}\" ]] && main \"$@\""
         ],
         "description": "Custom shebang"
     },
-    "shebang-script": {
-        "prefix": "shebang-script",
+    "doc_function": {
+        "prefix": "docfun",
         "body": [
-            "#!/usr/bin/env bash",
-            "# -*- coding: utf-8 -*-",
-            "# vim: set ft=sh et ts=4 sw=4 sts=4:\n",
-            "# Usage:",
-            "# $ ./${TM_FILENAME}\n",
-            "# Bash safeties: exit on error, no unset variables, pipelines can't hide errors",
-            "set -o errexit",
-            "set -o nounset",
-            "set -o pipefail\n",
-            "${0}"
+            ""
         ],
-        "description": "Shebang for scripting files"
+        "description": "Documentation for the function"
+    },
+    "new_function": {
+        "prefix": "fun",
+        "body": [
+            "${0}() {",
+            "",
+            "}"
+        ],
+        "description": "Documentation for the function"
+    },
+    "new_section": {
+        "prefix": "section",
+        "body": [
+            "# ──────────────────────────────────────────────────────────────────────────────",
+            "# ${0}",
+            "# ──────────────────────────────────────────────────────────────────────────────"
+        ],
+        "description": "Documentation for the function"
+    },
+    "iffile": {
+        "prefix": "iffile",
+        "body": [
+            "if [[ -f \"$1\" ]]; then",
+            "    echo \"File exists: $1\"",
+            "else",
+            "    echo \"File not found: $1\"",
+            "    exit 1",
+            "fi"
+        ],
+        "description": "check if file exist"
+    },
+    "rfile": {
+        "prefix": "rfile",
+        "body": [
+            "while IFS= read -r line; do",
+            "  echo \"$line\"",
+            "done < \"$1\""
+        ],
+        "description": "read file lines"
+    },
+    "ifdir": {
+        "prefix": "ifdir",
+        "body": [
+            "if [[ -d \"$1\" ]]; then",
+            "  echo \"Directory exists: $1\"",
+            "else",
+            "  echo \"Directory not found: $1\"",
+            "  exit 1",
+            "fi"
+        ],
+        "description": "check if folder exist"
+    },
+    "ifsu": {
+        "prefix": "ifsu",
+        "body": [
+            "if [[ \"$(id -u)\" -ne 0 ]]; then",
+            "  echo \"This script must be run as root\"",
+            "  exit 1",
+            "fi"
+        ],
+        "description": "Check if is root"
+    },
+    "rmext": {
+        "prefix": "rmext",
+        "body": [
+            "filename=\"$1\"",
+            "basename=\"${filename%.*}\"",
+            "echo \"$basename\""
+        ],
+        "description": "Remove file extension"
+    },
+    "ifarg": {
+        "prefix": "ifarg",
+        "body": [
+            "if [[ $# -eq 0 ]]; then",
+            "  echo \"No arguments provided\"",
+            "  exit 1",
+            "fi"
+        ],
+        "description": "check if there's any arguments"
+    },
+    "forin": {
+        "prefix": "forin",
+        "body": [
+            "for item in \"$@\"; do",
+            "  echo \"$item\"",
+            "done"
+        ],
+        "description": "Loop through arguments"
+    },
+    "read_input": {
+        "prefix": "read",
+        "body": [
+            "read -rp \"Enter value: \" value",
+            "echo \"You entered: $value\""
+        ],
+        "description": "read input on the same line"
+    },
+    "getopt": {
+        "prefix": "getopt",
+        "body": [
+            "OPTS=$(getopt -o h --long help -- \"$@\");",
+            "eval set -- \"$OPTS\"",
+            "",
+            "while true; do",
+            "  case \"$1\" in",
+            "    -h|--help)",
+            "      echo \"Show help message\"",
+            "      exit 0",
+            "      ;;",
+            "    --)",
+            "      shift",
+            "      break",
+            "      ;;",
+            "  esac",
+            "done"
+        ],
+        "description": "Get user parameter option like --help|-h"
+    },
+    "getopts": {
+        "prefix": "getopts",
+        "body": [
+            "while getopts \":hv\" opt; do",
+            "  case $opt in",
+            "    h)",
+            "      echo \"Show help\"",
+            "      exit 0",
+            "      ;;",
+            "    v)",
+            "      echo \"Verbose mode enabled\"",
+            "      ;;",
+            "    \\?)",
+            "      echo \"Invalid option: -$OPTARG\" >&2",
+            "      exit 1",
+            "      ;;",
+            "  esac",
+            "done"
+        ],
+        "description": "Cycle and process all user parameters"
+    },
+    "usage": {
+        "prefix": "usage",
+        "body": [
+            "usage() {",
+            "  cat <<EOF",
+            "Usage: $(basename \"$0\") [options]",
+            "",
+            "Options:",
+            "  -h, --help     Show this help message",
+            "",
+            "EOF",
+            "  exit 0",
+            "}"
+        ],
+        "description": "Function skeleton for script usage"
+    },
+    "script_dir": {
+        "prefix": "sdir",
+        "body": [
+            "readonly SCRIPT_DIR=\"$( cd \"$( dirname \"${BASH_SOURCE[0]}\" )\" && pwd )\""
+        ],
+        "description": "Find script path"
+    },
+    "script_dir2": {
+        "prefix": "sdir2",
+        "body": [
+            "readonly SCRIPT_DIR=\"$( cd \"$( dirname \"${BASH_SOURCE[0]}\" )/..\" && pwd )\""
+        ],
+        "description": "Find script path"
+    },
+    "script_dir_link": {
+        "prefix": "sdirlink",
+        "body": [
+            "readonly SCRIPT_DIR=\"$(cd \"$(dirname \"$(readlink -f \"${BASH_SOURCE[0]}\")\")\" && pwd)\""
+        ],
+        "description": "Find script path"
+    },
+    "script_dir_link2": {
+        "prefix": "sdirlink2",
+        "body": [
+            "readonly SCRIPT_DIR=\"$(cd \"$(dirname \"$(readlink -f \"${BASH_SOURCE[0]}\")\")/..\" && pwd)\""
+        ],
+        "description": "Find script path"
     },
     "timestamp": {
         "prefix": "timestamp",

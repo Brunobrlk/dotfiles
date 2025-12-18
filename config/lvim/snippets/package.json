@@ -15,7 +15,15 @@
         "path": "./java.json"
       },
       {
+        "language": "sh",
+        "path": "./shell.json"
+      },
+      {
         "language": "shell",
+        "path": "./shell.json"
+      },
+      {
+        "language": "bash",
         "path": "./shell.json"
       },
       {

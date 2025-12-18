@@ -4,18 +4,9 @@
 
 # Notes:
 # ch - Change
-# ivm - Init Virtual Machine
 # dk - Docker
-# udk - Up Docker(Compose)
-# ddk - Down Docker(Compose)
-
 
 shopt -s expand_aliases
-
-# Git
-gcl(){
-    git clone git@github.com:$1
-}
 
 # Navigation
 alias ..='cd ..'
@@ -28,29 +19,21 @@ alias cdandroid='cd ~/Development/Mobile/Android'
 alias cdflutter='cd ~/Development/Mobile/Flutter'
 alias cdsrc='cd ~/Src'
 alias cdconf='cd ~/.config'
+alias cdlbin='cd ~/.local/bin'
 alias cdnotes='cd ~/.utils/Notes'
 alias cdpy='cd ~/Development/Python'
 alias cdpro='cd ~/Development/Projects'
+alias cdtest='cd ~/Notes/Test'
 alias cdwork='cd ~/Development/Work'
 alias cdscripts='cd ~/Development/BashScripts'
 alias cdasconf='cd ~/.config/Google/AndroidStudio2024.2'
 alias cdmain='cd "app/src/main/java/$(if [ -f app/build.gradle ]; then sed -n "s/applicationId[[:space:]]*\"\\([^\"]*\\)\"/\\1/p" app/build.gradle; else sed -n "s/applicationId[[:space:]]=[[:space:]]*\"\\([^\"]*\\)\"/\\1/p" app/build.gradle.kts; fi | sed -e "s/\./\//g" | sed -e "s/^[[:space:]]*//")"'
 alias cdres='cd app/src/main/res'
-alias cdtest='cd ~/Notes/Test'
-function y(){
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-	yazi "$@" --cwd-file="$tmp"
-	IFS= read -r -d '' cwd < "$tmp"
-	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
-	rm -f -- "$tmp"
-}
-
 
 # Edit Files
 alias chbash='lvim ~/.bashrc'
 alias chalias='lvim ~/.config/bash/aliases'
 alias chenv='lvim ~/.config/bash/env'
-
 alias cbox='lvim ~/.utils/CodeGists/'
 
 # Docker
@@ -80,20 +63,6 @@ alias dkrmvols='docker volume rm $(docker volume ls -q)'
 alias compose='docker-compose'
 alias dkup='docker-compose up'
 alias dkdown='docker-compose down'
-
-alias udknextcloud='docker-compose -f ~/.utils/DockerContainers/nextcloud.yml up -d'
-alias ddknextcloud='docker-compose -f ~/.utils/DockerContainers/nextcloud.yml down'
-alias udknginx='docker-compose -f ~/.utils/DockerContainers/nginx.yml up -d'
-alias ddknginx='docker-compose -f ~/.utils/DockerContainers/nginx.yml down'
-alias udkmysql='docker-compose -f ~/.utils/DockerContainers/mysql.yml up -d'
-alias ddkmysql='docker-compose -f ~/.utils/DockerContainers/mysql.yml down'
-alias udkpostgres='docker-compose -f ~/.utils/DockerContainers/postgres.yml up -d'
-alias ddkpostgres='docker-compose -f ~/.utils/DockerContainers/postgres.yml down'
-alias udkjenkins='docker-compose -f ~/.utils/DockerContainers/jenkins.yml up -d'
-alias ddkjenkins='docker-compose -f ~/.utils/DockerContainers/jenkins.yml down'
-alias udkcircleci='cd ~/.utils/DockerContainers && ./setup_circleci && docker-compose --env-file circleci_env -f circleci.yml run circleci bash'
-alias ddkcircleci='docker-compose -f ~/.utils/DockerContainers/circleci.yml down'
-
 # System information
 alias basedon='cat /etc/upstream-release/lsb-release'
 alias sysinfo='inxi -v 8'
@@ -114,16 +83,6 @@ alias pyoff='deactivate'
 alias imsrv='cdpy && cd TestingLocalServers && python localmachine.py'
 alias ilsrv='cdpy && cd TestingLocalServers && python localhost.py'
 
-# Virtual Machines
-alias ivmwin11test='virsh start windows11testing; virt-manager --connect qemu:///system --show-domain-console windows11testing'
-alias ivmwin11='virsh start windows11; virt-manager --connect qemu:///system --show-domain-console windows11'
-alias ivmmint21='virsh start mint21-3; virt-manager --connect qemu:///system --show-domain-console mint21-3'
-alias ivmpopos22='virsh start popos22-04; virt-manager --connect qemu:///system --show-domain-console popos22-04'
-alias ivmubuntu='virsh start ubuntu24-04; virt-manager --connect qemu:///system --show-domain-console ubuntu24-04'
-alias ivmlubuntu='virsh start lubuntu24-04; virt-manager --connect qemu:///system --show-domain-console lubuntu24-04'
-alias ivmserver='virsh start ubuntuserver24-04; virt-manager --connect qemu:///system --show-domain-console ubuntuserver24-04'
-alias ivmserver2='virsh start ubuntu2server24-04; virt-manager --connect qemu:///system --show-domain-console ubuntu2server24-04'
-
 # Terminal Translator
 alias pt='trans :pt'
 alias en='trans'
@@ -132,7 +91,6 @@ alias en='trans'
 # alias rm='trash-put'
 alias mkdirs='mkdir -p'
 alias src='source ~/.bashrc'
-alias vim='lvim'
 alias v='lvim'
 alias bat='batcat'
 alias cat='batcat -p'
@@ -157,37 +115,16 @@ alias egrep='egrep --color=auto'
 # Add an "alert" alias for long running commands.  Use like so: $ sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-md(){
-    pandoc $1 > /tmp/$1.html
-    xdg-open /tmp/$1.html
-}
-
-cpbuff(){
-    cat $1 | xclip -selection clipboard
-}
-
 # Android Development
 alias gw='./gradlew'
 alias gwrun='gw=./gradlew && $gw assembleDebug && $gw installDebug && pkg="com.example.$(basename "$(pwd)" | tr '[:upper:]' '[:lower:]')" && adb shell am start -W "$pkg/$pkg.MainActivity" && logcat --pid=$(adb shell pidof $pkg)'
 alias logcat='adb logcat'
 alias devices='adb devices'
-alias avd24='emulator -avd API-24_Android-7_Pixel-2_1080x1920-xxhdpi &'
-alias avd25='emulator -avd API-25_Android-7.1.1_Pixel-4_1080x2280-xxhdpi &'
-alias avd26='emulator -avd API-26_Android-8_Pixel-6a_1080x2400-xxhdpi &'
-alias avd27='emulator -avd API-27_Android-8.1_Pixel-7_1080x2400-xxhdpi &'
-alias avd28='emulator -avd API-28_Android-9_Pixel-8_1080x2400-xxhdpi &'
-alias avd29='emulator -avd API-29_Android-10_Pixel-8a_1080x2400-xxhdpi &'
-alias avd30='emulator -avd API-30_Android-11_Pixel-9_1080x2424_xxhdpi &'
-alias avd31='emulator -avd API-31_Android-12_Pixel-7a_1080x2400-xxhdpi &'
-alias avd32='emulator -avd API-32_Android-12L_Pixel-8-Pro_1344x2992-xxhdpi &'
-alias avd33='emulator -avd API-33_Android-13_Small-Phone_720x1280-xhdpi &'
-alias avd34='emulator -avd API-34_Android-14_Pixel-7-Pro_1440x3120-xxxhdpi &'
-alias avd35='emulator -avd API-35_Android-15_Pixel-9-Pro_1280x2856-xxhdpi &'
+
+alias cllock='rm ~/.android/avd/*.avd/*.lock'
 
 alias adblsperm='adb shell pm list permissions -d -g'
 alias adbprint='adb emu screenrecord screenshot'
-
-alias cllock='rm ~/.android/avd/*.avd/*.lock'
 
 adbaperm(){
   if [ "$#" -eq 0 ] || [ "$#" -gt 2 ]; then
@@ -330,6 +267,33 @@ lsandroid() {
     echo -e "${GREEN}${d} (Compose)"
   done
 }
+
+# Markdown viewer
+md(){
+    pandoc $1 > /tmp/$1.html
+    xdg-open /tmp/$1.html
+}
+
+# Clone repository using name/repo pattern
+gcl(){
+    git clone git@github.com:$1
+}
+
+# Copy cat output to clipboard
+cpbuff(){
+    cat $1 | xclip -selection clipboard
+}
+
+# Nala - Apt alternative
 nala() {
     command nala "$@" || sudo nala "$@"
+}
+
+# Yazi
+function y(){
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
 }

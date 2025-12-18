@@ -2,7 +2,7 @@
 ## Window Management
     Super-h/l/k/j = Resize window Left/Right/Up/Down
     Super-H/L/K/J = Move window to Left/Right/Up/Down Monitor
-    Super+C-1/2/3/4 = Switch to workspace 1–4
+    Super+"/1/2/3 = Switch to workspace 0/1/2/3
     Super+C-h/l = Switch to left/right workspace
     Super+C-j/k = Window/workspace selection
     Super+C-H/L = Move window to Prev/Next workspace
@@ -16,21 +16,22 @@
     Super-f = Fullscreen Toggle
     Super-g = Google Chrome
     Super-i = Insomnia
-    Super-z = Maximize/Restore window
     Super-m = Open Melange (Cinnamon Debugger)
     Super-n = Minimize window
     Super-o = Open File Manager
     Super-p = Postman
     Super-q = Todoist
+    Super-s = Sound Settings
     Super-t = Terminal (fullscreen + tmux)
     Super-v = VsCode
     Super-w = Wallpaper switch
     Super-x = Close window
+    Super-z = Maximize/Restore window
     Super-; = Toggle Always-on-Top
 
 ## Navigation
     M-<Tab> = Switch windows
-    M+S-<Tab> = Reverse window switch
+    M+S-<Tab> = Reverse switch window
 
 ## Power
     Super+C-s = Suspend

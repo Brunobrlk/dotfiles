@@ -14,15 +14,17 @@ telescope.defaults = {
     },
     winblend = 0,
     path_display = { truncate = 3 },
-    file_ignore_patterns = { ".git", "venv" },
+    file_ignore_patterns = {
+        "%.git",
+        "node_modules/",
+        "venv/",
+        "/generated/"
+    },
 
     borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" }
 }
 
 telescope.on_config_done = function(telescope_arg)
-    pcall(telescope_arg.load_extension, "project")
+    -- pcall(telescope_arg.load_extension, "project")
     pcall(telescope_arg.load_extension, "flutter")
-    pcall(telescope_arg.load_extension, "file_browser")
-    pcall(telescope_arg.load_extension, "undo")
-    pcall(telescope_arg.load_extension, "neoclip")
 end

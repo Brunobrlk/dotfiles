@@ -135,7 +135,7 @@ format = '[$symbol($version )](bold black)'
 [python]
 symbol = ""
 style = "fg:teal"
-format = '[[$symbol( $version) ](fg:yellow)]($style)'
+format = '[[$symbol( $version)( \($virtualenv\)) ](fg:yellow)]($style)'
 
 [lua]
 symbol = "󰢱"

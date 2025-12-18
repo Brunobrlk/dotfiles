@@ -10,19 +10,32 @@ lualine.options = {
 }
 
 local components = require("lvim.core.lualine.components")
-local device = require "nvim_android_device"
-lualine.sections = {
-    lualine_a = {
-        "mode",
+local device = require("scripts.nvim_android_device")
+local noice = require("noice")
+lualine.sections.lualine_a = { "mode" }
+lualine.sections.lualine_b = { components.branch, components.diff }
+lualine.sections.lualine_c = {
+    {
+        noice.api.status.command.get,
+        cond = noice.api.status.command.has,
+        color = { fg = "#ff9e64" },
     },
-    lualine_b = { components.branch, components.diff },
-    lualine_c = { components.diagnostics,
-        {
-            require("noice").api.statusline.mode.get,
-            cond = require("noice").api.statusline.mode.has,
-        }
+    {
+        noice.api.status.mode.get,
+        cond = noice.api.status.mode.has,
+        color = { fg = "#ff9e64" },
     },
-    lualine_x = { device.android_model, components.python_env, components.filetype, components.lsp },
-    lualine_y = { components.progress, components.location },
-    lualine_z = {},
 }
+lualine.sections.lualine_x = {
+    {
+        noice.api.status.search.get,
+        cond = noice.api.status.search.has,
+        color = { fg = "#ff9e64" },
+    },
+    device.android_model,
+    components.python_env,
+    components.filetype,
+    components.lsp
+}
+lualine.sections.lualine_y = { components.progress, components.location }
+lualine.sections.lualine_z = {}

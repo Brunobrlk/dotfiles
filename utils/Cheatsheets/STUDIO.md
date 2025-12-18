@@ -7,3 +7,7 @@
     Ctrl + p = Parameter Information
     Ctrl + P = Type Information
     Ctrl + b = Go to definition
+
+# How to
+## Navigate through errors
+1. On the same file: Ctrl+BackSpace(Next), Ctrl-Shift+BackSpace(Previous)
