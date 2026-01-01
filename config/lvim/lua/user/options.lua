@@ -1,8 +1,19 @@
+-- Neovim
+local opts = vim.opt
+opts.wrap = true
+opts.shiftwidth = 4
+opts.tabstop = 4
+opts.smartindent = true
+opts.autoindent = true
+opts.expandtab = true
+opts.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+
 -- Theme
 lvim.colorscheme = "catppuccin-macchiato"
 
 require("catppuccin").setup({
     transparent_background = true,
+    auto_integrations = true,
     custom_highlights = function(colors)
         return {
             BookmarkSign = { fg = colors.sapphire, bg = "NONE", bold = true },
@@ -22,13 +33,3 @@ require("catppuccin").setup({
         }
     end,
 })
-
--- Neovim
-local opts = vim.opt
-opts.wrap = true
-opts.shiftwidth = 4
-opts.tabstop = 4
-opts.smartindent = true
-opts.autoindent = true
-opts.expandtab = true
-opts.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"

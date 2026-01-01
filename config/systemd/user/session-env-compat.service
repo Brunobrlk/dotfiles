@@ -1,0 +1,10 @@
+[Unit]
+Description=Import session environment variables
+Before=default.target
+
+[Service]
+Type=oneshot
+ExecStart=/bin/sh -c '. "$HOME/.local/libexec/session-env.sh"; systemctl --user import-environment PATH ANDROID_HOME'
+
+[Install]
+WantedBy=default.target

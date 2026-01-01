@@ -8,7 +8,7 @@
 
 shopt -s expand_aliases
 
-# Navigation
+# Navigation - consider using directly chtmux, etc.
 alias ..='cd ..'
 alias ..2='cd ../../'
 alias ..3='cd ../../../'
@@ -19,7 +19,13 @@ alias cdandroid='cd ~/Development/Mobile/Android'
 alias cdflutter='cd ~/Development/Mobile/Flutter'
 alias cdsrc='cd ~/Src'
 alias cdconf='cd ~/.config'
-alias cdlbin='cd ~/.local/bin'
+alias cdbin='cd ~/.local/bin'
+alias cdnv='cd ~/.config/nvim'
+alias cdlv='cd ~/.config/lvim'
+alias cdbash='cd ~/.config/bash'
+alias cdrofi='cd ~/.config/rofi'
+alias cdtmux='cd ~/.config/tmux'
+alias cdsxh='cd ~/.config/sxhkd'
 alias cdnotes='cd ~/.utils/Notes'
 alias cdpy='cd ~/Development/Python'
 alias cdpro='cd ~/Development/Projects'
@@ -31,10 +37,10 @@ alias cdmain='cd "app/src/main/java/$(if [ -f app/build.gradle ]; then sed -n "s
 alias cdres='cd app/src/main/res'
 
 # Edit Files
-alias chbash='lvim ~/.bashrc'
-alias chalias='lvim ~/.config/bash/aliases'
-alias chenv='lvim ~/.config/bash/env'
-alias cbox='lvim ~/.utils/CodeGists/'
+alias chbash='$EDITOR ~/.bashrc'
+alias chalias='$EDITOR ~/.config/bash/aliases'
+alias chenv='$EDITOR ~/.config/bash/env'
+alias cbox='$EDITOR ~/.utils/CodeGists/'
 
 # Docker
 alias dk='docker'
@@ -77,11 +83,10 @@ alias wports='watch -n 1 netstat -tulanp'
 # Python
 alias py='python'
 alias pyapp='python app.py'
+alias pysrv='python -m SimpleHTTPServer'
 alias pyvenv='[ -d .venv ] && { read -p "A virtual environment already exists. Do you want to recreate it? (y/n): " -n 1 -r && echo ""; [[ $REPLY =~ ^[Yy]$ ]] && rm -rf .venv; } || python -m venv .venv'
 alias pyon='source .venv/bin/activate'
 alias pyoff='deactivate'
-alias imsrv='cdpy && cd TestingLocalServers && python localmachine.py'
-alias ilsrv='cdpy && cd TestingLocalServers && python localhost.py'
 
 # Terminal Translator
 alias pt='trans :pt'
@@ -91,14 +96,29 @@ alias en='trans'
 # alias rm='trash-put'
 alias mkdirs='mkdir -p'
 alias src='source ~/.bashrc'
-alias v='lvim'
+alias lv='lvim'
+alias nv='nvim'
+alias v='$EDITOR'
 alias bat='batcat'
 alias cat='batcat -p'
 alias whatapp='xprop | grep WM_CLASS'
 alias apti='sudo apt install -y'
 alias aptu='sudo apt update'
 alias aptdu='sudo apt dist-upgrade -y'
-alias yt='yt-dlp -f "bv+ba/b" -P "$HOME/Videos"'
+alias whether='curl wttr.in/Barreiras'
+
+# Download the best video quality + best audio to ~/Videos dir
+alias ytv='yt-dlp -f "bv*+ba/b" -P "$HOME/Videos"'
+
+## Download the best video quality(With subtitles in english) + best audio to ~/Videos dir
+alias ytvonly='yt-dlp --no-write-subs --no-write-auto-subs -f "bv*+ba/b" -P "$HOME/Videos"'
+
+# Download the best audio quality to Music dir
+alias ytaonly='yt-dlp -t mp3 -P "$HOME/Music"'
+
+## Download the best audio quality to Music dir with thumbnail
+alias yta='yt-dlp -t mp3 --embed-thumbnail --no-write-subs --no-write-auto-subs -P "$HOME/Music"'
+
 alias screenlight='xrandr --output HDMI-0 --brightness'
 alias gemini='npx https://github.com/google-gemini/gemini-cli'
 
@@ -114,6 +134,7 @@ alias egrep='egrep --color=auto'
 
 # Add an "alert" alias for long running commands.  Use like so: $ sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+alias cpbuff="xclip -selection clipboard"
 
 # Android Development
 alias gw='./gradlew'
@@ -277,11 +298,6 @@ md(){
 # Clone repository using name/repo pattern
 gcl(){
     git clone git@github.com:$1
-}
-
-# Copy cat output to clipboard
-cpbuff(){
-    cat $1 | xclip -selection clipboard
 }
 
 # Nala - Apt alternative

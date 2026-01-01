@@ -1,7 +1,22 @@
 lvim.plugins = {
     -- Theme
     { "catppuccin/nvim" },
-
+    {
+        "norcalli/nvim-colorizer.lua",
+        config = function()
+            require("colorizer").setup({ "*" }, {
+                RGB = true, -- #RGB hex codes
+                RRGGBB = true, -- #RRGGBB hex codes
+                names = true, -- "Name" codes like Blue
+                RRGGBBAA = true, -- #RRGGBBAA hex codes
+                rgb_fn = true, -- CSS rgb() and rgba() functions
+                hsl_fn = true, -- CSS hsl() and hsla() functions
+                css = true, -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
+                css_fn = true, -- Enable all CSS *functions*: rgb_fn, hsl_fn
+            })
+        end,
+        event = "VeryLazy"
+    },
     -- Formatter Manager
     {
         "stevearc/conform.nvim",
@@ -89,7 +104,16 @@ lvim.plugins = {
             }
         end,
     },
+    -- Git: Run Commands from nvim
+    {
+        "tpope/vim-fugitive",
+    },
 
+    -- Git: Better diff UI
+    {
+        "sindrets/diffview.nvim",
+        dependencies = { "nvim-lua/plenary.nvim" },
+    },
     -- Read/Write files with sudo
     {
         "lambdalisue/suda.vim",
@@ -100,7 +124,7 @@ lvim.plugins = {
     },
 
     -- Better surround matching with . support via vim-repeat
-    { "tpope/vim-surround",                   dependencies = { "tpope/vim-repeat" } },
+    { "tpope/vim-surround", dependencies = { "tpope/vim-repeat" } },
 
     -- Navigate from/to tmux windows
     {

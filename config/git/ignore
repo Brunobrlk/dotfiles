@@ -23,6 +23,9 @@ dev-service-account.json
 *.db
 .env
 config.local
+*.log
+history
+.tool-versions
 # Idk - Might need in future
 # *.log
 # *.hprof

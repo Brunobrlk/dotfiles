@@ -29,3 +29,6 @@
 - Prefer parameters over global variables: do_something(){ local file_arg = "$1" }
 - Use arrays for lists: FILES=("a b c")
 - Do not override system variables: HOME, PATH, PWD, IFS, SHELL...
+
+## Experiences
+- Don't modularize. Your scripts aren't that big. You can repeat functions(create snippets) to keep scripts self sufficient

@@ -21,7 +21,7 @@
             "# ──────────────────────────────────────────────────────────────────────────────",
             "# Constants / Config",
             "# ──────────────────────────────────────────────────────────────────────────────",
-            "", 
+            "",
             "# ──────────────────────────────────────────────────────────────────────────────",
             "# Functions",
             "# ──────────────────────────────────────────────────────────────────────────────",
@@ -121,10 +121,12 @@
     "ifarg": {
         "prefix": "ifarg",
         "body": [
-            "if [[ $# -eq 0 ]]; then",
-            "  echo \"No arguments provided\"",
-            "  exit 1",
-            "fi"
+            "ensure_args(){",
+            "  if [[ $# -eq 0 ]]; then",
+            "    echo \"Usage: $(basename \"$0\") <PROJECT_PATH>\" >&2",
+            "    return 1",
+            "  fi",
+            "}"
         ],
         "description": "check if there's any arguments"
     },
@@ -244,5 +246,75 @@
             "\"\\${${1}}\" $0"
         ],
         "description": "Variable with proper format"
+    },
+    "log_all": {
+        "prefix": "logall",
+        "body": [
+            "logs() { echo -e \"\\033[0;32m[BRLK SUCCESS]\\033[0m - $1\"; }",
+            "loge() { echo -e \"\\033[0;31m[BRLK ERROR]\\033[0m - $1\"; }",
+            "logw() { echo -e \"\\033[1;33m[BRLK WARNING]\\033[0m - $1\"; }",
+            "logi() { echo -e \"\\033[0;34m[BRLK INFO]\\033[0m - $1\"; }",
+            "logd() { echo -e \"\\033[0;35m[BRLK DEBUG]\\033[0m - $1\"; }",
+            "log() { echo -e \"[BRLK] - $1\"; }"
+        ],
+        "description": "Insert all BRLK log helpers"
+    },
+    "const": {
+        "prefix": "const",
+        "body": [
+            "readonly ${1:NAME}=\"${2:value}\""
+        ],
+        "description": "Readonly constant"
+    },
+    "ifgrep": {
+        "prefix": "ifgrep",
+        "body": [
+            "if ! grep -q '${1:CONTENT}' \"${2:FILE}\"; then",
+            "  ${0}",
+            "fi"
+        ],
+        "description": "Check if content does NOT exist in file"
+    },
+    "log_success": {
+        "prefix": "logs",
+        "body": [
+            "logs() { echo -e \"\\033[0;32m[BRLK SUCCESS]\\033[0m - $1\"; }"
+        ],
+        "description": "Log success message"
+    },
+    "log_error": {
+        "prefix": "loge",
+        "body": [
+            "loge() { echo -e \"\\033[0;31m[BRLK ERROR]\\033[0m - $1\"; }"
+        ],
+        "description": "Log error message"
+    },
+    "log_warning": {
+        "prefix": "logw",
+        "body": [
+            "logw() { echo -e \"\\033[1;33m[BRLK WARNING]\\033[0m - $1\"; }"
+        ],
+        "description": "Log warning message"
+    },
+    "log_info": {
+        "prefix": "logi",
+        "body": [
+            "logi() { echo -e \"\\033[0;34m[BRLK INFO]\\033[0m - $1\"; }"
+        ],
+        "description": "Log info message"
+    },
+    "log_debug": {
+        "prefix": "logd",
+        "body": [
+            "logd() { echo -e \"\\033[0;35m[BRLK DEBUG]\\033[0m - $1\"; }"
+        ],
+        "description": "Log debug message"
+    },
+    "log_plain": {
+        "prefix": "log",
+        "body": [
+            "log() { echo -e \"[BRLK] - $1\"; }"
+        ],
+        "description": "Plain log message"
     }
 }

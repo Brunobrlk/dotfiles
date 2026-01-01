@@ -10,16 +10,23 @@
         direction: Vertical,
         panes: [
             (
+                size: "4",
+                borders: "ALL",
                 pane: Pane(Header),
-                size: "1",
             ),
             (
-                pane: Pane(TabContent),
+                size: "3",
+                pane: Pane(Tabs),
+            ),
+            (
                 size: "100%",
+                borders: "ALL",
+                pane: Pane(TabContent),
             ),
             (
+                size: "3",
+                borders: "ALL",
                 pane: Pane(ProgressBar),
-                size: "1",
             ),
         ],
     ),

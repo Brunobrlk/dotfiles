@@ -39,12 +39,12 @@ super + t
     alacritty -e tmux
 
 # VS Code
-super + v
-    flatpak run com.visualstudio.code
+# super + v
+#     flatpak run com.visualstudio.code
 
 # Next wallpaper (custom script)
 super + w
-    random_wallpaper
+    /home/brunobrlk/.local/bin/random-wallpaper
 
 # ------------------------
 # Tools & screenshots
@@ -52,23 +52,23 @@ super + w
 
 # Rofi App Launcher
 super + Return
-    rofi-launcher
+    /home/brunobrlk/.local/bin/rofi-launcher
 
 # Rofi Bookmarks
 super + shift + Return
-    rofi-bookmarks
+    /home/brunobrlk/.local/bin/rofi-bookmarks
 
 # Rofi Powermenu
 super + BackSpace
-    rofi-powermenu
+    /home/brunobrlk/.local/bin/rofi-powermenu
 
 # Rofi Mpd
 super + r
-    rofi-mpd
+    /home/brunobrlk/.local/bin/rofi-mpd
 
 # Rofi Clipboard History
 super + shift + BackSpace
-    rofi-clipboard
+    /home/brunobrlk/.local/bin/rofi-clipboard
 
 # Flameshot (region = current monitor)
 Print

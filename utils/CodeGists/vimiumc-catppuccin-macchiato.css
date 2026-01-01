@@ -1,0 +1,251 @@
+/*
+vimium-c Catppuccin Macchiato theme with glassmorphism effect
+(c) 2025 Dhanush S M
+*/
+
+/* #ui */
+/* ^ do not touch this line ^ */
+
+* {
+    font-family: "JetBrains Mono", monospace !important;
+}
+
+/* link hints */
+.LH {
+    border: 1px #181926 solid;
+    background: rgba(36, 39, 58, 0.15);
+    backdrop-filter: blur(10px);
+    margin-top: -2px;
+    margin-left: -2px;
+    color: #181926;
+    z-index: 0;
+    box-shadow: none;
+    /* REMOVED */
+    overflow: hidden !important;
+}
+
+.LH:before {
+    position: absolute;
+    background: #b7bdf8;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: "";
+    z-index: -1;
+}
+
+.D .LH {
+    border-color: rgba(0, 0, 0, 0.3);
+    color: #494d64;
+}
+
+/* hints matching chars */
+.MC {
+    color: #f5a97f;
+}
+
+.D .MC {
+    color: #ed8796;
+}
+
+/* bottom hud */
+.HUD {
+    bottom: 1rem;
+    left: unset;
+    right: 1rem;
+    border-radius: 40px;
+    box-shadow: none;
+    /* REMOVED */
+    padding: 0.5rem 1rem;
+    height: 1.5rem !important;
+    line-height: unset;
+    text-transform: lowercase;
+    color: #a5adcb;
+    max-width: 420px;
+    min-width: unset;
+    display: flex;
+    align-items: center;
+    background: #181926;
+    backdrop-filter: blur(8px);
+}
+
+.HUD.UI {
+    min-width: 180px;
+    align-items: unset;
+    overflow-y: hidden !important;
+}
+
+.Omnibar {
+    overflow-y: hidden !important;
+}
+
+.HUD:after {
+    border-radius: unset;
+    border: none;
+    background: #181926;
+}
+
+.HUD.D {
+    border-color: #181926;
+}
+
+.HUD.D:after {
+    background: #181926;
+}
+
+/* #omni */
+/* ^ do not touch this line ^ */
+
+* {
+    font-family: "JetBrains Mono", monospace !important;
+}
+
+.transparent {
+    opacity: 1;
+}
+
+body {
+    width: 1000px;
+    margin: 10px auto;
+    border-radius: 25px;
+    box-shadow: none;
+    /* REMOVED */
+    background: rgba(36, 39, 58, 0.05);
+    backdrop-filter: blur(30px);
+}
+
+body.has-dark {}
+
+body:after {
+    border: unset;
+}
+
+#bar {
+    background: rgba(36, 39, 58, 0.15);
+    border-radius: unset;
+    border-bottom: unset;
+    height: 23px;
+    padding: 9px 10px;
+    padding-bottom: 15px;
+    backdrop-filter: blur(10px);
+}
+
+.has-dark #bar {
+    background: rgba(36, 39, 58, 0.85);
+}
+
+#bar::before {
+    content: "❯";
+    display: inline-block;
+    width: 1rem;
+    height: 24px;
+    position: absolute;
+    left: 1rem;
+    z-index: 300;
+    font-size: 1rem;
+    padding: 4px 0;
+    line-height: 1.6em;
+    text-align: right;
+    color: #b7bdf8;
+    font-weight: bold;
+}
+
+.has-dark #bar::before {
+    color: #cad3f5;
+}
+
+#input {
+    border: none;
+    background-color: rgba(36, 39, 58, 0.85);
+    box-shadow: unset;
+    font-size: 1rem;
+    color: #181926;
+    padding-left: 2rem;
+}
+
+.has-dark #input {
+    color: #b7bdf8;
+    background: transparent;
+}
+
+#toolbar {
+    top: 7px;
+    right: 14px;
+}
+
+#toolbar .button {
+    height: 24px;
+    width: 24px;
+    padding: 5px;
+    cursor: pointer;
+    border: 3px transparent solid;
+    position: relative;
+    opacity: 0.5;
+    transition: 100ms ease-in-out opacity;
+}
+
+#toolbar .button:hover {
+    background: unset;
+    opacity: 1;
+}
+
+#toolbar .button>svg {
+    opacity: 0.5;
+}
+
+.has-dark #toolbar .button#toggle-dark .i-moon,
+.has-dark #toolbar .button#toggle-dark .i-sun,
+.has-dark #toolbar .button#close>svg {
+    fill: #cad3f5;
+    stroke: #cad3f5;
+}
+
+#list {
+    background: rgba(36, 39, 58, 0.15);
+    border-radius: unset;
+    padding: 5px;
+    padding-bottom: 10px;
+    backdrop-filter: blur(10px);
+}
+
+.has-dark #list {
+    background: rgba(36, 39, 58, 0.85);
+}
+
+.item .top {
+    color: #a5adcb;
+}
+
+.has-dark .item .top {
+    color: #b7bdf8;
+}
+
+.item .bottom a {
+    color: #b7bdf8;
+}
+
+.has-dark .item .bottom a {
+    color: rgba(183, 189, 248, 0.6);
+}
+
+/* #find */
+/* ^ do not touch this line ^ */
+
+.r {
+    color: #181926;
+    box-shadow: inset 0 0 1.5px 1px #b7bdf8;
+}
+
+.r.D {
+    color: #181926;
+    background: #181926;
+}
+
+#i {
+    color: #181926;
+}
+
+.D #i {
+    color: #ffffff;
+}

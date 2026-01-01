@@ -1,5 +1,5 @@
-# ASDF
-. <(asdf completion bash)
+# Mise
+eval "$(/home/brunobrlk/.local/bin/mise activate bash)"
 
 # Starship
 eval "$(starship init bash)"

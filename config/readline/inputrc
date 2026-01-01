@@ -1,0 +1,58 @@
+# Cheatsheet
+# Ctrl = \C-x or ^X
+# Alt/Meta = \e or ^[x
+# Esc = \e
+# Ctrl+Alt+x = \e\C-x
+# showkey -a
+
+# =========================
+# Completion behavior
+# =========================
+
+# Ignore case when completing
+set completion-ignore-case on
+
+# Show all matches immediately if ambiguous
+set show-all-if-ambiguous on
+
+# Highlight the common prefix
+set colored-completion-prefix On
+set menu-complete-display-prefix On
+
+# Color files by type (may blink on some terminals)
+set colored-stats On
+
+# Mark symlinked directories
+set mark-symlinked-directories On
+
+# Use menu-style completion with TAB
+TAB: menu-complete
+
+# =========================
+# Editing & productivity macros
+# =========================
+# Alternative keys (optional, useful on some terminals)
+"\C-p": history-search-backward
+"\C-n": history-search-forward
+
+# Edit current command in $EDITOR, then execute
+"\C-x\C-e": edit-and-execute-command
+
+# Insert last argument of previous command (very useful)
+"\e.": yank-last-arg
+
+# Fix typos instantly
+"\et": transpose-words
+
+# Delete words efficiently
+"\C-w": backward-kill-word
+
+"\eh": backward-word
+"\el": forward-word
+
+# =========================
+# Safety
+# =========================
+
+# Treat pasted text as paste, not typed input. Prevents accidental execution / expansions
+set enable-bracketed-paste on
