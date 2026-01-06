@@ -1,0 +1,13 @@
+--restrict-filenames
+--output "%(title)s.%(ext)s"
+--merge-output-format mkv
+--embed-metadata
+--parse-metadata "title:%(title)s"
+
+# Subtitles (clean & embedded)
+--write-auto-subs
+--sub-langs en.*,en
+--sub-format srt
+--convert-subs srt
+--embed-subs
+--no-write-subs

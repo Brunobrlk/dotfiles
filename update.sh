@@ -15,18 +15,24 @@ rsync -av ~/.profile .
 
 rsync -av ~/.config/alacritty config
 rsync -av ~/.config/asdf/tool-versions config/asdf/
+# rsync -av ~/.config/autostart config
 rsync -av ~/.config/bash config
 rsync -av ~/.config/bat config
+rsync -av ~/.config/btop config
 rsync -av ~/.config/environment.d config
 rsync -av ~/.config/flameshot config
 rsync -av ~/.config/git config
+# rsync -av ~/.config/Google config
+rsync -av ~/.config/greenclip.toml config
 rsync -av ~/.config/ideavim config
-rsync -av ~/.config/lvim config
-rsync -av ~/.config/nvim config
 rsync -av ~/.config/less config
+rsync -av ~/.config/lvim config
+rsync -av ~/.config/mise config
+rsync -av ~/.config/mpd config
+rsync -av ~/.config/mpv config
 rsync -av ~/.config/neofetch config
 rsync -av ~/.config/npm config
-rsync -av ~/.config/mpd config
+rsync -av ~/.config/nvim config
 rsync -av ~/.config/PCSX2 config
 rsync -av ~/.config/polybar config
 rsync -av ~/.config/readline config
@@ -37,6 +43,8 @@ rsync -av ~/.config/systemd config
 rsync -av ~/.config/sxhkd config
 rsync -av --exclude='plugins' ~/.config/tmux config
 rsync -av ~/.config/wget config
+rsync -av ~/.config/yt-dlp config
+rsync -av ~/.config/yazi -dlp config
 
 rsync -av ~/Development/android_studio_settings.zip .
 

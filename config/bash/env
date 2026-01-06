@@ -9,6 +9,7 @@ HISTFILESIZE=200000
 HISTCONTROL=ignoreboth:erasedups
 HISTIGNORE="ls:ll:la:l:cd:pwd:exit:history:clear"
 
+DBG_BASH_ENV="Hello World from bash/env"
 HISTFILE="$XDG_CACHE_HOME/bash/history"
 LESSHISTFILE="$XDG_CONFIG_HOME/less/lesshst"
 

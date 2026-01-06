@@ -1,0 +1,13 @@
+[tools]
+flutter = "latest"
+go = "latest"
+gradle = "latest"
+java = "11"
+kotlin = "latest"
+neovim = "0.11.5"
+node = "latest"
+pipx = "latest"
+python = "latest"
+rust = "latest"
+sqlite = "latest"
+usage = "latest"

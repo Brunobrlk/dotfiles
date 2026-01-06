@@ -44,7 +44,7 @@ super + t
 
 # Next wallpaper (custom script)
 super + w
-    /home/brunobrlk/.local/bin/random-wallpaper
+    random-wallpaper
 
 # ------------------------
 # Tools & screenshots
@@ -52,23 +52,23 @@ super + w
 
 # Rofi App Launcher
 super + Return
-    /home/brunobrlk/.local/bin/rofi-launcher
+    rofi-launcher
 
 # Rofi Bookmarks
 super + shift + Return
-    /home/brunobrlk/.local/bin/rofi-bookmarks
+    rofi-bookmarks
 
 # Rofi Powermenu
 super + BackSpace
-    /home/brunobrlk/.local/bin/rofi-powermenu
+    rofi-powermenu
 
 # Rofi Mpd
 super + r
-    /home/brunobrlk/.local/bin/rofi-mpd
+    rofi-mpd
 
 # Rofi Clipboard History
 super + shift + BackSpace
-    /home/brunobrlk/.local/bin/rofi-clipboard
+    rofi-clipboard
 
 # Flameshot (region = current monitor)
 Print

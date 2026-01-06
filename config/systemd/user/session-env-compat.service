@@ -4,7 +4,8 @@ Before=default.target
 
 [Service]
 Type=oneshot
-ExecStart=/bin/sh -c '. "$HOME/.local/libexec/session-env.sh"; systemctl --user import-environment PATH ANDROID_HOME'
+ExecStart=/bin/sh -c '. "$HOME/.local/libexec/session-env.sh"; systemctl --user import-environment PATH ANDROID_HOME DBG_SESSION_ENV_LIBEXEC XDG_CONFIG_HOME XDG_CACHE_HOME XDG_DATA_HOME XDG_STATE_HOME MPD_HOST CHROME_EXECUTABLE EDITOR SHIV_ROOT STARSHIP_CONFIG WGETRC INPUTRC GTK2_RC_FILES NPM_CONFIG_USERCONFIG'
 
 [Install]
 WantedBy=default.target
+

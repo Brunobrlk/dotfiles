@@ -1,0 +1,16 @@
+[greenclip]
+history_file = "/home/brunobrlk/.cache/greenclip.history"
+image_cache_directory = "/tmp/greenclip"
+max_history_length = 10000
+max_selection_size_bytes = 10000
+blacklisted_applications = []
+enable_image_support = true
+trim_space_from_selection = false
+use_primary_selection_as_input = false
+static_history = [
+    "https://www.linkedin.com/in/brunoguimaraesdev/",
+    "https://github.com/Brunobrlk",
+    "brunoguimaraes.dev@gmail.com",
+    "https://brunoguimaraes-dev.vercel.app/",
+    "Bruno de Sousa Guimarães",
+]

@@ -44,11 +44,11 @@ TAB: menu-complete
 # Fix typos instantly
 "\et": transpose-words
 
-# Delete words efficiently
-"\C-w": backward-kill-word
-
 "\eh": backward-word
 "\el": forward-word
+
+"\eb": backward-kill-word
+"\ef": kill-word
 
 # =========================
 # Safety
