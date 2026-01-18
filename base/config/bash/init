@@ -1,5 +1,5 @@
 # Mise
-eval "$(/home/brunobrlk/.local/bin/mise activate bash)"
+eval "$(mise activate bash)"
 
 # Starship
 eval "$(starship init bash)"
