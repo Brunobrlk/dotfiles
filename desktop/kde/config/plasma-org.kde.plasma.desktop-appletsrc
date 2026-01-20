@@ -201,5 +201,5 @@ knownItems=org.kde.kdeconnect,org.kde.plasma.battery,org.kde.plasma.bluetooth,or
 AppletOrder=4;6;7;8;22;23
 
 [ScreenMapping]
-itemsOnDisabledScreens=0,a1aa5181-4e64-46c3-91dd-79b9a663369c,9,desktop:/Music,desktop:/debian-genesis,desktop:/fedora-genesis,desktop:/dotfiles,desktop:/Videos,desktop:/Pictures,desktop:/Downloads,desktop:/shell-scripts,desktop:/Documents
+itemsOnDisabledScreens=0,a1aa5181-4e64-46c3-91dd-79b9a663369c,9,desktop:/Music,desktop:/Documents,desktop:/shell-scripts,desktop:/Pictures,desktop:/Videos,desktop:/dotfiles,desktop:/Downloads,desktop:/fedora-genesis,desktop:/debian-genesis
 screenMapping=desktop:/Desktop,0,a1aa5181-4e64-46c3-91dd-79b9a663369c
