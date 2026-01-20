@@ -1,5 +1,9 @@
-# This is bash specific environment
-# For global environment see ~/.config/environment.d/
+# Bash specific environment
+
+# =========================
+# Base
+# =========================
+export EDITOR="lvim"
 
 # =========================
 # Bash history behavior
@@ -9,7 +13,6 @@ HISTFILESIZE=200000
 HISTCONTROL=ignoreboth:erasedups
 HISTIGNORE="ls:ll:la:l:cd:pwd:exit:history:clear"
 
-DBG_BASH_ENV="Hello World from bash/env"
 HISTFILE="$XDG_CACHE_HOME/bash/history"
 LESSHISTFILE="$XDG_CONFIG_HOME/less/lesshst"
 
@@ -18,7 +21,7 @@ PROMPT_COMMAND="history -a; history -n"
 # =========================
 # Pager / CLI tools
 # =========================
-export MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | batcat -p -lman'"
+export MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p -lman'"
 
 # =========================
 # Local convenience variables
@@ -41,3 +44,15 @@ export DK_NEXTCLOUD=17080
 export DK_NEXTCLOUD_DB=17081
 export DK_NGINX=17082
 export DK_JENKINS=17083
+
+# =========================
+# Debug
+# =========================
+DBG_BASH_ENV="Hello World from bash/env"
+
+# =========================
+# Additional fragments: display server, desktop and other specific/variable configuration
+# =========================
+for f in ~/.config/bash/env.d/*.conf; do
+  [ -r "$f" ] && . "$f"
+done

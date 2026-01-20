@@ -31,6 +31,10 @@
         "path": "./dart.json"
       },
       {
+        "language": "markdown",
+        "path": "./markdown.json"
+      },
+      {
         "language": "c",
         "path": "./c.json"
       }

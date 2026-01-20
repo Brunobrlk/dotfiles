@@ -33,3 +33,6 @@ history
 # .externalNativeBuild/
 # .cxx/
 # output-metadata.json
+
+# Personal
+notes.md

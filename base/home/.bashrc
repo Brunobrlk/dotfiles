@@ -1,10 +1,14 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
+# System bash config (Fedora or Debian)
+for f in /etc/bashrc /etc/bash.bashrc; do
+    [ -f "$f" ] && . "$f"
+done
 
-# If not running interactively, don't do anything
+# Stop if not interactive
 case $- in
-    *i*) ;;
-      *) return;;
+  *i*) ;;
+  *) return ;;
 esac
+
 
 XDG_BASH_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/bash"
 

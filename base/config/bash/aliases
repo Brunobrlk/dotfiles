@@ -1,0 +1,160 @@
+# Custom Bash Aliases
+# Author: Bruno Guimarães
+# GitHub: https://github.com/Brunobrlk
+
+# Notes:
+# ch - Change
+# dk - Docker
+
+shopt -s expand_aliases
+
+# Additional fragments(Run at the beginning): display server, desktop and other specific/variable configuration
+for f in ~/.config/bash/aliases.d/*.sh; do
+  [ -r "$f" ] && . "$f"
+done
+
+# Navigation - consider using directly chtmux, etc.
+alias ..='cd ..'
+alias ..2='cd ../../'
+alias ..3='cd ../../../'
+alias ..4='cd ../../../../'
+alias ..5='cd ../../../../../'
+alias cdmobile='cd ~/Development/Mobile'
+alias cdandroid='cd ~/Development/Mobile/Android'
+alias cdflutter='cd ~/Development/Mobile/Flutter'
+alias cdsrc='cd ~/Src'
+alias cdconf='cd ~/.config'
+alias cdbin='cd ~/.local/bin'
+alias cdnv='cd ~/.config/nvim'
+alias cdlv='cd ~/.config/lvim'
+alias cdbash='cd ~/.config/bash'
+alias cdrofi='cd ~/.config/rofi'
+alias cdtmux='cd ~/.config/tmux'
+alias cdnotes='cd ~/.utils/Notes'
+alias cdpy='cd ~/Development/Python'
+alias cdpro='cd ~/Development/Projects'
+alias cdtest='cd ~/Notes/Test'
+alias cdwork='cd ~/Development/Work'
+alias cdscripts='cd ~/Development/BashScripts'
+alias cdasconf='cd ~/.config/Google/AndroidStudio2024.2'
+alias cdmain='cd "app/src/main/java/$(if [ -f app/build.gradle ]; then sed -n "s/applicationId[[:space:]]*\"\\([^\"]*\\)\"/\\1/p" app/build.gradle; else sed -n "s/applicationId[[:space:]]=[[:space:]]*\"\\([^\"]*\\)\"/\\1/p" app/build.gradle.kts; fi | sed -e "s/\./\//g" | sed -e "s/^[[:space:]]*//")"'
+alias cdres='cd app/src/main/res'
+
+# Edit Files
+alias chbash='$EDITOR ~/.bashrc'
+alias chalias='$EDITOR ~/.config/bash/aliases'
+alias chenv='$EDITOR ~/.config/bash/env'
+alias cbox='$EDITOR ~/.utils/CodeGists/'
+
+# Docker
+alias dk='docker'
+alias dkrun='docker run'
+alias dkexec='docker exec -it'
+alias dklog='docker logs'
+alias dkps='docker ps'
+alias dkpsa='docker ps -a'
+
+alias dkrm='docker rm'
+alias dkrmall='docker rm $(docker ps -a -q)'
+
+alias dkstop='docker stop'
+alias dkstopall='docker stop $(docker ps -a -q)'
+
+alias dkimg='docker image'
+alias dkimgs='docker images'
+alias dkrmimg='docker rmi'
+alias dkrmimgs='docker rmi $(docker images --quiet --filter "dangling=true")'
+
+alias dkvol='docker volume'
+alias dkvols='docker volume ls'
+alias dkrmvol='docker volume rm'
+alias dkrmvols='docker volume rm $(docker volume ls -q)'
+
+alias compose='docker-compose'
+alias dkup='docker-compose up'
+alias dkdown='docker-compose down'
+
+# System information
+alias sysinfo='inxi -v 8'
+alias duh='du -ha --max-depth=1 | sort -rh'
+alias p="ps aux | grep $1" # Seems like direct arguments only works for | grep
+
+# Networking
+alias ipinfo='curl ipinfo.io && echo && echo "Local IP: $(hostname -I)"'
+alias ports='netstat -tulanp'
+alias wports='watch -n 1 netstat -tulanp'
+
+# Python
+alias py='python'
+alias pyapp='python app.py'
+alias pysrv='python -m SimpleHTTPServer'
+alias pyvenv='[ -d .venv ] && { read -p "A virtual environment already exists. Do you want to recreate it? (y/n): " -n 1 -r && echo ""; [[ $REPLY =~ ^[Yy]$ ]] && rm -rf .venv; } || python -m venv .venv'
+alias pyon='source .venv/bin/activate'
+alias pyoff='deactivate'
+
+# Terminal Translator
+alias pt='trans :pt'
+alias en='trans'
+
+# Utils
+# alias rm='trash-put'
+alias mkdirs='mkdir -p'
+alias src='source ~/.bashrc'
+alias lv='lvim'
+alias nv='nvim'
+alias v='$EDITOR'
+alias cat='bat -p'
+alias whether='curl wttr.in/Barreiras'
+alias psg="ps aux | grep $1"
+alias ram="free -mh | bat -l cpuinfo -p"
+alias sensors="sensors | bat -l cpuinfo -p"
+h(){
+    "$@" --help 2>&1 | bat --plain --language=help
+}
+
+# Download the best video quality + best audio to ~/Videos dir
+alias ytv='yt-dlp -f "bv*+ba/b" -P "$HOME/Videos"'
+
+## Download the best video quality(With subtitles in english) + best audio to ~/Videos dir
+alias ytvonly='yt-dlp --no-write-subs --no-write-auto-subs -f "bv*+ba/b" -P "$HOME/Videos"'
+
+# Download the best audio quality to Music dir
+alias ytaonly='yt-dlp -t mp3 -P "$HOME/Music"'
+
+## Download the best audio quality to Music dir with thumbnail
+alias yta='yt-dlp -t mp3 --embed-thumbnail --no-write-subs --no-write-auto-subs -P "$HOME/Music"'
+
+alias screenlight='xrandr --output HDMI-0 --brightness'
+alias gemini='npx https://github.com/google-gemini/gemini-cli'
+
+alias ls='ls --color=auto'
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+# Add an "alert" alias for long running commands.  Use like so: $ sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+# Markdown viewer
+md(){
+    pandoc $1 > /tmp/$1.html
+    xdg-open /tmp/$1.html
+}
+
+# Clone repository using name/repo pattern
+gcl(){
+    git clone git@github.com:$1
+}
+
+# Yazi
+function y(){
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
+}
