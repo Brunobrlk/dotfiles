@@ -13,10 +13,76 @@ IFS=$'\n\t'
 readonly SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source /etc/os-release
 
-# ────────────────────────────────────────────────────────────────────────────── 
+# ──────────────────────────────────────────────────────────────────────────────
 # Functions
 # ──────────────────────────────────────────────────────────────────────────────
 logi() { printf '\033[0;34m[BRLK INFO]\033[0m - %s\n' "$1"; }
+
+update_home() {
+  mkdir -p "$SCRIPT_DIR/base/home"
+
+  rsync -av "$HOME/.bashrc" "$SCRIPT_DIR/base/home/"
+  rsync -av "$HOME/.profile" "$SCRIPT_DIR/base/home/"
+
+  mkdir -p "$SCRIPT_DIR/base/home/utils"
+  rsync -av \
+    --include='Cheatsheets/***' \
+    --include='DockerContainers/***' \
+    --include='CodeGists/***' \
+    --include='Gitignore-Templates/***' \
+    --exclude='*' \
+    "$HOME/.utils/" "$SCRIPT_DIR/base/home/utils/"
+
+  ## .ssh and .gnupg are sensitive folders, thus only save it locally
+
+  ## vimium_c: Google Chrome > Vimium options > Export Settings
+}
+
+update_config() {
+  mkdir -p "$SCRIPT_DIR/base/config"
+
+  rsync -av "$HOME/.config/alacritty" "$SCRIPT_DIR/base/config/"
+  rsync -av "$HOME/.config/asdf/tool-versions" "$SCRIPT_DIR/base/config/asdf/"
+
+  mkdir -p "$SCRIPT_DIR/base/config/bash/aliases.d"
+  rsync -av "$HOME/.config/bash/aliases.d/android.sh" "$SCRIPT_DIR/base/config/bash/aliases.d/"
+
+  rsync -av \
+    --exclude='env.d/' \
+    --exclude='aliases.d/' \
+    "$HOME/.config/bash" "$SCRIPT_DIR/base/config/"
+
+  rsync -av "$HOME/.config/bat" "$SCRIPT_DIR/base/config/"
+  rsync -av "$HOME/.config/btop" "$SCRIPT_DIR/base/config/"
+  rsync -av "$HOME/.config/environment.d" "$SCRIPT_DIR/base/config/"
+  rsync -av "$HOME/.config/flameshot" "$SCRIPT_DIR/base/config/"
+  rsync -av "$HOME/.config/git" "$SCRIPT_DIR/base/config/"
+  rsync -av "$HOME/.config/ideavim" "$SCRIPT_DIR/base/config/"
+  rsync -av "$HOME/.config/less" "$SCRIPT_DIR/base/config/"
+  rsync -av "$HOME/.config/lvim" "$SCRIPT_DIR/base/config/"
+  rsync -av "$HOME/.config/mise" "$SCRIPT_DIR/base/config/"
+  rsync -av "$HOME/.config/mpd" "$SCRIPT_DIR/base/config/"
+  rsync -av "$HOME/.config/mpv" "$SCRIPT_DIR/base/config/"
+  rsync -av "$HOME/.config/neofetch" "$SCRIPT_DIR/base/config/"
+  rsync -av "$HOME/.config/npm" "$SCRIPT_DIR/base/config/"
+  rsync -av "$HOME/.config/nvim" "$SCRIPT_DIR/base/config/"
+  rsync -av "$HOME/.config/PCSX2" "$SCRIPT_DIR/base/config/"
+  rsync -av "$HOME/.config/polybar" "$SCRIPT_DIR/base/config/"
+  rsync -av "$HOME/.config/readline" "$SCRIPT_DIR/base/config/"
+  rsync -av "$HOME/.config/rmpc" "$SCRIPT_DIR/base/config/"
+  rsync -av "$HOME/.config/rofi" "$SCRIPT_DIR/base/config/"
+  rsync -av "$HOME/.config/starship" "$SCRIPT_DIR/base/config/"
+
+  rsync -av --exclude='user/*.wants/' \
+    "$HOME/.config/systemd" "$SCRIPT_DIR/base/config/"
+
+  rsync -av --exclude='plugins' \
+    "$HOME/.config/tmux" "$SCRIPT_DIR/base/config/"
+
+  rsync -av "$HOME/.config/wget" "$SCRIPT_DIR/base/config/"
+  rsync -av "$HOME/.config/yt-dlp" "$SCRIPT_DIR/base/config/"
+  rsync -av "$HOME/.config/yazi" "$SCRIPT_DIR/base/config/"
+}
 
 update_gnome() {
   mkdir -p "$SCRIPT_DIR/desktop/gnome/config/bash/env.d"
@@ -128,68 +194,7 @@ update_mint() {
     "$SCRIPT_DIR/distro/mint/config/bash/aliases.d/"
 }
 
-update_home() {
-  mkdir -p "$SCRIPT_DIR/base/home"
-
-  rsync -av "$HOME/.bashrc" "$SCRIPT_DIR/base/home/"
-  rsync -av "$HOME/.profile" "$SCRIPT_DIR/base/home/"
-}
-
-update_config() {
-  mkdir -p "$SCRIPT_DIR/base/config"
-
-  rsync -av "$HOME/.config/alacritty" "$SCRIPT_DIR/base/config/"
-  rsync -av "$HOME/.config/asdf/tool-versions" "$SCRIPT_DIR/base/config/asdf/"
-
-
-  mkdir -p "$SCRIPT_DIR/base/config/bash/aliases.d"
-  rsync -av "$HOME/.config/bash/aliases.d/android.sh" "$SCRIPT_DIR/base/config/bash/aliases.d/"
-
-  rsync -av \
-    --exclude='env.d/' \
-    --exclude='aliases.d/' \
-    "$HOME/.config/bash" "$SCRIPT_DIR/base/config/"
-
-  rsync -av "$HOME/.config/bat" "$SCRIPT_DIR/base/config/"
-  rsync -av "$HOME/.config/btop" "$SCRIPT_DIR/base/config/"
-  rsync -av "$HOME/.config/environment.d" "$SCRIPT_DIR/base/config/"
-  rsync -av "$HOME/.config/flameshot" "$SCRIPT_DIR/base/config/"
-  rsync -av "$HOME/.config/git" "$SCRIPT_DIR/base/config/"
-  rsync -av "$HOME/.config/ideavim" "$SCRIPT_DIR/base/config/"
-  rsync -av "$HOME/.config/less" "$SCRIPT_DIR/base/config/"
-  rsync -av "$HOME/.config/lvim" "$SCRIPT_DIR/base/config/"
-  rsync -av "$HOME/.config/mise" "$SCRIPT_DIR/base/config/"
-  rsync -av "$HOME/.config/mpd" "$SCRIPT_DIR/base/config/"
-  rsync -av "$HOME/.config/mpv" "$SCRIPT_DIR/base/config/"
-  rsync -av "$HOME/.config/neofetch" "$SCRIPT_DIR/base/config/"
-  rsync -av "$HOME/.config/npm" "$SCRIPT_DIR/base/config/"
-  rsync -av "$HOME/.config/nvim" "$SCRIPT_DIR/base/config/"
-  rsync -av "$HOME/.config/PCSX2" "$SCRIPT_DIR/base/config/"
-  rsync -av "$HOME/.config/polybar" "$SCRIPT_DIR/base/config/"
-  rsync -av "$HOME/.config/readline" "$SCRIPT_DIR/base/config/"
-  rsync -av "$HOME/.config/rmpc" "$SCRIPT_DIR/base/config/"
-  rsync -av "$HOME/.config/rofi" "$SCRIPT_DIR/base/config/"
-  rsync -av "$HOME/.config/starship" "$SCRIPT_DIR/base/config/"
-
-  rsync -av --exclude='user/*.wants/' \
-    "$HOME/.config/systemd" "$SCRIPT_DIR/base/config/"
-
-  rsync -av --exclude='plugins' \
-    "$HOME/.config/tmux" "$SCRIPT_DIR/base/config/"
-
-  rsync -av "$HOME/.config/wget" "$SCRIPT_DIR/base/config/"
-  rsync -av "$HOME/.config/yt-dlp" "$SCRIPT_DIR/base/config/"
-  rsync -av "$HOME/.config/yazi" "$SCRIPT_DIR/base/config/"
-}
-
-# ──────────────────────────────────────────────────────────────────────────────
-# Main
-# ──────────────────────────────────────────────────────────────────────────────
-main() {
-  update_home
-  update_config
-
-  # ── Desktop Environment dispatch ────────────────────────────────────────────
+update_desktop() {
   case "$XDG_CURRENT_DESKTOP" in
   *GNOME*)
     update_gnome
@@ -201,8 +206,9 @@ main() {
     update_cinnamon
     ;;
   esac
+}
 
-  # ── Display Server dispatch ──────────────────────────────────────────────────
+update_display() {
   case "$XDG_SESSION_TYPE" in
   x11)
     update_xorg
@@ -211,8 +217,9 @@ main() {
     update_wayland
     ;;
   esac
+}
 
-  # ── Distro dispatch ──────────────────────────────────────────────────
+update_distro() {
   case "${ID}" in
   fedora)
     update_fedora
@@ -225,28 +232,21 @@ main() {
     ;;
   mint)
     update_mint
-   ;;
+    ;;
   *)
     printf "Distro not supported"
     ;;
-esac
-
-  # ── Misc ─────────────────────────────────────────────────────────────────────
-  rsync -av "$HOME/Development/android_studio_settings.zip" \
-    "$SCRIPT_DIR/base/"
-
-  mkdir -p "$SCRIPT_DIR/base/home/utils"
-  rsync -av \
-    --include='Cheatsheets/***' \
-    --include='DockerContainers/***' \
-    --include='CodeGists/***' \
-    --include='Gitignore-Templates/***' \
-    --exclude='*' \
-    "$HOME/.utils/" "$SCRIPT_DIR/base/home/utils/"
-
-  ## .ssh and .gnupg are sensitive folders, thus only save it locally
-
-  ## vimium_c: Google Chrome > Vimium options > Export Settings
+  esac
+}
+# ──────────────────────────────────────────────────────────────────────────────
+# Main
+# ──────────────────────────────────────────────────────────────────────────────
+main() {
+  update_home
+  update_config
+  update_desktop
+  update_display
+  update_distro
 }
 
 # ──────────────────────────────────────────────────────────────────────────────
