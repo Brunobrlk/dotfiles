@@ -76,9 +76,15 @@ install_distro() {
 }
 
 install_secrets(){
+  local secure_dir="$HOME/.local/share/secure"
+  if [[ ! -d "$HOME/.local/share/secure" ]]; then
+    echo "Directory doesn't exist: $HOME/.local/share/secure"
+    return 1
+  fi
+
   # Add ssh keys
   mkdir -p "$HOME/.ssh"
-  rsync -av --exclude=known* "$HOME/.local/share/secure/ssh/" "$HOME/.ssh/"
+  rsync -av "$secure_dir/ssh/" "$HOME/.ssh/"
 
   find "$HOME/.ssh" -maxdepth 1 -type f -name 'id_*' ! -name '*.pub' -perm /077 \
     -exec chmod 600 {} + \
@@ -86,6 +92,16 @@ install_secrets(){
 
 
   # GPG
+  mkdir -p "$HOME/.gnupg"
+  chmod 700 "$HOME/.gnupg"
+  rsync -av "$secure_dir/gpg/" "$HOME/.gnupg/"
+
+  
+  # Normalize permissions
+  find "$HOME/.gnupg" -type d -exec chmod 700 {} +
+  find "$HOME/.gnupg" -type f -exec chmod 600 {} +
+
+
 }
 
 # ──────────────────────────────────────────────────────────────────────────────

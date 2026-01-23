@@ -32,10 +32,6 @@ update_home() {
     --include='Gitignore-Templates/***' \
     --exclude='*' \
     "$HOME/.utils/" "$SCRIPT_DIR/base/home/utils/"
-
-  ## .ssh and .gnupg are sensitive folders, thus only save it locally
-
-  ## vimium_c: Google Chrome > Vimium options > Export Settings
 }
 
 update_config() {
