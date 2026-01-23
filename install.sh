@@ -18,15 +18,11 @@ readonly SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 install_home() {
   # .bashrc, .profile and .utils/
   rsync -av "$SCRIPT_DIR/base/home/" "$HOME/"
+
   mv "$HOME/utils" "$HOME/.utils"
-
-  ## .ssh and .gnupg are sensitive folders, thus only save it locally
-
-  ## vimium_c: Google Chrome > Vimium options > Export Settings
 }
 
 install_config() {
-  # Maybe a backup before?
   rsync -av "$SCRIPT_DIR/base/config/" "$HOME/.config/"
 }
 
@@ -75,7 +71,7 @@ install_distro() {
   esac
 }
 
-install_secrets(){
+install_secrets() {
   local secure_dir="$HOME/.local/share/secure"
   if [[ ! -d "$HOME/.local/share/secure" ]]; then
     echo "Directory doesn't exist: $HOME/.local/share/secure"
@@ -90,18 +86,14 @@ install_secrets(){
     -exec chmod 600 {} + \
     -exec ssh-add {} + || true
 
-
   # GPG
   mkdir -p "$HOME/.gnupg"
   chmod 700 "$HOME/.gnupg"
   rsync -av "$secure_dir/gpg/" "$HOME/.gnupg/"
 
-  
   # Normalize permissions
   find "$HOME/.gnupg" -type d -exec chmod 700 {} +
   find "$HOME/.gnupg" -type f -exec chmod 600 {} +
-
-
 }
 
 # ──────────────────────────────────────────────────────────────────────────────

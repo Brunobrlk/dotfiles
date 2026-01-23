@@ -11,3 +11,4 @@ Personal Linux configuration files for shell, editors, terminal, window shortcut
 - MPD + rmpc configuration
 - Rofi themes & Cinnamon shortcuts
 - Large set of cheatsheets + code gists (in `utils/`)
+- Backup and restore previous original dotfiles
