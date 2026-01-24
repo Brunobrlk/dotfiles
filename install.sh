@@ -71,6 +71,30 @@ install_distro() {
   esac
 }
 
+install_fedora() {
+  # Config
+  local fedora_dir="$SCRIPT_DIR/distro/fedora"
+  rsync -av "$fedora_dir/config/" "$HOME/.config/"
+}
+
+install_ubuntu() {
+  # Config
+  local ubuntu_dir="$SCRIPT_DIR/distro/ubuntu"
+  rsync -av "$ubuntu_dir/config/" "$HOME/.config/"
+}
+
+install_debian() {
+  # Config
+  local debian_dir="$SCRIPT_DIR/distro/debian"
+  rsync -av "$debian_dir/config/" "$HOME/.config/"
+}
+
+install_mint() {
+  # Config
+  local mint_dir="$SCRIPT_DIR/distro/mint"
+  rsync -av "$mint_dir/config/" "$HOME/.config/"
+}
+
 install_secrets() {
   local secure_dir="$HOME/.local/share/secure"
   if [[ ! -d "$HOME/.local/share/secure" ]]; then
