@@ -1,22 +1,24 @@
 lvim.plugins = {
     -- Theme
     { "catppuccin/nvim" },
+
     {
         "norcalli/nvim-colorizer.lua",
         config = function()
             require("colorizer").setup({ "*" }, {
-                RGB = true, -- #RGB hex codes
-                RRGGBB = true, -- #RRGGBB hex codes
-                names = true, -- "Name" codes like Blue
+                RGB = true,      -- #RGB hex codes
+                RRGGBB = true,   -- #RRGGBB hex codes
+                names = true,    -- "Name" codes like Blue
                 RRGGBBAA = true, -- #RRGGBBAA hex codes
-                rgb_fn = true, -- CSS rgb() and rgba() functions
-                hsl_fn = true, -- CSS hsl() and hsla() functions
-                css = true, -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
-                css_fn = true, -- Enable all CSS *functions*: rgb_fn, hsl_fn
+                rgb_fn = true,   -- CSS rgb() and rgba() functions
+                hsl_fn = true,   -- CSS hsl() and hsla() functions
+                css = true,      -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
+                css_fn = true,   -- Enable all CSS *functions*: rgb_fn, hsl_fn
             })
         end,
         event = "VeryLazy"
     },
+
     -- Formatter Manager
     {
         "stevearc/conform.nvim",
@@ -29,7 +31,7 @@ lvim.plugins = {
                 xml = { "xmlformatter" },
                 sh = { "shfmt" },
                 bash = { "shfmt" },
-                dart = { "dart_format" }
+                dart = { "dart_format" },
             },
         }
     },
@@ -188,6 +190,45 @@ lvim.plugins = {
             --     end,
             -- }
         }
+    },
+
+    {
+        "iamcco/markdown-preview.nvim",
+        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+        ft = { "markdown" },
+        build = function() vim.fn["mkdp#util#install"]() end,
+        init = function()
+            vim.cmd("let g:mkdp_theme = 'light'")
+            vim.cmd([[
+                function OpenMarkdownPreview (url)
+                    execute "silent ! brave-browser --new-window --start-fullscreen " . a:url
+                endfunction
+                let g:mkdp_browserfunc = 'OpenMarkdownPreview'
+            ]])
+
+            vim.cmd([[let g:mkdp_preview_options = {
+                \ 'mkit': {},
+                \ 'katex': {},
+                \ 'uml': {},
+                \ 'maid': {},
+                \ 'disable_sync_scroll': 0,
+                \ 'sync_scroll_type': 'middle',
+                \ 'hide_yaml_meta': 1,
+                \ 'sequence_diagrams': {},
+                \ 'flowchart_diagrams': {},
+                \ 'content_editable': v:false,
+                \ 'disable_filename': 1
+                \ }]])
+        end
+    },
+
+    {
+        "bullets-vim/bullets.vim",
+        ft = "markdown",
+        config = function()
+            vim.g.bullets_enable_in_empty_buffers = 0 -- default = 1
+            vim.g.bullets_checkbox_markers = " ---x"
+        end,
     },
 
     -- Telescope Extensions

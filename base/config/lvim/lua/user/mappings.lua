@@ -35,7 +35,7 @@ wk.mappings["S"] = {
     r = { "<cmd>SudaRead<CR>", "Open with Sudo" }
 }
 
-wk.mappings["x"] = {
+wk.mappings["y"] = {
     name = "Trouble",
     x = { "<cmd>Trouble diagnostics toggle<cr>", "Diagnostics" },
     X = { "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", "Buffer Diagnostics" },

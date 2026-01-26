@@ -10,8 +10,22 @@ Name_4=Communication
 Number=4
 Rows=1
 
+[Effect-fadedesktop]
+AnimationDuration=200
+
 [Effect-slide]
+HorizontalGap=2
 SlideBackground=false
+VerticalGap=2
+
+[Plugins]
+desktopchangeosdEnabled=true
+fadedesktopEnabled=true
+slideEnabled=false
+
+[Script-desktopchangeosd]
+PopupHideDelay=300
+TextOnly=true
 
 [TabBox]
 HighlightWindows=false
