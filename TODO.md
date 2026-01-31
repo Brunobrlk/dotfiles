@@ -7,3 +7,4 @@
 
 # TODO
 - [x] Update scripts to match new structure: update.sh, install.sh
+- [ ] Add logs to scripts

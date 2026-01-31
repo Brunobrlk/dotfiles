@@ -199,6 +199,9 @@ lvim.plugins = {
         build = function() vim.fn["mkdp#util#install"]() end,
         init = function()
             vim.cmd("let g:mkdp_theme = 'light'")
+            vim.cmd("let g:mkdp_auto_close = 0")
+            vim.cmd("let g:mkdp_combine_preview = 1")
+            vim.cmd("let g:mkdp_combine_preview_auto_refresh = 1")
             vim.cmd([[
                 function OpenMarkdownPreview (url)
                     execute "silent ! brave-browser --new-window --start-fullscreen " . a:url

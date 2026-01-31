@@ -52,6 +52,28 @@
         ],
         "description": "Custom shebang"
     },
+    "tempdir": {
+        "prefix": "tmpd",
+        "body": [
+            "TMP_DIR=\"$(mktemp -d)\"",
+            "trap 'rm -rf \"\\$TMP_DIR\"' EXIT INT TERM"
+        ],
+        "description": "Create temp dir and ensure cleanup on exit (POSIX-safe)"
+    },
+    "confirm_dialog": {
+        "prefix": "ifyes",
+        "body": [
+            "confirm() {",
+            "  printf \"%s [y/N]: \" \"\\$1\"",
+            "  read -r ans",
+            "  case \"\\$ans\" in",
+            "    [yY]|[yY][eE][sS]) return 0 ;;",
+            "    *) return 1 ;;",
+            "  esac",
+            "}"
+        ],
+        "description": "Yes/No confirmation helper (default: No, POSIX-safe)"
+    },
     "doc_function": {
         "prefix": "docfun",
         "body": [

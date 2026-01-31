@@ -48,7 +48,7 @@ export DK_JENKINS=17083
 # =========================
 # Debug
 # =========================
-DBG_BASH_ENV="Hello World from .config/bash/env"
+export DBG_BASH_ENV="Hello World from .config/bash/env"
 
 # =========================
 # Additional fragments: display server, desktop and other specific/variable configuration
