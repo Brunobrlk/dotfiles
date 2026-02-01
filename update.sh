@@ -8,7 +8,7 @@ set -uo pipefail
 IFS=$'\n\t'
 
 # ──────────────────────────────────────────────────────────────────────────────
-# Constants
+# Constants / Config
 # ──────────────────────────────────────────────────────────────────────────────
 readonly SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source /etc/os-release
@@ -17,6 +17,7 @@ source /etc/os-release
 # Functions
 # ──────────────────────────────────────────────────────────────────────────────
 logi() { printf '\033[0;34m[BRLK INFO]\033[0m - %s\n' "$1"; }
+logw() { printf '\033[1;33m[BRLK WARNING]\033[0m - %s\n' "$1"; }
 
 update_home() {
   mkdir -p "$SCRIPT_DIR/base/home"
@@ -80,28 +81,41 @@ update_config() {
   rsync -av "$HOME/.config/yazi" "$SCRIPT_DIR/base/config/"
 }
 
+sync_bash_scope() {
+  local scope="$1"   # desktop | display | distro
+  local name="$2"    # gnome | kde | xorg | fedora | ...
+
+  local base="$SCRIPT_DIR/$scope/$name/config/bash"
+
+  mkdir -p "$base/env.d" "$base/aliases.d"
+
+  rsync -av "$HOME/.config/bash/env.d/$name.conf" \
+    "$base/env.d/" 2>/dev/null || true
+
+  rsync -av "$HOME/.config/bash/aliases.d/$name.sh" \
+    "$base/aliases.d/" 2>/dev/null || true
+}
+
+update_desktop() {
+  case "$XDG_CURRENT_DESKTOP" in
+    *GNOME*)    update_gnome ;;
+    *KDE*)      update_kde ;;
+    *Cinnamon*) update_cinnamon ;;
+    *) logw "Unknown desktop: $XDG_CURRENT_DESKTOP" ;;
+  esac
+}
+
 update_gnome() {
-  mkdir -p "$SCRIPT_DIR/desktop/gnome/config/bash/env.d"
-  mkdir -p "$SCRIPT_DIR/desktop/gnome/config/bash/aliases.d"
+  sync_bash_scope "desktop" "gnome"
 
-  rsync -av "$HOME/.config/bash/env.d/gnome.conf" \
-    "$SCRIPT_DIR/desktop/gnome/config/bash/env.d/"
-
-  rsync -av "$HOME/.config/bash/aliases.d/gnome.sh" \
-    "$SCRIPT_DIR/desktop/gnome/config/bash/aliases.d/"
-
+  mkdir -p "$SCRIPT_DIR/desktop/gnome"
   dconf dump /org/gnome/ >"$SCRIPT_DIR/desktop/gnome/dconf.conf"
 }
 
 update_kde() {
-  mkdir -p "$SCRIPT_DIR/desktop/kde/config/bash/env.d"
-  mkdir -p "$SCRIPT_DIR/desktop/kde/config/bash/aliases.d"
+  sync_bash_scope "desktop" "kde"
 
-  rsync -av "$HOME/.config/bash/env.d/kde.conf" \
-    "$SCRIPT_DIR/desktop/kde/config/bash/env.d/"
-
-  rsync -av "$HOME/.config/bash/aliases.d/kde.sh" \
-    "$SCRIPT_DIR/desktop/kde/config/bash/aliases.d/"
+  mkdir -p "$SCRIPT_DIR/desktop/kde/config"
 
   rsync -av \
     "$HOME/.config/kdeglobals" \
@@ -116,28 +130,25 @@ update_kde() {
 }
 
 update_cinnamon() {
-  mkdir -p "$SCRIPT_DIR/desktop/cinnamon/config/bash/env.d"
-  mkdir -p "$SCRIPT_DIR/desktop/cinnamon/config/bash/aliases.d"
+  sync_bash_scope "desktop" "cinnamon"
 
-  rsync -av "$HOME/.config/bash/env.d/cinnamon.conf" \
-    "$SCRIPT_DIR/desktop/cinnamon/config/bash/env.d/"
-
-  rsync -av "$HOME/.config/bash/aliases.d/cinnamon.sh" \
-    "$SCRIPT_DIR/desktop/cinnamon/config/bash/aliases.d/"
-
+  mkdir -p "$SCRIPT_DIR/desktop/cinnamon"
   dconf dump /org/cinnamon/desktop/keybindings/ \
     >"$SCRIPT_DIR/desktop/cinnamon/shortcuts.conf"
 }
 
+update_display() {
+  case "$XDG_SESSION_TYPE" in
+    x11)     update_xorg ;;
+    wayland) update_wayland ;;
+    *) logw "Unknown session type: $XDG_SESSION_TYPE" ;;
+  esac
+}
+
 update_xorg() {
-  mkdir -p "$SCRIPT_DIR/display/xorg/config/bash/env.d"
-  mkdir -p "$SCRIPT_DIR/display/xorg/config/bash/aliases.d"
+  sync_bash_scope "display" "xorg"
 
-  rsync -av "$HOME/.config/bash/env.d/xorg.conf" \
-    "$SCRIPT_DIR/display/xorg/config/bash/env.d/"
-
-  rsync -av "$HOME/.config/bash/aliases.d/xorg.sh" \
-    "$SCRIPT_DIR/display/xorg/config/bash/aliases.d/"
+  mkdir -p "$SCRIPT_DIR/display/xorg/config"
 
   rsync -av "$HOME/.config/sxhkd" \
     "$SCRIPT_DIR/display/xorg/config/"
@@ -147,93 +158,19 @@ update_xorg() {
 }
 
 update_wayland() {
-  mkdir -p "$SCRIPT_DIR/display/wayland/config/bash/env.d"
-  mkdir -p "$SCRIPT_DIR/display/wayland/config/bash/aliases.d"
-
-  rsync -av "$HOME/.config/bash/env.d/wayland.conf" \
-    "$SCRIPT_DIR/display/wayland/config/bash/env.d/"
-
-  rsync -av "$HOME/.config/bash/aliases.d/wayland.sh" \
-    "$SCRIPT_DIR/display/wayland/config/bash/aliases.d/"
-}
-
-update_fedora() {
-  mkdir -p "$SCRIPT_DIR/distro/fedora/config/bash/env.d"
-  mkdir -p "$SCRIPT_DIR/distro/fedora/config/bash/aliases.d"
-
-  rsync -av "$HOME/.config/bash/env.d/fedora.conf" \
-    "$SCRIPT_DIR/distro/fedora/config/bash/env.d/"
-
-  rsync -av "$HOME/.config/bash/aliases.d/fedora.sh" \
-    "$SCRIPT_DIR/distro/fedora/config/bash/aliases.d/"
-}
-
-update_debian() {
-  mkdir -p "$SCRIPT_DIR/distro/debian/config/bash/env.d"
-  mkdir -p "$SCRIPT_DIR/distro/debian/config/bash/aliases.d"
-
-  rsync -av "$HOME/.config/bash/env.d/debian.conf" \
-    "$SCRIPT_DIR/distro/debian/config/bash/env.d/"
-
-  rsync -av "$HOME/.config/bash/aliases.d/debian.sh" \
-    "$SCRIPT_DIR/distro/debian/config/bash/aliases.d/"
-}
-
-update_mint() {
-  mkdir -p "$SCRIPT_DIR/distro/mint/config/bash/env.d"
-  mkdir -p "$SCRIPT_DIR/distro/mint/config/bash/aliases.d"
-
-  rsync -av "$HOME/.config/bash/env.d/mint.conf" \
-    "$SCRIPT_DIR/distro/mint/config/bash/env.d/"
-
-  rsync -av "$HOME/.config/bash/aliases.d/mint.sh" \
-    "$SCRIPT_DIR/distro/mint/config/bash/aliases.d/"
-}
-
-update_desktop() {
-  case "$XDG_CURRENT_DESKTOP" in
-  *GNOME*)
-    update_gnome
-    ;;
-  *KDE*)
-    update_kde
-    ;;
-  *Cinnamon*)
-    update_cinnamon
-    ;;
-  esac
-}
-
-update_display() {
-  case "$XDG_SESSION_TYPE" in
-  x11)
-    update_xorg
-    ;;
-  wayland)
-    update_wayland
-    ;;
-  esac
+  sync_bash_scope "display" "wayland"
 }
 
 update_distro() {
-  case "${ID}" in
-  fedora)
-    update_fedora
-    ;;
-  ubuntu)
-    update_ubuntu
-    ;;
-  debian)
-    update_debian
-    ;;
-  mint)
-    update_mint
-    ;;
-  *)
-    printf "Distro not supported"
-    ;;
+  case "$ID" in
+    fedora) sync_bash_scope "distro" "fedora";;
+    debian) sync_bash_scope "distro" "debian" ;;
+    ubuntu) sync_bash_scope "distro" "ubuntu" ;;
+    mint)   sync_bash_scope "distro" "mint" ;;
+    *) logw "Distro not supported: $ID" ;;
   esac
 }
+
 # ──────────────────────────────────────────────────────────────────────────────
 # Main
 # ──────────────────────────────────────────────────────────────────────────────
