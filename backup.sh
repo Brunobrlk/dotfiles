@@ -7,6 +7,7 @@ readonly BACKUP_ROOT="$HOME/.local/share/backup/dotfiles"
 readonly BACKUP_DIR="$BACKUP_ROOT/$TIMESTAMP"
 
 logs() { printf '\033[0;32m[BRLK SUCCESS]\033[0m - %s\n' "$1"; }
+logi() { printf '\033[0;34m[BRLK INFO]\033[0m - %s\n' "$1"; }
 
 backup_file() {
   local src="$1"
@@ -30,6 +31,7 @@ main() {
   mkdir -p "$BACKUP_DIR"
 
   # Home files
+  logi "Copying home files..."
   backup_file "$HOME/.bashrc" "bashrc"
   backup_file "$HOME/.profile" "profile"
 
@@ -38,6 +40,7 @@ main() {
   backup_dir "$HOME/.gnupg" "gnupg"
 
   # Config
+  logi "Copying config files..."
   backup_dir "$HOME/.config" "config"
 
   logs "Backup completed at: $BACKUP_DIR"

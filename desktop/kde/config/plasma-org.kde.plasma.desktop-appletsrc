@@ -111,7 +111,7 @@ immutability=1
 plugin=org.kde.plasma.clipboard
 
 [Containments][3][Applets][8][Applets][11][Configuration]
-PreloadWeight=60
+PreloadWeight=65
 
 [Containments][3][Applets][8][Applets][12]
 immutability=1
@@ -171,14 +171,14 @@ immutability=1
 plugin=org.kde.plasma.battery
 
 [Containments][3][Applets][8][Applets][25][Configuration]
-PreloadWeight=39
+PreloadWeight=44
 
 [Containments][3][Applets][8][Applets][26]
 immutability=1
 plugin=org.kde.plasma.bluetooth
 
 [Containments][3][Applets][8][Applets][26][Configuration]
-PreloadWeight=34
+PreloadWeight=39
 
 [Containments][3][Applets][8][Applets][27]
 immutability=1
@@ -206,5 +206,5 @@ knownItems=org.kde.kdeconnect,org.kde.plasma.battery,org.kde.plasma.bluetooth,or
 AppletOrder=4;6;7;8;22;23
 
 [ScreenMapping]
-itemsOnDisabledScreens=0,a1aa5181-4e64-46c3-91dd-79b9a663369c,9,desktop:/Pictures,desktop:/debian-genesis,desktop:/Documents,desktop:/shell-scripts,desktop:/dotfiles,desktop:/Videos,desktop:/Downloads,desktop:/fedora-genesis,desktop:/Music,1,a1aa5181-4e64-46c3-91dd-79b9a663369c,3,desktop:/opt,desktop:/Projects,desktop:/Development
+itemsOnDisabledScreens=1,a1aa5181-4e64-46c3-91dd-79b9a663369c,3,desktop:/Projects,desktop:/Development,desktop:/opt,0,a1aa5181-4e64-46c3-91dd-79b9a663369c,9,desktop:/Videos,desktop:/Documents,desktop:/debian-genesis,desktop:/dotfiles,desktop:/Pictures,desktop:/Downloads,desktop:/Music,desktop:/fedora-genesis,desktop:/shell-scripts
 screenMapping=desktop:/Desktop,0,a1aa5181-4e64-46c3-91dd-79b9a663369c
