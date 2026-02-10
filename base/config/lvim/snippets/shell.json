@@ -24,7 +24,6 @@
             "# Author: Bruno Guimarães",
             "# Description:",
             "# Version: 1.0",
-            "# Last Updated: ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}",
             "",
             "set -euo pipefail",
             "IFS=$'\\n\\t'",

@@ -143,6 +143,10 @@ menuFont=Inter Variable,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
 smallestReadableFont=Inter Variable,9,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
 toolBarFont=Inter Variable,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
 
+[KDE]
+DefaultDarkLookAndFeel=org.fedoraproject.fedoradark.desktop
+LookAndFeelPackage=org.kde.breezedark.desktop
+
 [KFileDialog Settings]
 Allow Expansion=false
 Automatically select filename extension=true

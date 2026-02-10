@@ -68,12 +68,22 @@ wk.mappings["F"] = {
     o = { "<cmd>FlutterOutlineToggle<cr>", "Outline" },
 }
 
+local function live_grep_in(dir, title)
+  return function()
+    require("telescope.builtin").live_grep({
+      prompt_title = title,
+      cwd = vim.fn.expand(dir),
+    })
+  end
+end
+
 wk.mappings["t"] = {
     name = "Telescope",
     f = { "<cmd>Telescope flutter commands<CR>", "Flutter Commands" },
     p = { "<cmd>Telescope projects<CR>", "Recent Projects" },
     P = { "<cmd>Telescope project<CR>", "Select Project" },
     n = { "<cmd>NoiceTelescope<CR>", "Noice Messages" },
+    c = { live_grep_in("~/.utils/Cheatsheets", "Cheatsheets"), "Cheatsheet" },
     b = { "<cmd>Telescope bookmarks list<cr>", "Bookmarks" }
 }
 
@@ -97,4 +107,5 @@ wk.mappings["f"] = {
 }
 
 wk.mappings["lf"] = { "<cmd>lua require('conform').format({ async = true, lsp_fallback = true })<cr>", "Format(Conform)" }
+wk.mappings["lR"] = { "<cmd>LspRestart<cr>", "Restart LSP" }
 wk.mappings["Lt"] = { "<cmd>lua require('telescope.builtin').colorscheme({enable_preview = true})<cr>", "Theme" }

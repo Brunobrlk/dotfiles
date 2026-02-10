@@ -50,6 +50,7 @@ alias cbox='$EDITOR ~/.utils/CodeGists/'
 alias dk='docker'
 alias dkrun='docker run'
 alias dkexec='docker exec -it'
+
 alias dklog='docker logs'
 alias dkps='docker ps'
 alias dkpsa='docker ps -a'
@@ -57,6 +58,7 @@ alias dkpsa='docker ps -a'
 alias dkrm='docker rm'
 alias dkrmall='docker rm $(docker ps -a -q)'
 
+alias dkstart='docker start'
 alias dkstop='docker stop'
 alias dkstopall='docker stop $(docker ps -a -q)'
 
@@ -70,9 +72,9 @@ alias dkvols='docker volume ls'
 alias dkrmvol='docker volume rm'
 alias dkrmvols='docker volume rm $(docker volume ls -q)'
 
-alias compose='docker-compose'
-alias dkup='docker-compose up'
-alias dkdown='docker-compose down'
+alias compose='docker compose'
+alias dkup='docker compose up'
+alias dkdown='docker compose down'
 
 # System information
 alias sysinfo='inxi -v 8'
@@ -110,6 +112,9 @@ alias ram="free -mh | bat -l cpuinfo -p"
 alias sensors="sensors | bat -l cpuinfo -p"
 h(){
     "$@" --help 2>&1 | bat --plain --language=help
+}
+code(){
+    cat "$(command -v "$1")"
 }
 
 # Download the best video quality + best audio to ~/Videos dir
