@@ -17,11 +17,24 @@ telescope.defaults = {
     file_ignore_patterns = {
         "%.git",
         "node_modules/",
-        "venv/",
         "/generated/"
     },
 
     borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" }
+}
+
+telescope.pickers = {
+    find_files = {
+        find_command = {
+            "fd",
+            "--type", "f",
+            "--hidden",
+            "--exclude", ".git",
+            "--exclude", "node_modules",
+            "--exclude", "generated",
+            "--exclude", ".venv",
+        },
+    },
 }
 
 telescope.on_config_done = function(telescope_arg)

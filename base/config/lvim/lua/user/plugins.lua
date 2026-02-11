@@ -82,13 +82,28 @@ lvim.plugins = {
         },
     },
 
-    -- Python virtual environment manager
-    -- {
-    --     "linux-cultist/venv-selector.nvim",
-    --     dependencies = { "neovim/nvim-lspconfig" },
-    --     ft = "python", -- Load when opening Python files
-    --     opts = {},
-    -- },
+    {
+        "linux-cultist/venv-selector.nvim",
+        dependencies = {
+            "neovim/nvim-lspconfig",
+            "nvim-telescope/telescope.nvim",
+        },
+        config = function()
+            require("venv-selector").setup({
+                name = { ".venv", "venv" },
+
+                -- Search from project root instead of only cwd
+                search_workspace = true,
+
+                -- Restart LSP after switching
+                auto_refresh = true,
+
+                options = {
+                    debug = true
+                },
+            })
+        end,
+    },
 
     -- Flutter Tools 
     {
