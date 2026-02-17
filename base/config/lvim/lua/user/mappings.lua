@@ -13,13 +13,13 @@ map("n", "<C-k>", "<cmd>TmuxNavigateUp<CR>", { desc = "" })
 map("n", "<C-l>", "<cmd>TmuxNavigateRight<CR>", { desc = "" })
 map("n", "<C-\\>", "<cmd>TmuxNavigatePrevious<CR>", { desc = "" })
 
-map("n", "mm", "<cmd>lua require('bookmarks').bookmark_toggle()<cr>")                    -- add or remove bookmark at current line
-map("n", "mi", "<cmd>lua require('bookmarks').bookmark_ann()<cr>")                       -- add or edit mark annotation at current line
-map("n", "mc", "<cmd>lua require('bookmarks').bookmark_clean()<cr>")                     -- clean all marks in local buffer
-map("n", "mn", "<cmd>lua require('bookmarks').bookmark_next()<cr>")                      -- jump to next mark in local buffer
-map("n", "mp", "<cmd>lua require('bookmarks').bookmark_prev()<cr>")                      -- jump to previous mark in local buffer
-map("n", "ml", "<cmd>lua require('bookmarks').bookmark_list()<cr>")                      -- show marked file list in quickfix window
-map("n", "mx", "<cmd>lua require('bookmarks').bookmark_clear_all()<cr>")                 -- removes all bookmarks
+map("n", "mm", "<cmd>lua require('bookmarks').bookmark_toggle()<cr>")    -- add or remove bookmark at current line
+map("n", "mi", "<cmd>lua require('bookmarks').bookmark_ann()<cr>")       -- add or edit mark annotation at current line
+map("n", "mc", "<cmd>lua require('bookmarks').bookmark_clean()<cr>")     -- clean all marks in local buffer
+map("n", "mn", "<cmd>lua require('bookmarks').bookmark_next()<cr>")      -- jump to next mark in local buffer
+map("n", "mp", "<cmd>lua require('bookmarks').bookmark_prev()<cr>")      -- jump to previous mark in local buffer
+map("n", "ml", "<cmd>lua require('bookmarks').bookmark_list()<cr>")      -- show marked file list in quickfix window
+map("n", "mx", "<cmd>lua require('bookmarks').bookmark_clear_all()<cr>") -- removes all bookmarks
 
 map("i", "jk", "<ESC>", { desc = "" })
 map("i", "<C-p>", "<cmd>require('lsp_signature').toggle_float_win()<cr>", { desc = "" })
@@ -69,12 +69,12 @@ wk.mappings["F"] = {
 }
 
 local function live_grep_in(dir, title)
-  return function()
-    require("telescope.builtin").live_grep({
-      prompt_title = title,
-      cwd = vim.fn.expand(dir),
-    })
-  end
+    return function()
+        require("telescope.builtin").live_grep({
+            prompt_title = title,
+            cwd = vim.fn.expand(dir),
+        })
+    end
 end
 
 wk.mappings["t"] = {
@@ -108,4 +108,10 @@ wk.mappings["f"] = {
 
 wk.mappings["lf"] = { "<cmd>lua require('conform').format({ async = true, lsp_fallback = true })<cr>", "Format(Conform)" }
 wk.mappings["lR"] = { "<cmd>LspRestart<cr>", "Restart LSP" }
+
 wk.mappings["Lt"] = { "<cmd>lua require('telescope.builtin').colorscheme({enable_preview = true})<cr>", "Theme" }
+
+wk.mappings["P"] = {
+    name = "Python",
+    v = { "<cmd>VenvSelect<cr>", "Venv select" },
+}

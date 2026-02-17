@@ -1,10 +1,22 @@
-# Terminal
-    CTRL + a = Go to start of the command
-    CTRL + e = Go to end of the command
-    CTRL + k = Delete until the end -> Using tmux, first press <leader>
-    CTRL + u = Delete until the start 
-    CTRL + r = Search for past commands, if its not yet keep pressing CTRL + r until get the command
-    type <command> = Returns the command describing where it comes from and its origin form, useful for aliases
+# Readline
+    Ctrl + k = Delete until the end -> Using tmux, first press <leader>
+    Ctrl + u = Delete until the start 
+    Ctrl + r = Search for past commands, if its not yet keep pressing CTRL + r until get the command
+
+    Alt + h = Backward char
+    Alt + l = Forward char
+    Alt + b = Backward word
+    Alt + w = Forward word
+    Alt + a | Ctrl + a = Beginning of line
+    Alt + e | Ctrl + e = End of line
+
+    Ctrl + p = History search backward
+    Ctrl + n = History search forward
+
+    Alt + x = Clear line
+    Ctrl + e = Edit command on $EDITOR and run on exit
+    Alt + j = Backward kill word
+    Alt + k = Forward kill word
 
 # Scripting
 ## Options

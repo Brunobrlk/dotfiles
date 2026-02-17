@@ -130,7 +130,7 @@ format = '[$symbol( $version) ]($style)'
 
 [dart]
 symbol = ""
-format = '[$symbol($version )](bold black)'
+format = '[$symbol($version )](bold blue)'
 
 [python]
 symbol = ""

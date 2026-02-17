@@ -1,13 +1,13 @@
-# Cheatsheet
-# Ctrl = \C-x or ^X
-# Alt/Meta = \e or ^[x
-# Esc = \e
-# Ctrl+Alt+x = \e\C-x
-# showkey -a
+# ──────────────────────────────────────────────────────────────────────────────
+# Safety
+# ──────────────────────────────────────────────────────────────────────────────
 
-# =========================
+# Treat pasted text as paste, not typed input. Prevents accidental execution / expansions
+set enable-bracketed-paste on
+
+# ──────────────────────────────────────────────────────────────────────────────
 # Completion behavior
-# =========================
+# ──────────────────────────────────────────────────────────────────────────────
 
 # Ignore case when completing
 set completion-ignore-case on
@@ -28,15 +28,28 @@ set mark-symlinked-directories On
 # Use menu-style completion with TAB
 TAB: menu-complete
 
-# =========================
-# Editing & productivity macros
-# =========================
-# Alternative keys (optional, useful on some terminals)
+# ──────────────────────────────────────────────────────────────────────────────
+# Navigating
+# ──────────────────────────────────────────────────────────────────────────────
+
 "\C-p": history-search-backward
 "\C-n": history-search-forward
 
-# Edit current command in $EDITOR, then execute
-"\C-x\C-e": edit-and-execute-command
+"\eb": backward-word
+"\ew": forward-word
+
+"\eh": backward-char
+"\el": forward-char
+
+"\ea": beginning-of-line
+"\ee": end-of-line
+
+# ──────────────────────────────────────────────────────────────────────────────
+# Editing
+# ──────────────────────────────────────────────────────────────────────────────
+
+"\ej": backward-kill-word
+"\ek": kill-word
 
 # Insert last argument of previous command (very useful)
 "\e.": yank-last-arg
@@ -44,15 +57,15 @@ TAB: menu-complete
 # Fix typos instantly
 "\et": transpose-words
 
-"\eh": backward-word
-"\el": forward-word
+# Edit current command in $EDITOR, then execute
+"\C-e": edit-and-execute-command
 
-"\eb": backward-kill-word
-"\ef": kill-word
+# ──────────────────────────────────────────────────────────────────────────────
+# Reference | Remember
+# ──────────────────────────────────────────────────────────────────────────────
 
-# =========================
-# Safety
-# =========================
-
-# Treat pasted text as paste, not typed input. Prevents accidental execution / expansions
-set enable-bracketed-paste on
+# Ctrl = \C-x or ^X
+# Alt/Meta = \e or ^[x
+# Esc = \e
+# Ctrl+Alt+x = \e\C-x
+# showkey -a

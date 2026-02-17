@@ -133,19 +133,11 @@ ForegroundPositive=39,174,96
 ForegroundVisited=155,89,182
 
 [General]
-BrowserApplication=brave-browser.desktop
 ColorSchemeHash=2c3f86428c11011a7c64ee1e7f47c274d498ff10
-XftHintStyle=hintslight
-XftSubPixel=none
-fixed=JetBrains Mono,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
-font=Inter Variable,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
-menuFont=Inter Variable,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
-smallestReadableFont=Inter Variable,9,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
-toolBarFont=Inter Variable,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
 
 [KDE]
 DefaultDarkLookAndFeel=org.fedoraproject.fedoradark.desktop
-LookAndFeelPackage=org.kde.breezedark.desktop
+LookAndFeelPackage=org.fedoraproject.fedoradark.desktop
 
 [KFileDialog Settings]
 Allow Expansion=false
@@ -167,7 +159,6 @@ View Style=DetailTree
 [WM]
 activeBackground=39,44,49
 activeBlend=252,252,252
-activeFont=Inter Variable,10,-1,5,600,0,0,0,0,0,0,0,0,0,0,1,SemiBold
 activeForeground=252,252,252
 inactiveBackground=32,36,40
 inactiveBlend=161,169,177

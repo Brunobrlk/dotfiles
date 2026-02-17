@@ -99,7 +99,13 @@ lvim.plugins = {
                 auto_refresh = true,
 
                 options = {
-                    debug = true
+                    debug = true,
+                    options = {
+                        on_telescope_result_callback = function(filename)
+                            print(filename)
+                            return filename:gsub(os.getenv("HOME"), "~"):gsub("/bin/python", "")
+                        end,
+                    },
                 },
             })
         end,
