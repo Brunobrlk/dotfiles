@@ -1,23 +1,3 @@
-# Readline
-    Ctrl + k = Delete until the end -> Using tmux, first press <leader>
-    Ctrl + u = Delete until the start 
-    Ctrl + r = Search for past commands, if its not yet keep pressing CTRL + r until get the command
-
-    Alt + h = Backward char
-    Alt + l = Forward char
-    Alt + b = Backward word
-    Alt + w = Forward word
-    Alt + a | Ctrl + a = Beginning of line
-    Alt + e | Ctrl + e = End of line
-
-    Ctrl + p = History search backward
-    Ctrl + n = History search forward
-
-    Alt + x = Clear line
-    Ctrl + e = Edit command on $EDITOR and run on exit
-    Alt + j = Backward kill word
-    Alt + k = Forward kill word
-
 # Scripting
 ## Options
     set -e = Exits on non-zero results within the script(functions, commands, etc.)

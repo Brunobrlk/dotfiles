@@ -1,0 +1,18 @@
+services:
+  litellm:
+    image: ghcr.io/berriai/litellm:main
+    container_name: litellm-proxy
+    restart: always
+
+    environment:
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY}
+      GEMINI_API_KEY: ${GEMINI_API_KEY}
+
+    volumes:
+      - /home/brunobrlk/.utils/DockerContainers/litellm-config.yaml:/app/config/config.yaml:ro
+
+    command: ["--config", "/app/config.yaml", "--port", "4000"]
+
+    ports:
+      - "4000:4000"

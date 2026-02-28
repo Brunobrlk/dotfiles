@@ -27,23 +27,54 @@ map("i", "<C-p>", "<cmd>require('lsp_signature').toggle_float_win()<cr>", { desc
 -- Which Key
 local wk = lvim.builtin.which_key
 
+wk.mappings["f"] = {
+    name = "Flutter",
+    c = { "<cmd>FlutterCopyProfilerUrl<cr>", "Copy Profiler Url" },
+    C = { "<cmd>Telescope flutter commands<CR>", "Commands" },
+    d = { "<cmd>FlutterDevices<cr>", "Devices" },
+    e = { "<cmd>FlutterEmulators<cr>", "Emulators" },
+    h = { "<cmd>FlutterReload<cr>", "Hot Reload" },
+    H = { "<cmd>FlutterRestart<cr>", "Hot Restart" },
+    l = { "<cmd>FlutterLogToggle<cr>", "Log Toggle" },
+    o = { "<cmd>FlutterOutlineToggle<cr>", "Outline" },
+    p = { "<cmd>FlutterPubGet<cr>", "Pub Get" },
+    q = { "<cmd>FlutterQuit<cr>", "Quit" },
+    r = { "<cmd>FlutterRun<cr>", "Run" },
+    t = { "<cmd>FlutterDevTools<cr>", "Dev Tools" },
+    x = { "<cmd>FlutterLogClear<cr>", "Log Clear" },
+}
+
+wk.mappings["s"] = {
+    name = "Search",
+    b = { "<cmd>Telescope buffers<cr>", "Buffers" },
+    -- c = { "", "Colorscheme" },
+    c = { "<cmd>Telescope commands<cr>", "Commands" },
+    f = { "<cmd>Telescope find_files<cr>", "Files" },
+    h = { "<cmd>Telescope help_tags<cr>", "Help" },
+    H = { "<cmd>Telescope highlights<cr>", "Highlight Groups" },
+    k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
+    l = { "<cmd>Telescope resume<cr>", "Last Picker" },
+    M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
+    -- p = { "", "Colorscheme with preview" },
+    r = { "<cmd>Telescope oldfiles<cr>", "Recent Files" },
+    R = { "<cmd>Telescope registers<cr>", "Registers" },
+    s = { "<cmd>Telescope lsp_document_symbols<cr>", "Symbols" },
+    t = { "<cmd>Telescope live_grep<cr>", "Text" }, -- Or fg(find grep)
+    w = { "<cmd>Telescope grep_string<cr>", "Word" },
+    u = { "<cmd>Telescope undo<cr>", "Undo History" },
+}
+
+wk.mappings["lf"] = { "<cmd>lua require('conform').format({ async = true, lsp_fallback = true })<cr>", "Format(Conform)" }
+wk.mappings["lR"] = { "<cmd>LspRestart<cr>", "Restart LSP" }
+
+wk.mappings["Lt"] = { "<cmd>lua require('telescope.builtin').colorscheme({enable_preview = true})<cr>", "Theme" }
+
+wk.mappings["P"] = {
+    name = "Python",
+    v = { "<cmd>VenvSelect<cr>", "Venv select" },
+}
+
 wk.mappings["Q"] = { "<cmd>quitall<CR>", "Exit Session" }
-
-wk.mappings["S"] = {
-    name = "Sudo",
-    w = { "<cmd>SudaWrite<CR>", "Save with Sudo" },
-    r = { "<cmd>SudaRead<CR>", "Open with Sudo" }
-}
-
-wk.mappings["y"] = {
-    name = "Trouble",
-    x = { "<cmd>Trouble diagnostics toggle<cr>", "Diagnostics" },
-    X = { "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", "Buffer Diagnostics" },
-    L = { "<cmd>Trouble loclist toggle<cr>", "Location List" },
-    Q = { "<cmd>Trouble qflist toggle<cr>", "Quickfix List" },
-    s = { "<cmd>Trouble symbols toggle focus=false<cr>", "Symbols" },
-    l = { "<cmd>Trouble lsp toggle focus=false win.position=right<cr>", "LSP References" }
-}
 
 wk.mappings["r"] = {
     name = "Session",
@@ -51,21 +82,10 @@ wk.mappings["r"] = {
     s = { "<cmd>AutoSession save<cr>", "Save session" },
 }
 
-wk.mappings["F"] = {
-    name = "Flutter",
-    r = { "<cmd>FlutterRun<cr>", "Run" },
-    t = { "<cmd>FlutterDevTools<cr>", "Dev Tools" },
-    d = { "<cmd>FlutterDevices<cr>", "Devices" },
-    e = { "<cmd>FlutterEmulators<cr>", "Emulators" },
-    h = { "<cmd>FlutterReload<cr>", "Hot Reload" },
-    H = { "<cmd>FlutterRestart<cr>", "Hot Restart" },
-    p = { "<cmd>FlutterPubGet<cr>", "Pub Get" },
-    q = { "<cmd>FlutterQuit<cr>", "Quit" },
-    v = { "<cmd>FlutterVisualDebug<cr>", "Visual Debug" },
-    c = { "<cmd>FlutterCopyProfilerUrl<cr>", "Copy Profiler Url" },
-    l = { "<cmd>FlutterLogToggle<cr>", "Log Toggle" },
-    x = { "<cmd>FlutterLogClear<cr>", "Log Clear" },
-    o = { "<cmd>FlutterOutlineToggle<cr>", "Outline" },
+wk.mappings["S"] = {
+    name = "Sudo",
+    w = { "<cmd>SudaWrite<CR>", "Save with Sudo" },
+    r = { "<cmd>SudaRead<CR>", "Open with Sudo" }
 }
 
 local function live_grep_in(dir, title)
@@ -79,7 +99,6 @@ end
 
 wk.mappings["t"] = {
     name = "Telescope",
-    f = { "<cmd>Telescope flutter commands<CR>", "Flutter Commands" },
     p = { "<cmd>Telescope projects<CR>", "Recent Projects" },
     P = { "<cmd>Telescope project<CR>", "Select Project" },
     n = { "<cmd>NoiceTelescope<CR>", "Noice Messages" },
@@ -87,31 +106,13 @@ wk.mappings["t"] = {
     b = { "<cmd>Telescope bookmarks list<cr>", "Bookmarks" }
 }
 
-wk.mappings["f"] = {
-    name = "Find",
-    f = { "<cmd>Telescope find_files<cr>", "Files" },
-    b = { "<cmd>Telescope buffers<cr>", "Buffers" },
-    t = { "<cmd>Telescope live_grep<cr>", "Text" }, -- Or fg(find grep)
-    r = { "<cmd>Telescope oldfiles<cr>", "Recent Files" },
-    l = { "<cmd>Telescope resume<cr>", "Last Picker" },
-    k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
-    c = { "<cmd>Telescope neoclip<cr>", "Clipboard History" },
-    C = { "<cmd>Telescope commands<cr>", "Commands" },
-    h = { "<cmd>Telescope help_tags<cr>", "Help" },
-    M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
-    s = { "<cmd>Telescope lsp_document_symbols<cr>", "Symbols" },
-    H = { "<cmd>Telescope highlights<cr>", "Highlight Groups" },
-    R = { "<cmd>Telescope registers<cr>", "Registers" },
-    u = { "<cmd>Telescope undo<cr>", "Undo History" },
-    w = { "<cmd>Telescope grep_string<cr>", "Word" },
+wk.mappings["y"] = {
+    name = "Trouble",
+    x = { "<cmd>Trouble diagnostics toggle<cr>", "Diagnostics" },
+    X = { "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", "Buffer Diagnostics" },
+    L = { "<cmd>Trouble loclist toggle<cr>", "Location List" },
+    Q = { "<cmd>Trouble qflist toggle<cr>", "Quickfix List" },
+    s = { "<cmd>Trouble symbols toggle focus=false<cr>", "Symbols" },
+    l = { "<cmd>Trouble lsp toggle focus=false win.position=right<cr>", "LSP References" }
 }
 
-wk.mappings["lf"] = { "<cmd>lua require('conform').format({ async = true, lsp_fallback = true })<cr>", "Format(Conform)" }
-wk.mappings["lR"] = { "<cmd>LspRestart<cr>", "Restart LSP" }
-
-wk.mappings["Lt"] = { "<cmd>lua require('telescope.builtin').colorscheme({enable_preview = true})<cr>", "Theme" }
-
-wk.mappings["P"] = {
-    name = "Python",
-    v = { "<cmd>VenvSelect<cr>", "Venv select" },
-}

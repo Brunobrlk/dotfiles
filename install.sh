@@ -17,7 +17,7 @@ source /etc/os-release
 # Functions
 # ──────────────────────────────────────────────────────────────────────────────
 install_home() {
-  # .bashrc, .profile and .utils/
+  # .bashrc, .profile, .utils/ and opt/
   rsync -av "$SCRIPT_DIR/base/home/" "$HOME/"
 
   if [[ -d "$HOME/utils" && ! -d "$HOME/.utils" ]]; then

@@ -27,6 +27,9 @@ update_home() {
   rsync -ai "$HOME/.bashrc" "$SCRIPT_DIR/base/home/"
   rsync -ai "$HOME/.profile" "$SCRIPT_DIR/base/home/"
 
+  mkdir -p "$SCRIPT_DIR/base/home/opt/android-sdk/emulator/skins"
+  rsync -ai "$HOME/opt/android-sdk/emulator/skins/" "$SCRIPT_DIR/base/home/opt/android-sdk/emulator/skins"
+
   mkdir -p "$SCRIPT_DIR/base/home/utils"
   rsync -ai \
     --include='Cheatsheets/***' \

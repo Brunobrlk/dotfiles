@@ -11,12 +11,14 @@ reload("user.mappings")
 reload("user.plugins")
 
 -- Builtin Plugins
-reload("plugins.telescope")
-reload("plugins.nvimtree")
-reload("plugins.treesitter")
 reload("plugins.completion")
-reload("plugins.lualine")
+reload("plugins.lsp")
 reload("plugins.lspconfig")
+reload("plugins.lualine")
+reload("plugins.mason")
+reload("plugins.nvimtree")
+reload("plugins.telescope")
+reload("plugins.treesitter")
 lvim.builtin.lir.active = false
 lvim.builtin.dap.active = false
 lvim.builtin.alpha.active = false

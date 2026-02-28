@@ -134,6 +134,8 @@ ForegroundVisited=155,89,182
 
 [General]
 ColorSchemeHash=2c3f86428c11011a7c64ee1e7f47c274d498ff10
+TerminalApplication=alacritty
+TerminalService=Alacritty.desktop
 
 [KDE]
 DefaultDarkLookAndFeel=org.fedoraproject.fedoradark.desktop
@@ -155,6 +157,12 @@ Sort hidden files last=false
 Sort reversed=false
 Speedbar Width=140
 View Style=DetailTree
+
+[Shortcuts]
+New=
+Print=
+RotateUp=Up; Ctrl+P
+Up=Ctrl+N; Alt+Up
 
 [WM]
 activeBackground=39,44,49

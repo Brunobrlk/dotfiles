@@ -121,9 +121,33 @@ lvim.plugins = {
         },
         config = function()
             require("flutter-tools").setup {
-                lsp = {
-                    cmd = { "dart", "language-server", "--protocol=lsp" },
+                decorations = {
+                    statusline = {
+                        app_version = true,
+                        device = true,
+                        project_config = true,
+                    }
                 },
+                dev_log = {
+                    enabled = true,
+                    filter = nil,         -- optional callback to filter the log
+                    notify_errors = true, -- if there is an error whilst running then notify the user
+                    open_cmd = "15split", -- command to use to open the log buffer
+                    focus_on_open = true, -- focus on the newly opened log window
+                },
+                outline = {
+                    open_cmd = "50vnew", -- command to use to open the outline buffer
+                    auto_open = false    -- if true this will open the outline automatically when it is first populated
+                },
+                lsp = {
+                    settings = {
+                        showTodos = true,
+                        completeFunctionCalls = true,
+                        enableSnippets = true,
+                        updateImportsOnRename = true,      -- Whether to update imports and other directives when files are renamed. Required for `FlutterRename` command.
+                        renameFilesWithClasses = "always", -- "prompt"
+                    }
+                }
             }
         end,
     },

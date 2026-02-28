@@ -1,7 +1,3 @@
-# Shortcuts
-    C-<Tab> = Switch mode
-    C+S-<Tab> = Reverse switch mode
-
 # Commands
 ## Run rofi in a certain mode
     rofi -show <mode>

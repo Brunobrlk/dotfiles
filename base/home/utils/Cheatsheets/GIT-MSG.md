@@ -12,3 +12,10 @@ perf | Performance improvement | perf(animations): optimize frame rate handling
 ci | Changes to CI/CD configuration	| ci(jenkins): add deployment script
 build | Changes affecting the build system	build(gradle): fix build warnings
 revert | Revert a previous commit | revert: undo score calculation changes
+
+# Conventional commits pattern
+    <type>(scope): <short description>
+
+    <detailed explanation>
+
+    Fixes: <bug-ID>

@@ -163,3 +163,9 @@ function y(){
 	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
 	rm -f -- "$tmp"
 }
+
+# Change command
+cmde(){
+    local my_command="$1"
+    lvim "$(readlink -f -- "$(command -v -- "$my_command")")"
+}
