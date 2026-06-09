@@ -16,6 +16,8 @@ source /etc/os-release
 # ──────────────────────────────────────────────────────────────────────────────
 # Functions
 # ──────────────────────────────────────────────────────────────────────────────
+logw() { printf '\033[1;33m[BRLK WARNING]\033[0m - %s\n' "$1"; }
+
 install_home() {
   # .bashrc, .profile, .utils/ and opt/
   rsync -av "$SCRIPT_DIR/base/home/" "$HOME/"

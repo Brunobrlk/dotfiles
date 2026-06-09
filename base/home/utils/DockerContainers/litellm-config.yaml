@@ -1,31 +1,13 @@
-# model_list:
-#   - model_name: gpt-3.5-turbo
-#     litellm_params:
-#       model: openai/gpt-3.5-turbo                          # The `openai/` prefix will call openai.chat.completions.create
-#       api_key: os.environ/OPENAI_API_KEY
-#   - model_name: gpt-3.5-turbo-instruct
-#     litellm_params:
-#       model: text-completion-openai/gpt-3.5-turbo-instruct # The `text-completion-openai/` prefix will call openai.completions.create
-#       api_key: os.environ/OPENAI_API_KEY
-#   - model_name: claude-sonnet-4-5
-#     litellm_params:
-#       model: anthropic/claude-sonnet-4-5-20250929
-#       api_key: os.environ/ANTHROPIC_API_KEY
-#   - model_name: gemini-2.5-flash
-#     litellm_params:
-#       model: gemini/gemini-2.5-flash-preview-04-17
-#       api_key: os.environ/GEMINI_API_KEY
-
 model_list:
-  - model_name: openai-gpt4o         # alias for our OpenAI model
+  - model_name: openai-gpt4o
     litellm_params:
-      model: openai/gpt-4o          # use OpenAI’s GPT-4o model
+      model: openai/gpt-4o
       api_key: os.environ/OPENAI_API_KEY
-  - model_name: claude-3.7         # alias for Claude 3.7
+  - model_name: claude-3.7
     litellm_params:
       model: anthropic/claude-3-7-sonnet-20250219
       api_key: os.environ/ANTHROPIC_API_KEY
-  - model_name: gemini-1.5-pro     # alias for Google Gemini 1.5 Pro
+  - model_name: gemini-1.5-pro
     litellm_params:
       model: gemini/gemini-1.5-pro
       api_key: os.environ/GEMINI_API_KEY
