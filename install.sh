@@ -40,7 +40,7 @@ install_bash_scope() {
 
   [[ -d "$src" ]] || return 0
 
-  mkdir -p "$HOME/.config/bash/env.d" "$HOME/.config/bash/aliases.d"
+  mkdir -p "$HOME/.config/bash/env.d" "$HOME/.config/bash/aliases.d"  "$HOME/.cache/bash"
 
   rsync -av "$src/env.d/" "$HOME/.config/bash/env.d/" 2>/dev/null || true
   rsync -av "$src/aliases.d/" "$HOME/.config/bash/aliases.d/" 2>/dev/null || true

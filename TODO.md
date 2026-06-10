@@ -7,4 +7,5 @@
 
 # TODO
 - [x] Update scripts to match new structure: update.sh, install.sh
-- [x] Add logs to scripts:
+- [x] Add logs to scripts
+- [x] Fix bash/history not found = mkdir ~/.cache/bash
