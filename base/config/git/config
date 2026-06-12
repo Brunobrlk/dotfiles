@@ -51,16 +51,19 @@
     plain = blue
 
 [alias]
+    conf = config --global --edit
+
     s = status
     ss = status -s
 
     st = stash
-    stl = stash list
-    stp = stash pop
-    sta = stash apply
-    stdel = stash drop
+    stls = stash list
+    stpop = stash pop
+    stapply = stash apply
+    strm = stash drop
 
-    conf = config --global --edit
+    dfs = diff --staged
+
     rh = reset HEAD
 
     aa = add -A
@@ -78,15 +81,15 @@
 
     b = branch
     ba = branch -a
-    bdel = branch -d 
+    brm = branch -d 
 
     ch = checkout
     clforce = clean -df
 
-    wl = worktree list
-    wa = worktree add
-    wdel = worktree remove
-    wb = "!f() { if [ -z \"$1\" ]; then echo 'Error: Branch name is required'; else git worktree add ../$(basename $(pwd))-$(echo $1 | tr '/' '-'); fi; }; f"
+    wtls = worktree list
+    wtadd = worktree add
+    wtrm = worktree remove
+    wtb = "!f() { if [ -z \"$1\" ]; then echo 'Error: Branch name is required'; else git worktree add ../$(basename $(pwd))-$(echo $1 | tr '/' '-'); fi; }; f"
 
 # URL Shortcuts
 [url "git@github.com:Brunobrlk/"]

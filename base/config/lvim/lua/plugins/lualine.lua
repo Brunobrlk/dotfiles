@@ -12,6 +12,7 @@ lualine.options = {
 local components = require("lvim.core.lualine.components")
 local device = require("scripts.nvim_android_device")
 local noice = require("noice")
+
 lualine.sections.lualine_a = { "mode" }
 lualine.sections.lualine_b = { components.branch, components.diff }
 lualine.sections.lualine_c = {

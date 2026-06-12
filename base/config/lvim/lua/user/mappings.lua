@@ -64,7 +64,7 @@ wk.mappings["s"] = {
     u = { "<cmd>Telescope undo<cr>", "Undo History" },
 }
 
-wk.mappings["lf"] = { "<cmd>lua require('conform').format({ async = true, lsp_fallback = true })<cr>", "Format(Conform)" }
+wk.mappings["lf"] = { "<cmd>lua require('conform').format({ async = true, lsp_fallback = false })<cr>", "Format(Conform)" }
 wk.mappings["lR"] = { "<cmd>LspRestart<cr>", "Restart LSP" }
 
 wk.mappings["Lt"] = { "<cmd>lua require('telescope.builtin').colorscheme({enable_preview = true})<cr>", "Theme" }

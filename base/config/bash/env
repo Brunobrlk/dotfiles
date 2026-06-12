@@ -3,7 +3,7 @@
 # =========================
 # Base
 # =========================
-export EDITOR="lvim"
+export EDITOR="nvim"
 
 # =========================
 # Bash history behavior

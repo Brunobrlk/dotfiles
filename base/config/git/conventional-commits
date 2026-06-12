@@ -4,7 +4,7 @@
 
 # Body(Optional)
 # Paragraph1(Optional) - ie:
-# ie: Introduce a request id and a reference to latest request. Dismiss
+# Introduce a request id and a reference to latest request. Dismiss
 # incoming responses other than from latest request.
 
 # Paragraph2(Optional) - ie:

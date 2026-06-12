@@ -24,7 +24,7 @@ positions={"1920x1080":[]}
 url=desktop:/Desktop/
 
 [Containments][1][Wallpaper][org.kde.image][General]
-Image=file:///usr/share/wallpapers/Path/
+Image=file:///home/brunobrlk/Pictures/Wallpapers/aincrad.jpg
 SlidePaths=/usr/share/wallpapers/
 
 [Containments][2]
@@ -59,7 +59,6 @@ immutability=1
 plugin=org.kde.plasma.digitalclock
 
 [Containments][3][Applets][22][Configuration]
-PreloadWeight=75
 popupHeight=451
 popupWidth=560
 
@@ -75,7 +74,6 @@ immutability=1
 plugin=org.kde.plasma.kickoff
 
 [Containments][3][Applets][4][Configuration]
-PreloadWeight=100
 popupHeight=509
 popupWidth=647
 
@@ -88,7 +86,7 @@ immutability=1
 plugin=org.kde.plasma.icontasks
 
 [Containments][3][Applets][6][Configuration][General]
-launchers=applications:systemsettings.desktop,applications:org.kde.discover.desktop,preferred://browser
+launchers=applications:systemsettings.desktop,preferred://browser
 
 [Containments][3][Applets][7]
 immutability=1
@@ -113,15 +111,9 @@ plugin=org.kde.plasma.cameraindicator
 immutability=1
 plugin=org.kde.plasma.clipboard
 
-[Containments][3][Applets][8][Applets][11][Configuration]
-PreloadWeight=100
-
 [Containments][3][Applets][8][Applets][12]
 immutability=1
 plugin=org.kde.plasma.devicenotifier
-
-[Containments][3][Applets][8][Applets][12][Configuration]
-PreloadWeight=100
 
 [Containments][3][Applets][8][Applets][13]
 immutability=1
@@ -135,15 +127,9 @@ plugin=org.kde.plasma.keyboardlayout
 immutability=1
 plugin=org.kde.plasma.manage-inputmethod
 
-[Containments][3][Applets][8][Applets][15][Configuration]
-PreloadWeight=55
-
 [Containments][3][Applets][8][Applets][16]
 immutability=1
 plugin=org.kde.plasma.notifications
-
-[Containments][3][Applets][8][Applets][16][Configuration]
-PreloadWeight=65
 
 [Containments][3][Applets][8][Applets][17]
 immutability=1
@@ -165,9 +151,6 @@ plugin=org.kde.kscreen
 immutability=1
 plugin=org.kde.plasma.volume
 
-[Containments][3][Applets][8][Applets][21][Configuration]
-PreloadWeight=100
-
 [Containments][3][Applets][8][Applets][21][Configuration][General]
 migrated=true
 
@@ -175,36 +158,21 @@ migrated=true
 immutability=1
 plugin=org.kde.plasma.brightness
 
-[Containments][3][Applets][8][Applets][24][Configuration]
-PreloadWeight=34
-
 [Containments][3][Applets][8][Applets][25]
 immutability=1
 plugin=org.kde.plasma.battery
-
-[Containments][3][Applets][8][Applets][25][Configuration]
-PreloadWeight=54
 
 [Containments][3][Applets][8][Applets][26]
 immutability=1
 plugin=org.kde.plasma.bluetooth
 
-[Containments][3][Applets][8][Applets][26][Configuration]
-PreloadWeight=44
-
 [Containments][3][Applets][8][Applets][27]
 immutability=1
 plugin=org.kde.plasma.networkmanagement
 
-[Containments][3][Applets][8][Applets][27][Configuration]
-PreloadWeight=55
-
 [Containments][3][Applets][8][Applets][28]
 immutability=1
 plugin=org.kde.plasma.mediacontroller
-
-[Containments][3][Applets][8][Applets][28][Configuration]
-PreloadWeight=0
 
 [Containments][3][Applets][8][Applets][9]
 immutability=1
@@ -218,5 +186,5 @@ knownItems=org.kde.kdeconnect,org.kde.plasma.battery,org.kde.plasma.bluetooth,or
 AppletOrder=4;6;7;8;22;23
 
 [ScreenMapping]
-itemsOnDisabledScreens=0,a1aa5181-4e64-46c3-91dd-79b9a663369c,9,desktop:/debian-genesis,desktop:/Downloads,desktop:/Music,desktop:/dotfiles,desktop:/Documents,desktop:/Videos,desktop:/fedora-genesis,desktop:/shell-scripts,desktop:/Pictures,1,a1aa5181-4e64-46c3-91dd-79b9a663369c,5,desktop:/opt,desktop:/Projects,desktop:/Thunderbird,desktop:/src,desktop:/Development
+itemsOnDisabledScreens=0,a1aa5181-4e64-46c3-91dd-79b9a663369c,9,desktop:/shell-scripts,desktop:/debian-genesis,desktop:/fedora-genesis,desktop:/Videos,desktop:/Documents,desktop:/Pictures,desktop:/Music,desktop:/dotfiles,desktop:/Downloads,1,a1aa5181-4e64-46c3-91dd-79b9a663369c,7,desktop:/Projects,desktop:/calculadora_pj.ods,desktop:/calculadora_pj.xlsx,desktop:/opt,desktop:/Thunderbird,desktop:/src,desktop:/Development
 screenMapping=desktop:/Desktop,0,a1aa5181-4e64-46c3-91dd-79b9a663369c

@@ -7,6 +7,14 @@ opts.smartindent = true
 opts.autoindent = true
 opts.expandtab = true
 opts.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+opts.list = true
+opts.listchars = {
+    extends = "→",
+    precedes = "←",
+    tab = "==",
+    trail = "·",
+    nbsp = "␣",
+}
 
 -- Theme
 lvim.colorscheme = "catppuccin-macchiato"

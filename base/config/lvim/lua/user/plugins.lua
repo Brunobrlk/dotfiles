@@ -8,7 +8,7 @@ lvim.plugins = {
             require("colorizer").setup({ "*" }, {
                 RGB = true,      -- #RGB hex codes
                 RRGGBB = true,   -- #RRGGBB hex codes
-                names = true,    -- "Name" codes like Blue
+                names = false,   -- "Name" codes like Blue
                 RRGGBBAA = true, -- #RRGGBBAA hex codes
                 rgb_fn = true,   -- CSS rgb() and rgba() functions
                 hsl_fn = true,   -- CSS hsl() and hsla() functions
@@ -28,10 +28,20 @@ lvim.plugins = {
             formatters_by_ft = {
                 kotlin = { "ktlint" },
                 python = { "ruff" },
-                xml = { "xmlformatter" },
                 sh = { "shfmt" },
-                bash = { "shfmt" },
-                dart = { "dart_format" },
+                lua = { "stylua" },
+                xml = { "xmlformatter" },
+
+                json = { "prettier" },
+                markdown = { "prettier" },
+                javascript = { "prettier" },
+                typescript = { "prettier" },
+                html = { "prettier" },
+                css = { "prettier" },
+            },
+            format_on_save = {
+                timeout_ms = 3000,
+                lsp_fallback = false, -- IMPORTANT
             },
         }
     },
@@ -223,17 +233,6 @@ lvim.plugins = {
         },
         dependencies = {
             "MunifTanjim/nui.nvim",
-            -- {
-            --     "rcarriga/nvim-notify",
-
-            --     config = function()
-            --         require('notify').setup {
-            --             background_colour = "FloatShadow",
-            --             render = "wrapped-compact",
-            --             top_down = false
-            --         }
-            --     end,
-            -- }
         }
     },
 

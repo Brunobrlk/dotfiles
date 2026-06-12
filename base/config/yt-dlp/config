@@ -1,13 +1,18 @@
+# ~/.config/yt-dlp/config
+
+# Safe filenames
 --restrict-filenames
 --output "%(title)s.%(ext)s"
---merge-output-format mkv
---embed-metadata
---parse-metadata "title:%(title)s"
 
-# Subtitles (clean & embedded)
---write-auto-subs
---sub-langs en.*,en
---sub-format srt
---convert-subs srt
---embed-subs
---no-write-subs
+# Keep temporary fragments/intermediate files out of ~/Videos and ~/Music
+--paths "temp:~/.cache/yt-dlp/tmp"
+
+# Explicit cleanup
+--no-keep-fragments
+--no-keep-video
+
+# Metadata
+--embed-metadata
+
+# YouTube: avoid translated subtitle variants like en-en-US
+--extractor-args "youtube:skip=translated_subs"

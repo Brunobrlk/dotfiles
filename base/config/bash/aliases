@@ -5,6 +5,7 @@
 # Notes:
 # ch - Change
 # dk - Docker
+# cd - Change Directory
 
 shopt -s expand_aliases
 
@@ -19,32 +20,44 @@ alias ..2='cd ../../'
 alias ..3='cd ../../../'
 alias ..4='cd ../../../../'
 alias ..5='cd ../../../../../'
-alias cdmobile='cd ~/Development/Mobile'
-alias cdandroid='cd ~/Development/Mobile/Android'
-alias cdflutter='cd ~/Development/Mobile/Flutter'
 alias cdsrc='cd ~/src'
-alias cdconf='cd ~/.config'
+alias cdopt='cd ~/opt'
 alias cdbin='cd ~/.local/bin'
+alias cdconf='cd ~/.config'
+alias cdstate='cd ~/.local/state'
+alias cdshare='cd ~/.local/share'
+alias cdcache='cd ~/.cache'
 alias cdnv='cd ~/.config/nvim'
 alias cdlv='cd ~/.config/lvim'
-alias cdbash='cd ~/.config/bash'
 alias cdrofi='cd ~/.config/rofi'
-alias cdtmux='cd ~/.config/tmux'
-alias cdnotes='cd ~/.utils/Notes'
-alias cdpy='cd ~/Development/Python'
-alias cdpro='cd ~/Development/Projects'
-alias cdtest='cd ~/Notes/Test'
-alias cdwork='cd ~/Development/Work'
-alias cdscripts='cd ~/Development/BashScripts'
-alias cdasconf='cd ~/.config/Google/AndroidStudio2024.2'
+alias cdmobile='cd ~/Development/mobile'
+alias cdandroid='cd ~/Development/mobile/android'
+alias cdflutter='cd ~/Development/mobile/flutter'
+alias cdnvd='cd ~/Development/projects/nvim'
+alias cdpy='cd ~/Development/python'
+alias cdpro='cd ~/Development/projects'
+alias cdwork='cd ~/Development/work'
+alias cdbash='cd ~/Development/bash'
+alias cdtest='cd ~/Development/playground'
 alias cdmain='cd "app/src/main/java/$(if [ -f app/build.gradle ]; then sed -n "s/applicationId[[:space:]]*\"\\([^\"]*\\)\"/\\1/p" app/build.gradle; else sed -n "s/applicationId[[:space:]]=[[:space:]]*\"\\([^\"]*\\)\"/\\1/p" app/build.gradle.kts; fi | sed -e "s/\./\//g" | sed -e "s/^[[:space:]]*//")"'
 alias cdres='cd app/src/main/res'
+alias cdsec='cd ~/.local/share/secure'
+alias cddk='cd ~/Development/infra/containers'
+alias cddev='cd ~/Development'
+alias cddown='cd ~/Downloads'
+alias cddoc='cd ~/Documents'
+alias cdnotes='cd ~/Documents/Vault'
+alias cdutil='cd ~/.utils'
 
 # Edit Files
+alias chprof='$EDITOR ~/.config/alacritty/alacritty.toml'
 alias chbash='$EDITOR ~/.bashrc'
 alias chalias='$EDITOR ~/.config/bash/aliases'
 alias chenv='$EDITOR ~/.config/bash/env'
-alias cbox='$EDITOR ~/.utils/CodeGists/'
+alias chenvd='$EDITOR ~/.config/environment.d'
+alias chtmux='$EDITOR ~/.config/tmux/tmux.conf'
+alias chalac='$EDITOR ~/.config/alacritty/alacritty.toml'
+alias chstar='$EDITOR ~/.config/starship/starship.toml'
 
 # Docker
 alias dk='docker'
@@ -80,6 +93,7 @@ alias dkdown='docker compose down'
 alias sysinfo='inxi -v 8'
 alias duh='du -ha --max-depth=1 | sort -rh'
 alias p="ps aux | grep $1" # Seems like direct arguments only works for | grep
+alias gpgls="gpg --list-secret-keys --keyid-format=long"
 
 # Networking
 alias ipinfo='curl ipinfo.io && echo && echo "Local IP: $(hostname -I)"'
@@ -93,20 +107,24 @@ alias pysrv='python -m SimpleHTTPServer'
 alias pyvenv='[ -d .venv ] && { read -p "A virtual environment already exists. Do you want to recreate it? (y/n): " -n 1 -r && echo ""; [[ $REPLY =~ ^[Yy]$ ]] && rm -rf .venv; } || python -m venv .venv'
 alias pyon='source .venv/bin/activate'
 alias pyoff='deactivate'
+alias uvi="uv pip install"
 
 # Terminal Translator
 alias pt='trans :pt'
 alias en='trans'
 
 # Utils
-# alias rm='trash-put'
+alias rmt='trash-put'
 alias mkdirs='mkdir -p'
 alias src='source ~/.bashrc'
-alias lv='lvim'
-alias nv='nvim'
 alias v='$EDITOR'
+alias nv='nvim'
+alias nvd='NVIM_APPNAME=nvim-dev nvim'
+alias nvpull='git -C "$HOME/.config/nvim" pull'
+alias lv='lvim'
 alias cat='bat -p'
-alias whether='curl wttr.in/Barreiras'
+alias weather='curl wttr.in/Barreiras'
+alias reminders='atq'
 alias psg="ps aux | grep $1"
 alias ram="free -mh | bat -l cpuinfo -p"
 alias sensors="sensors | bat -l cpuinfo -p"
@@ -116,18 +134,23 @@ h(){
 code(){
     cat "$(command -v "$1")"
 }
+rmc() {
+    printf '%s\n' "$@"
+    read -rp "Delete these files? [y/N] " confirm
+    [[ $confirm == [yY] ]] && rm -- "$@"
+}
 
-# Download the best video quality + best audio to ~/Videos dir
-alias ytv='yt-dlp -f "bv*+ba/b" -P "$HOME/Videos"'
+# Best video + best audio + embedded English subtitles to ~/Videos
+alias ytv='yt-dlp -f "bv*+ba/b" -P "$HOME/Videos" --merge-output-format mkv --write-subs --write-auto-subs --sub-langs "^en$" --sub-format "srt/best" --convert-subs srt --embed-subs --compat-options no-keep-subs --sleep-subtitles 2'
 
-## Download the best video quality(With subtitles in english) + best audio to ~/Videos dir
-alias ytvonly='yt-dlp --no-write-subs --no-write-auto-subs -f "bv*+ba/b" -P "$HOME/Videos"'
+# Best video + best audio, no subtitles, to ~/Videos
+alias ytvonly='yt-dlp -f "bv*+ba/b" -P "$HOME/Videos" --merge-output-format mkv --no-write-subs --no-write-auto-subs --no-embed-subs'
 
-# Download the best audio quality to Music dir
-alias ytaonly='yt-dlp -t mp3 -P "$HOME/Music"'
+# Best audio as MP3 to ~/Music
+alias ytaonly='yt-dlp -f "ba/b" -P "$HOME/Music" -x --audio-format mp3 --audio-quality 0 --no-write-subs --no-write-auto-subs --no-embed-subs'
 
-## Download the best audio quality to Music dir with thumbnail
-alias yta='yt-dlp -t mp3 --embed-thumbnail --no-write-subs --no-write-auto-subs -P "$HOME/Music"'
+# Best audio as MP3 + embedded thumbnail to ~/Music
+alias yta='yt-dlp -f "ba/b" -P "$HOME/Music" -x --audio-format mp3 --audio-quality 0 --embed-thumbnail --no-write-subs --no-write-auto-subs --no-embed-subs'
 
 alias screenlight='xrandr --output HDMI-0 --brightness'
 alias gemini='npx https://github.com/google-gemini/gemini-cli'
@@ -143,6 +166,8 @@ alias egrep='egrep --color=auto'
 
 # Add an "alert" alias for long running commands.  Use like so: $ sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+alias ollama-update='curl -fsSL https://ollama.com/install.sh | sh'
 
 # Markdown viewer
 md(){
@@ -168,4 +193,11 @@ function y(){
 cmde(){
     local my_command="$1"
     lvim "$(readlink -f -- "$(command -v -- "$my_command")")"
+}
+
+remind() {
+    local time="$1"
+    shift
+    local message="$*"
+    echo "notify-send 'Reminder' '$message'; paplay /usr/share/sounds/freedesktop/stereo/complete.oga" | at "$time"
 }

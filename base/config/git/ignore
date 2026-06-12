@@ -1,9 +1,11 @@
-# Gradle files
+# Android
+## Gradle files
 .gradle
 build
 
 # Local files
 local.properties
+.tool-versions
 
 # IDE
 .idea/
@@ -11,13 +13,18 @@ local.properties
 # Secrets
 *.jks
 *.keystore
+secrets.properties
+google-services.json
+google-play-service-account.json
 
 # Generated
 release/
 
-# Integration files
-google-services.json
-dev-service-account.json
+# fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/
+fastlane/test_output/
 
 # Other
 *.db
@@ -25,7 +32,6 @@ dev-service-account.json
 config.local
 *.log
 history
-.tool-versions
 # Idk - Might need in future
 # *.log
 # *.hprof
@@ -33,6 +39,9 @@ history
 # .externalNativeBuild/
 # .cxx/
 # output-metadata.json
+
+# Python
+.venv
 
 # Personal
 notes.md

@@ -1,0 +1,43 @@
+{
+  "name": "nvim-snippets",
+  "author": "BrunoGuimaraes",
+  "engines": {
+    "vscode": "^1.11.0"
+  },
+  "contributes": {
+    "snippets": [
+      {
+        "language": "python",
+        "path": "./python.json"
+      },
+      {
+        "language": "java",
+        "path": "./java.json"
+      },
+      {
+        "language": "sh",
+        "path": "./shell.json"
+      },
+      {
+        "language": "shell",
+        "path": "./shell.json"
+      },
+      {
+        "language": "bash",
+        "path": "./shell.json"
+      },
+      {
+        "language": "dart",
+        "path": "./dart.json"
+      },
+      {
+        "language": "markdown",
+        "path": "./markdown.json"
+      },
+      {
+        "language": "c",
+        "path": "./c.json"
+      }
+    ]
+  }
+}

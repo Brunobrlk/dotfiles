@@ -1,71 +1,77 @@
+" =========================
+" General Options
+" =========================
 let mapleader=" "
 imap jk <ESC>
+set scrolloff=8
 
-" better HJKL
-map H ^
-map L $
-map J 10j
-map K 10k
+" =========================
+" Editing
+" =========================
+" Create File | Create Package | Create Template => If Conflicts, migrate to Add File / Add Package using af and ap
+" map <leader>cf <Action>(Kotlin.NewFile)
+" map <leader>cp <Action>(NewDir)
+" map <leader>ct <Action>(NewFromTemplate)
+" map <leader>co <Action>(CollapseRegion)
 
-map <A-j> <Action>(MoveStatementDown)
 map <A-k> <Action>(MoveStatementUp)
+map <A-j> <Action>(MoveStatementDown)
+map <leader>/ <Action>(CommentByLineComment)
 
-" Open Windows
-" map <leader>e <Action>(ActivateProjectToolWindow) kind of trash the way it behaves
-
-" Run | Restart | Run Code-changes
-" Run Debug | Run Attach debug | Run Stop
-map <leader>rr <Action>(Run)
-map <leader>re <Action>(android.deploy.ApplyChanges)
-map <leader>rc <Action>(android.deploy.CodeSwap)
-map <leader>rd <Action>(Debug)
-map <leader>ra <Action>(AndroidConnectDebuggerAction)
-map <leader>rs <Action>(Stop)
-
-" Inspect Code | Tag Organize | AssembleDebug(Check errors)
-map <leader>ci <Action>(InspectCode)
-map <leader>to <Action>(IntentionActionAsAction_com.intellij.codeInsight.daemon.impl.analysis.RearrangeAttributesIntention)
+" =========================
+" [B]uild (Gradle)
+" =========================
+map <leader>br <action>(RebuildGradleProject)
+map <leader>bc <Action>(CleanGradleProject)
+map <leader>bs <Action>(Android.SyncProject)
+map <leader>ba <Action>(Android.GenerateSignedApk)
+map <leader>bi <Action>(InvalidateCaches)
 map <leader>ad <Action>(MakeGradleProject)
 
-" ReBuild | Clean | Sync Project
-map <leader>rb <action>(RebuildGradleProject)
-map <leader>cl <Action>(CleanGradleProject)
-map <leader>sy <Action>(Android.SyncProject)
-map <leader>ga <Action>(Android.GenerateSignedApk)
-map <leader>ic <Action>(InvalidateCaches)
-
-map <leader>t1 <Action>(Android.Designer.CommonActions.ForceCompileAndRefreshActionForNotification)
-map <leader>t2 <Action>(ForceRefresh)
-
-
-" Git Log | Git Diff
+" =========================
+" [G]it
+" =========================
 map <leader>gl <Action>(ActivateVersionControlToolWindow)
 map <leader>gd <Action>(Compare.SameVersion)
 
-" Split Vertical | Split Horizontal
+" =========================
+" [T]ools (Windows)
+" =========================
+map <leader>e <Action>(ActivateProjectToolWindow)
+map <leader>h <Action>(HideAllWindows)
 map <leader>sv <Action>(MoveTabRight)
 map <leader>sh <Action>(MoveTabDown)
+map <leader>sf <Action>(FindInPath)
+map <leader>c <Action>(CloseContent)
 
-" Hide
-map <leader>h <Action>(HideAllWindows)
+" =========================
+" [R]un
+" =========================
+map <leader>rr <Action>(Run)
+map <leader>re <Action>(android.deploy.ApplyChanges)
+map <leader>rw <Action>(android.deploy.CodeSwap)
+map <leader>rd <Action>(Debug)
+map <leader>ra <Action>(AndroidConnectDebuggerAction)
+map <leader>rs <Action>(Stop)
+map <leader>rc <Action>(editRunConfigurations)
 
-" Edit Configurations
-map <leader>cr <Action>(editRunConfigurations)
+" =========================
+" [L]sp (IDE) Actions
+" =========================
+map <leader>li <Action>(InspectCode)
+map <leader>lo <Action>(IntentionActionAsAction_com.intellij.codeInsight.daemon.impl.analysis.RearrangeAttributesIntention)
+map <leader>l1 <Action>(Android.Designer.CommonActions.ForceCompileAndRefreshActionForNotification)
+map <leader>l2 <Action>(ForceRefresh)
 
-" Create File | Create Package | Create Template => If Conflicts, migrate to Add File / Add Package using af and ap
-map <leader>cf <Action>(Kotlin.NewFile)
-map <leader>cp <Action>(NewDir)
-map <leader>ct <Action>(NewFromTemplate)
-
-" Collapse Region
-map <leader>co <Action>(CollapseRegion)
-
+" =========================
+" Handlers
+" =========================
 sethandler <C-2> a:ide
 sethandler <C-S-2> a:ide
 sethandler <C-A> a:vim
 sethandler <C-B> a:ide
 sethandler <C-C> a:ide
-sethandler <C-D> a:ide
+sethandler <C-D> a:vim
 sethandler <C-E> a:vim
 sethandler <C-F> a:ide
 sethandler <C-G> a:vim

@@ -35,21 +35,21 @@ TAB: menu-complete
 "\C-p": history-search-backward
 "\C-n": history-search-forward
 
-"\eb": backward-word
-"\ew": forward-word
+# "\eb": backward-word
+# "\ew": forward-word
 
-"\eh": backward-char
-"\el": forward-char
+# "\eh": backward-char
+# "\el": forward-char
 
-"\ea": beginning-of-line
-"\ee": end-of-line
+# "\ea": beginning-of-line
+# "\ee": end-of-line
 
 # ──────────────────────────────────────────────────────────────────────────────
 # Editing
 # ──────────────────────────────────────────────────────────────────────────────
 
-"\ej": backward-kill-word
-"\ek": kill-word
+# "\ej": backward-kill-word
+# "\ek": kill-word
 
 # Insert last argument of previous command (very useful)
 "\e.": yank-last-arg
@@ -58,7 +58,7 @@ TAB: menu-complete
 "\et": transpose-words
 
 # Edit current command in $EDITOR, then execute
-"\C-e": edit-and-execute-command
+# "\C-e": edit-and-execute-command
 
 # ──────────────────────────────────────────────────────────────────────────────
 # Reference | Remember

@@ -1,6 +1,6 @@
 lvim.lsp.installer.setup.ensure_installed = {
-  "kotlin_language_server",
   "java-language-server",
+  "kotlin-lsp",
   "groovy-language-server",
   "vim-language-server",
   "json-lsp",
