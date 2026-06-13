@@ -10,3 +10,8 @@
 - [x] Add logs to scripts
 - [x] Fix bash/history not found = mkdir ~/.cache/bash
 - [ ] Migrate nvim to outside repo: remove and clone on install.sh
+- [ ] Add an initial history file to bash with great commands
+- [ ] Check whether brave config can be useful
+- [ ] Check whether export bruno config
+- [ ] dconf and rofi
+- [ ] copy nvim-dev on config or create again? Problem with links?

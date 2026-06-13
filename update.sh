@@ -44,6 +44,7 @@ update_config() {
   logi "Updating config files"
   mkdir -p "$SCRIPT_DIR/base/config"
 
+  rsync -ai "$HOME/.config/aichat" "$SCRIPT_DIR/base/config/"
   rsync -ai "$HOME/.config/alacritty" "$SCRIPT_DIR/base/config/"
   rsync -ai "$HOME/.config/asdf/tool-versions" "$SCRIPT_DIR/base/config/asdf/"
 
@@ -71,6 +72,8 @@ update_config() {
   rsync -ai "$HOME/.config/nvim" "$SCRIPT_DIR/base/config/"
   rsync -ai "$HOME/.config/PCSX2" "$SCRIPT_DIR/base/config/"
   rsync -ai "$HOME/.config/polybar" "$SCRIPT_DIR/base/config/"
+  rsync -ai "$HOME/.config/profile" "$SCRIPT_DIR/base/config/"
+  rsync -ai "$HOME/.config/rclone" "$SCRIPT_DIR/base/config/"
   rsync -ai "$HOME/.config/readline" "$SCRIPT_DIR/base/config/"
   rsync -ai "$HOME/.config/rmpc" "$SCRIPT_DIR/base/config/"
   rsync -ai "$HOME/.config/rofi" "$SCRIPT_DIR/base/config/"
@@ -83,8 +86,8 @@ update_config() {
     "$HOME/.config/tmux" "$SCRIPT_DIR/base/config/"
 
   rsync -ai "$HOME/.config/wget" "$SCRIPT_DIR/base/config/"
-  rsync -ai "$HOME/.config/yt-dlp" "$SCRIPT_DIR/base/config/"
   rsync -ai "$HOME/.config/yazi" "$SCRIPT_DIR/base/config/"
+  rsync -ai "$HOME/.config/yt-dlp" "$SCRIPT_DIR/base/config/"
 }
 
 sync_bash_scope() {
