@@ -11,7 +11,7 @@ go = "latest"
 gradle = "latest"
 java = "openjdk-17.0.2"
 kotlin = "latest"
-node = "21"
+node = "22"
 opencode = "latest"
 pipx = "latest"
 python = "3.12"
@@ -19,4 +19,6 @@ rust = "latest"
 sqlite = "latest"
 usage = "latest"
 uv = "latest"
+vercel = { version = "latest", allow_builds = ["esbuild"] }
+wrangler = { version = "latest", allow_builds = ["esbuild", "sharp", "workerd"] }
 yt-dlp = { version = "2026.03.17", rename_exe = "yt-dlp" }

@@ -116,5 +116,41 @@
             "```"
         ],
         "description": "Insert a fenced code block and jump from language to body"
+    },
+    "Markdown Kotlin Code Fence": {
+        "prefix": "codekt",
+        "body": [
+            "```kotlin",
+            "$0",
+            "```"
+        ],
+        "description": "Insert a Kotlin fenced code block"
+    },
+    "Markdown Text Code Fence": {
+        "prefix": "codetxt",
+        "body": [
+            "```text",
+            "$0",
+            "```"
+        ],
+        "description": "Insert a text fenced code block"
+    },
+    "Markdown Python Code Fence": {
+        "prefix": "codepy",
+        "body": [
+            "```python",
+            "$0",
+            "```"
+        ],
+        "description": "Insert a Python fenced code block"
+    },
+    "Markdown Dart Code Fence": {
+        "prefix": "codedart",
+        "body": [
+            "```dart",
+            "$0",
+            "```"
+        ],
+        "description": "Insert a Dart fenced code block"
     }
 }

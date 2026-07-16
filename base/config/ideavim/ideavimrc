@@ -9,10 +9,10 @@ set scrolloff=8
 " Editing
 " =========================
 " Create File | Create Package | Create Template => If Conflicts, migrate to Add File / Add Package using af and ap
-" map <leader>cf <Action>(Kotlin.NewFile)
-" map <leader>cp <Action>(NewDir)
-" map <leader>ct <Action>(NewFromTemplate)
 " map <leader>co <Action>(CollapseRegion)
+map <leader>nf <Action>(Kotlin.NewFile)
+map <leader>np <Action>(NewDir)
+map <leader>nt <Action>(NewFromTemplate)
 
 map <A-k> <Action>(MoveStatementUp)
 map <A-j> <Action>(MoveStatementDown)
@@ -24,36 +24,35 @@ map <leader>/ <Action>(CommentByLineComment)
 map <leader>br <action>(RebuildGradleProject)
 map <leader>bc <Action>(CleanGradleProject)
 map <leader>bs <Action>(Android.SyncProject)
-map <leader>ba <Action>(Android.GenerateSignedApk)
 map <leader>bi <Action>(InvalidateCaches)
-map <leader>ad <Action>(MakeGradleProject)
+map <leader>ba <Action>(MakeGradleProject)
 
 " =========================
 " [G]it
 " =========================
-map <leader>gl <Action>(ActivateVersionControlToolWindow)
+" map <leader>gl <Action>(ActivateVersionControlToolWindow)
 map <leader>gd <Action>(Compare.SameVersion)
 
 " =========================
 " [T]ools (Windows)
 " =========================
 map <leader>e <Action>(ActivateProjectToolWindow)
+map <leader>c <Action>(CloseContent)
 map <leader>h <Action>(HideAllWindows)
 map <leader>sv <Action>(MoveTabRight)
 map <leader>sh <Action>(MoveTabDown)
-map <leader>sf <Action>(FindInPath)
-map <leader>c <Action>(CloseContent)
+map <leader>st <Action>(FindInPath)
+map <leader>sf <Action>(SearchEverywhere)
 
 " =========================
 " [R]un
 " =========================
 map <leader>rr <Action>(Run)
+map <leader>rs <Action>(Stop)
 map <leader>re <Action>(android.deploy.ApplyChanges)
-map <leader>rw <Action>(android.deploy.CodeSwap)
+map <leader>rc <Action>(android.deploy.CodeSwap)
 map <leader>rd <Action>(Debug)
 map <leader>ra <Action>(AndroidConnectDebuggerAction)
-map <leader>rs <Action>(Stop)
-map <leader>rc <Action>(editRunConfigurations)
 
 " =========================
 " [L]sp (IDE) Actions

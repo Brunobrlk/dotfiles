@@ -39,7 +39,7 @@ Cycle Overview=none,none,Cycle through Overview and Grid View
 Cycle Overview Opposite=none,none,Cycle through Grid View and Overview
 Decrease Opacity=none,,Decrease Opacity of Active Window by 5%
 Edit Tiles=Meta+Shift+T,Meta+T,Toggle Tiles Editor
-Expose=Ctrl+F9,Meta+F9\tCtrl+F9,Toggle Present Windows (Current desktop)
+Expose=none,Meta+F9\tCtrl+F9,Toggle Present Windows (Current desktop)
 ExposeAll=Ctrl+F10\tLaunch (C),Meta+F10\tLaunch (C)\tCtrl+F10,Toggle Present Windows (All desktops)
 ExposeClass=Ctrl+F7,Meta+F7\tCtrl+F7,Toggle Present Windows (Window class)
 ExposeClassCurrentDesktop=none,none,Toggle Present Windows (Window class on current desktop)
@@ -319,6 +319,9 @@ _launch=Meta+S
 
 [services][net.local.rofi-bookmarks.desktop]
 _launch=Meta+Shift+B
+
+[services][net.local.rofi-shortcuts.desktop]
+_launch=Meta+/
 
 [services][net.thunderbird.Thunderbird.desktop]
 _launch=Meta+E

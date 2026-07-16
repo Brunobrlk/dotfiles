@@ -143,7 +143,7 @@ LookAndFeelPackage=org.fedoraproject.fedoradark.desktop
 
 [KFileDialog Settings]
 Allow Expansion=false
-Automatically select filename extension=true
+Automatically select filename extension=false
 Breadcrumb Navigation=true
 Decoration position=2
 Show Full Path=false

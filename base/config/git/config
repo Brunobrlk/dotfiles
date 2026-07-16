@@ -64,13 +64,12 @@
 
     dfs = diff --staged
 
-    rh = reset HEAD
+    unstage = restore --staged .
 
     aa = add -A
-    ap = add --patch
     cm = commit
-    cma = commit -a
-    amend = commit -a --amend --no-edit
+    cma = "!f() { if [ -z \"$1\" ]; then echo 'Error: commit message required'; else git add -A && git commit -m \"$1\"; fi; }; f"
+    amend = commit --amend --no-edit
 
     pullr = pull --rebase
     pushf = push --force-with-lease

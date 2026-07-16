@@ -9,8 +9,11 @@
 
 shopt -s expand_aliases
 
+XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
+XDG_BASH_CONFIG="${XDG_CONFIG_HOME}/bash"
+
 # Additional fragments(Run at the beginning): display server, desktop and other specific/variable configuration
-for f in ~/.config/bash/aliases.d/*.sh; do
+for f in "$XDG_BASH_CONFIG"/aliases.d/*.sh; do
   [ -r "$f" ] && . "$f"
 done
 
@@ -92,8 +95,19 @@ alias dkdown='docker compose down'
 # System information
 alias sysinfo='inxi -v 8'
 alias duh='du -ha --max-depth=1 | sort -rh'
-alias p="ps aux | grep $1" # Seems like direct arguments only works for | grep
 alias gpgls="gpg --list-secret-keys --keyid-format=long"
+psgrep() {
+    ps aux | grep -- "$@"
+}
+p() {
+    psgrep "$@"
+}
+psg() {
+    psgrep "$@"
+}
+lspath() {
+    printf '%s\n' "$PATH" | tr ':' '\n'
+}
 
 # Networking
 alias ipinfo='curl ipinfo.io && echo && echo "Local IP: $(hostname -I)"'
@@ -125,9 +139,9 @@ alias lv='lvim'
 alias cat='bat -p'
 alias weather='curl wttr.in/Barreiras'
 alias reminders='atq'
-alias psg="ps aux | grep $1"
 alias ram="free -mh | bat -l cpuinfo -p"
 alias sensors="sensors | bat -l cpuinfo -p"
+alias clean-notebook='sudo timeout 2m evtest --grab /dev/input/event4 >/dev/null 2>&1'
 h(){
     "$@" --help 2>&1 | bat --plain --language=help
 }
@@ -171,13 +185,15 @@ alias ollama-update='curl -fsSL https://ollama.com/install.sh | sh'
 
 # Markdown viewer
 md(){
-    pandoc $1 > /tmp/$1.html
-    xdg-open /tmp/$1.html
+    local output
+    output="$(mktemp --suffix=.html)" || return 1
+    pandoc "$1" > "$output" || return 1
+    xdg-open "$output"
 }
 
 # Clone repository using name/repo pattern
 gcl(){
-    git clone git@github.com:$1
+    git clone "git@github.com:$1"
 }
 
 # Yazi

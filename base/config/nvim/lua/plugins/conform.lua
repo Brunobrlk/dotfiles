@@ -17,6 +17,7 @@ return {
 				typescript = { "prettier" },
 				html = { "prettier" },
 				css = { "prettier" },
+				yaml = { "prettier" },
 			},
 		})
 	end,

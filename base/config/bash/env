@@ -1,5 +1,13 @@
 # Bash specific environment
 
+# XDG defaults
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
+export XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache}"
+export XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
+export XDG_STATE_HOME="${XDG_STATE_HOME:-$HOME/.local/state}"
+
+XDG_BASH_CONFIG="${XDG_CONFIG_HOME}/bash"
+
 # =========================
 # Base
 # =========================
@@ -16,7 +24,7 @@ HISTIGNORE="ls:ll:la:l:cd:pwd:exit:history:clear"
 HISTFILE="$XDG_CACHE_HOME/bash/history"
 LESSHISTFILE="$XDG_CONFIG_HOME/less/lesshst"
 
-PROMPT_COMMAND="history -a; history -n"
+PROMPT_COMMAND="history -a; history -n${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
 
 # =========================
 # Pager / CLI tools
@@ -53,6 +61,6 @@ export DBG_BASH_ENV="Hello World from .config/bash/env"
 # =========================
 # Additional fragments: display server, desktop and other specific/variable configuration
 # =========================
-for f in ~/.config/bash/env.d/*.conf; do
+for f in "$XDG_BASH_CONFIG"/env.d/*.conf; do
   [ -r "$f" ] && . "$f"
 done

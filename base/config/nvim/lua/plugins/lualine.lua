@@ -8,8 +8,9 @@ return {
 	config = function()
 		local avd = require("linecomp.avd")
 		local companion = require("linecomp.codecompanion")
-        local dev =  require("linecomp.dev")
-        local companion_spinner =  require("linecomp.codecompanion_spinner")
+		local dev = require("linecomp.dev")
+		local companion_spinner = require("linecomp.codecompanion_spinner")
+		local macro_recording = require("linecomp.macros")
 
 		require("lualine").setup({
 			options = {
@@ -24,6 +25,22 @@ return {
 				ignore_focus = {},
 				always_last_status = true,
 				globalstatus = true,
+				refresh = {
+					events = {
+						"WinEnter",
+						"BufEnter",
+						"BufWritePost",
+						"SessionLoadPost",
+						"FileChangedShellPost",
+						"VimResized",
+						"Filetype",
+						"CursorMoved",
+						"CursorMovedI",
+						"ModeChanged",
+						"RecordingEnter",
+						"RecordingLeave",
+					},
+				},
 			},
 			sections = {
 				lualine_a = {
@@ -48,6 +65,10 @@ return {
 							return ""
 						end,
 						color = { fg = "#ff9e64" },
+					},
+					{
+						macro_recording.update_status,
+						color = { fg = "#fab387", gui = "bold" },
 					},
 				},
 				lualine_x = {

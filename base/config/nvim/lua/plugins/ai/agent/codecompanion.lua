@@ -138,7 +138,7 @@ return {
 					},
 				},
 			},
-			inline = { adapter = "ollama_remote_code" },
+			inline = { adapter = "gemini" },
 			cmd = { adapter = "gemini" },
 			cli = {
 				agent = "opencode",
