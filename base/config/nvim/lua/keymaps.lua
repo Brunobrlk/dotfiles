@@ -109,14 +109,23 @@ vmap("<leader>af", "<cmd>CodeCompanionChat /fix<cr>", "Fix")
 nmap("<leader>bf", function()
 	require("conform").format({ async = true })
 end, "Format (Conform)")
+local function reload_current_buffer()
+	if vim.bo.modified then
+		vim.notify("Buffer has unsaved changes", vim.log.levels.WARN)
+		return
+	end
+
+	vim.cmd("checktime")
+	vim.cmd("edit")
+	vim.notify("Buffer reloaded from disk")
+end
+
+nmap("<leader>bu", reload_current_buffer, "Update from disk")
 nmap("<leader>bh", "<cmd>BufferLineCloseLeft<CR>", "Close Left")
 nmap("<leader>bl", "<cmd>BufferLineCloseRight<CR>", "Close Right")
 
 nmap("<M-l>", "<cmd>BufferLineCycleNext<CR>", "Next Buffer")
 nmap("<M-h>", "<cmd>BufferLineCyclePrev<CR>", "Previous Buffer")
-nmap("<M-x>", function()
-	require("mini.bufremove").delete(0, false)
-end, "Close buffer")
 
 nmap("<leader>c", function()
 	require("mini.bufremove").delete(0, false)
@@ -194,6 +203,30 @@ local markdown_mappings = function()
 	end, "Sync Notes")
 end
 
+local platformio_mappings = function(buf)
+	local file = vim.api.nvim_buf_get_name(buf)
+	local root = vim.fs.root(file, { "platformio.ini" })
+
+	if not root or vim.fn.exists(":Piocmdf") ~= 2 then
+		return false
+	end
+
+	local function buf_nmap(lhs, rhs, desc)
+		map("n", lhs, rhs, opts(desc, { buffer = buf }))
+	end
+
+	buf_nmap("<leader>rc", "<cmd>Piocmdf run -t clean<cr>", "PlatformIO: Clean")
+	buf_nmap("<leader>rt", "<cmd>PioTermList<cr>", "PlatformIO: Terminals")
+    buf_nmap("<leader>rb", "<cmd>Piocmdf run<cr>", "PlatformIO: Build")
+    buf_nmap("<leader>ru", "<cmd>Piocmdf run -t upload<cr>", "PlatformIO: Upload")
+    buf_nmap("<leader>rm", "<cmd>Piocmdh run -t monitor<cr>", "PlatformIO: Monitor")
+	buf_nmap("<leader>rd", "<cmd>Piocmdf device list<cr>", "PlatformIO: Devices")
+	buf_nmap("<leader>rp", "<cmd>Piocmdf pkg list<cr>", "PlatformIO: Packages")
+	buf_nmap("<leader>rs", "<cmd>Piocmdf pkg update<cr>", "PlatformIO: Update packages")
+	buf_nmap("<leader>rB", "<cmd>Piocmdf run -t compiledb<cr>", "PlatformIO: Build Compiler DB")
+	return true
+end
+
 -- ======================
 -- [N]oice
 -- ======================
@@ -214,6 +247,7 @@ nmap("<leader>pl", "<cmd>lua require('persistence').load({ last = true })<cr>", 
 -- [R]un
 -- ======================
 local flutter_mappings = function()
+    nmap("<leader>rr", "<cmd>FlutterRun<cr>", "Flutter: Run")
 	nmap("<leader>rc", "<cmd>FlutterCopyProfilerUrl<cr>", "Flutter: Copy Profiler Url")
 	nmap("<leader>rC", "<cmd>Telescope flutter commands<CR>", "Flutter: Commands")
 	nmap("<leader>rd", "<cmd>FlutterDevices<cr>", "Flutter: Devices")
@@ -224,7 +258,6 @@ local flutter_mappings = function()
 	nmap("<leader>ro", "<cmd>FlutterOutlineToggle<cr>", "Flutter: Outline")
 	nmap("<leader>rp", "<cmd>FlutterPubGet<cr>", "Flutter: Pub Get")
 	nmap("<leader>rq", "<cmd>FlutterQuit<cr>", "Flutter: Quit")
-	nmap("<leader>rr", "<cmd>FlutterRun<cr>", "Flutter: Run")
 	nmap("<leader>rt", "<cmd>FlutterDevTools<cr>", "Flutter: Dev Tools")
 	nmap("<leader>rx", "<cmd>FlutterLogClear<cr>", "Flutter: Log Clear")
 end
@@ -301,7 +334,47 @@ local python_mappings = function()
 	dap_support()
 end
 
+local cpp_mappings = function(buf)
+	if platformio_mappings(buf) then
+		return
+	end
+
+	nmap("<leader>rr", function()
+		local file = vim.api.nvim_buf_get_name(buf)
+		local filename = vim.fn.fnamemodify(file, ":t")
+		local terminal = require("toggleterm.terminal").Terminal:new({
+			cmd = "buildcpp " .. vim.fn.shellescape(filename),
+			dir = vim.fn.getcwd(),
+			direction = "float",
+			close_on_exit = false,
+		})
+
+		terminal:toggle()
+	end, "C++: Run current file")
+end
+
+local c_mappings = function(buf)
+	if platformio_mappings(buf) then
+		return
+	end
+
+	nmap("<leader>rr", function()
+		local file = vim.api.nvim_buf_get_name(buf)
+		local filename = vim.fn.fnamemodify(file, ":t")
+		local terminal = require("toggleterm.terminal").Terminal:new({
+			cmd = "buildc " .. vim.fn.shellescape(filename),
+			dir = vim.fn.getcwd(),
+			direction = "float",
+			close_on_exit = false,
+		})
+
+		terminal:toggle()
+	end, "C: Run current file")
+end
+
 local languages_registry = { -- Trigger keymaps per filetype
+	c = c_mappings,
+	cpp = cpp_mappings,
 	python = python_mappings,
 	dart = flutter_mappings,
 	markdown = markdown_mappings,
@@ -373,14 +446,16 @@ function M.setup_lsp_keymaps(buf, client)
 		map(mode, lhs, rhs, utils.opts(desc, vim.tbl_extend("force", { buffer = buf }, extra or {})))
 	end
 
-	lmap("n", "<leader>lr", vim.lsp.buf.rename, "Rename")
-	lmap({ "n", "x" }, "<leader>la", vim.lsp.buf.code_action, "Code Action")
+    -- Docs
+    lmap("n", "gK", vim.lsp.buf.signature_help, "Signature Help")
 
+    -- Navigation and actions
+	lmap({ "n", "x" }, "<leader>la", vim.lsp.buf.code_action, "Code Action")
 	lmap("n", "<leader>lf", function()
 		require("conform").format({ async = true })
 	end, "Format (Conform)")
-
 	lmap("n", "<leader>lX", "<cmd>LspRestart<cr>", "Restart LSP")
+    lmap("n", "<leader>lr", vim.lsp.buf.rename, "Rename")
 	lmap("n", "<leader>lR", telescope.lsp_references, "References")
 	lmap("n", "<leader>li", telescope.lsp_implementations, "Implementation")
 	lmap("n", "<leader>ld", telescope.lsp_definitions, "Definitions")
@@ -388,22 +463,14 @@ function M.setup_lsp_keymaps(buf, client)
 	lmap("n", "<leader>ls", telescope.lsp_document_symbols, "Document Symbols")
 	lmap("n", "<leader>lS", telescope.lsp_dynamic_workspace_symbols, "Workspace Symbols")
 	lmap("n", "<leader>lt", telescope.lsp_type_definitions, "Type Definition")
-	lmap("n", "gd", vim.lsp.buf.definition, "Goto Definition")
-	lmap("n", "K", vim.lsp.buf.hover, "Hover Documentation")
-	lmap({ "n", "i" }, "gK", vim.lsp.buf.signature_help, "Signature Help")
-	lmap("n", "[d", function() vim.diagnostic.jump({ count = -1 }) end, "Previous Diagnostic")
-	lmap("n", "]d", function() vim.diagnostic.jump({ count = 1 }) end, "Next Diagnostic")
 	lmap("n", "<leader>ll", vim.diagnostic.open_float, "Line Diagnostics")
+    
 
-	lmap("n", "<C-b>", vim.lsp.buf.definition, "Go to LSP Definition") -- This was vim.lsp.buf.definition, so kept it
-	-- lmap("n", "<C-p>", "<cmd>lua require('lsp_signature').toggle_float_win()<cr>", { desc = "Toggle LSP Signature Float" })
-	-- lmap("i", "<C-p>", "<cmd>lua require('lsp_signature').toggle_float_win()<cr>", { desc = "Toggle LSP Signature Float" })
-
-	if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
-		lmap("n", "<leader>lh", function()
-			vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = buf }))
-		end, "Toggle Inlay Hints")
-	end
+    if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
+        lmap("n", "<leader>lh", function()
+            vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = buf }))
+        end, "Toggle Inlay Hints")
+    end
 end
 
 function M.setup_language_keymaps(buf)
@@ -419,7 +486,7 @@ function M.setup_language_keymaps(buf)
 		return
 	end
 
-	fn()
+	fn(buf)
 end
 
 return M

@@ -4,6 +4,8 @@ return {
 	config = function()
 		require("conform").setup({
 			formatters_by_ft = {
+				c = { "clang-format" },
+				cpp = { "clang-format" },
 				kotlin = { "ktlint" },
 				python = { "ruff" },
 				sh = { "shfmt" },
@@ -17,6 +19,7 @@ return {
 				typescript = { "prettier" },
 				html = { "prettier" },
 				css = { "prettier" },
+				cmake = { "gersemi", "cmake_format" },
 				yaml = { "prettier" },
 			},
 		})

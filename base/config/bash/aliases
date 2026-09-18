@@ -123,6 +123,13 @@ alias pyon='source .venv/bin/activate'
 alias pyoff='deactivate'
 alias uvi="uv pip install"
 
+# Espressif
+alias idf-on='source ~/.local/share/espressif/tools/activate_idf_v5.5.5.sh'
+alias idf-off='source ~/.local/share/espressif/tools/deactivate_idf_v5.5.5.sh'
+esp() {
+    eim run "idf.py $*" v5.5.5
+}
+
 # Terminal Translator
 alias pt='trans :pt'
 alias en='trans'
@@ -152,6 +159,9 @@ rmc() {
     printf '%s\n' "$@"
     read -rp "Delete these files? [y/N] " confirm
     [[ $confirm == [yY] ]] && rm -- "$@"
+}
+rmall() {
+    find "${1:-.}" -mindepth 1 -maxdepth 1 -exec rm -rf -- {} +
 }
 
 # Best video + best audio + embedded English subtitles to ~/Videos

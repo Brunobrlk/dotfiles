@@ -17,6 +17,8 @@ return {
 			require("mason-tool-installer").setup({
 				ensure_installed = {
 					-- LSP
+					"clangd",
+					"neocmakelsp",
 					"jdtls",
 					-- "kotlin-lsp",
 					"kotlin-language-server",
@@ -32,6 +34,7 @@ return {
 					"shellcheck",
 
 					-- Formatters
+					"clang-format",
 					"shfmt",
 					"xmlformatter",
 					"prettier",

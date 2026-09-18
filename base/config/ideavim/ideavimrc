@@ -6,17 +6,26 @@ imap jk <ESC>
 set scrolloff=8
 
 " =========================
-" Editing
+" Navigation
 " =========================
+map gd <Action>(GotoDeclaration)
+map grr <Action>(GotoDeclaration)
+map gri <Action>(GotoImplementation)
+map grt <Action>(GotoTypeDeclaration)
+
+" =========================
+" Editing (*)
+" =========================
+map <A-k> <Action>(MoveStatementUp)
+map <A-j> <Action>(MoveStatementDown)
+map <leader>/ <Action>(CommentByLineComment)
+map gra <Action>(Refactorings.QuickListPopupAction)
+
 " Create File | Create Package | Create Template => If Conflicts, migrate to Add File / Add Package using af and ap
 " map <leader>co <Action>(CollapseRegion)
 map <leader>nf <Action>(Kotlin.NewFile)
 map <leader>np <Action>(NewDir)
 map <leader>nt <Action>(NewFromTemplate)
-
-map <A-k> <Action>(MoveStatementUp)
-map <A-j> <Action>(MoveStatementDown)
-map <leader>/ <Action>(CommentByLineComment)
 
 " =========================
 " [B]uild (Gradle)
@@ -39,8 +48,6 @@ map <leader>gd <Action>(Compare.SameVersion)
 map <leader>e <Action>(ActivateProjectToolWindow)
 map <leader>c <Action>(CloseContent)
 map <leader>h <Action>(HideAllWindows)
-map <leader>sv <Action>(MoveTabRight)
-map <leader>sh <Action>(MoveTabDown)
 map <leader>st <Action>(FindInPath)
 map <leader>sf <Action>(SearchEverywhere)
 
@@ -84,7 +91,7 @@ sethandler <C-O> a:ide
 sethandler <C-P> a:ide
 sethandler <C-Q> a:ide
 sethandler <C-R> a:vim
-sethandler <C-S> a:vim
+sethandler <C-S> a:ide
 sethandler <C-U> a:vim
 sethandler <C-V> a:ide
 sethandler <C-W> a:ide

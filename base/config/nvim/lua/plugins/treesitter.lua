@@ -13,6 +13,7 @@ return {
 				"dart",
 				"c",
 				"cpp",
+				"cmake",
 				"c_sharp",
 				"lua",
 				"python",

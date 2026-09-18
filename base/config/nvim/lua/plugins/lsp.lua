@@ -7,7 +7,7 @@ return {
 			float = { border = "rounded", source = "if_many" },
 			underline = { severity = vim.diagnostic.severity.ERROR },
 			signs = vim.g.have_nerd_font and {
-                priority = 5,
+				priority = 5,
 				text = {
 					[vim.diagnostic.severity.ERROR] = "",
 					[vim.diagnostic.severity.WARN] = "",
@@ -32,16 +32,27 @@ return {
 		})
 
 		vim.lsp.config("*", { capabilities = require("blink.cmp").get_lsp_capabilities() })
+
+		vim.lsp.config("clangd", {
+			cmd = {
+				"clangd",
+				"--query-driver=/home/brunobrlk/.espressif/tools/xtensa-esp-elf/esp-14.2.0_20260121/xtensa-esp-elf/bin/xtensa-esp32s3-elf-g++",
+				"--background-index",
+			},
+		})
+
 		vim.lsp.enable({
-			"bashls",
-			"groovyls",
+			"clangd",
+			"neocmake",
 			"jdtls",
-			"jsonls",
-			-- "kotlin_lsp",
 			"kotlin_language_server",
-			"lua_ls",
+			-- "kotlin_lsp",
+			"groovyls",
 			"vimls",
+			"jsonls",
 			"yamlls",
+			"lua_ls",
+			"bashls",
 			"pyright",
 		})
 	end,

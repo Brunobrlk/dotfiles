@@ -12,6 +12,9 @@ return {
 				require("luasnip").config.setup({})
 				require("luasnip.loaders.from_vscode").lazy_load({
 					include = {
+						"c",
+						"cpp",
+						"neocmake",
 						"kotlin",
 						"java",
 						"dart",
@@ -58,12 +61,7 @@ return {
 		snippets = { preset = "luasnip" },
 		cmdline = { enabled = true },
 		keymap = {
-			preset = "none",
-			["<Up>"] = { "select_prev", "fallback" },
-			["<Down>"] = { "select_next", "fallback" },
-			["<CR>"] = { "accept", "fallback" },
-			["<C-n>"] = { "select_next", "snippet_forward", "fallback" },
-			["<C-p>"] = { "select_prev", "snippet_backward", "fallback" },
+			preset = "default",
 			["<Tab>"] = {
 				function(cmp)
 					local ok, supermaven = pcall(require, "supermaven-nvim.completion_preview")
@@ -71,18 +69,9 @@ return {
 						return false
 					end
 
-					if cmp.is_menu_visible() then
-						return cmp.accept()
-					end
-
 					return false
 				end,
 				"fallback",
-			},
-			["<C-y>"] = {
-				function(cmp)
-					cmp.show({ providers = { "snippets" } })
-				end,
 			},
 		},
 	},

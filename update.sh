@@ -73,7 +73,6 @@ update_config() {
   rsync -ai "$HOME/.config/PCSX2" "$SCRIPT_DIR/base/config/"
   rsync -ai "$HOME/.config/polybar" "$SCRIPT_DIR/base/config/"
   rsync -ai "$HOME/.config/profile" "$SCRIPT_DIR/base/config/"
-  rsync -ai "$HOME/.config/rclone" "$SCRIPT_DIR/base/config/"
   rsync -ai "$HOME/.config/readline" "$SCRIPT_DIR/base/config/"
   rsync -ai "$HOME/.config/rmpc" "$SCRIPT_DIR/base/config/"
   rsync -ai "$HOME/.config/rofi" "$SCRIPT_DIR/base/config/"

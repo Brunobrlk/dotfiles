@@ -1,0 +1,5 @@
+.dev/
+.nvimlog
+nvim-variations
+notes-ai.md
+spell/*.add.spl

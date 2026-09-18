@@ -54,6 +54,11 @@ vim.api.nvim_create_autocmd("FileType", {
 			optl.relativenumber = false
 			optl.signcolumn = "no"
 			optl.winfixwidth = true
+		elseif event.match == "markdown" then
+			local optl = vim.opt_local
+
+			optl.spell = true
+			optl.spelllang = { "en" }
 		end
 	end,
 })

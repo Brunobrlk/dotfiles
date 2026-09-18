@@ -15,6 +15,9 @@ export SHIV_ROOT="${XDG_CACHE_HOME}/shiv"
 export PYTHON_HISTORY="${XDG_STATE_HOME}/python_history"
 export CARGO_HOME="${XDG_DATA_HOME}/cargo"
 export PASSWORD_STORE_DIR="${XDG_DATA_HOME}/pass"
+export PLATFORMIO_CORE_DIR="${XDG_DATA_HOME}/platformio"
+export COOKIECUTTER_CONFIG="${XDG_CONFIG_HOME}/cookiecutter/config.yml"
+export AICHAT_ENV_FILE="${XDG_DATA_HOME}/secure/ai-keys-env"
 
 ## Docker
 export DOCKER_CONFIG="${XDG_CONFIG_HOME}/docker"
