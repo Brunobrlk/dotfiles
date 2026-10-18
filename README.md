@@ -22,6 +22,19 @@ This repository manages configuration for:
 
 All files are installed following XDG Base Directory conventions whenever possible.
 
+Hardcoded/Trash:
+
+App | Legacy path | Notes
+-- | -- | --
+kotlin | ~/.kotlinc_history | Related Konan issue: https://youtrack.jetbrains.com/issue/KT-40763
+Ollama | ~/.ollama | https://github.com/ollama/ollama/issues/228 - Model locations can be set with: `OLLAMA_MODELS=$XDG_DATA_HOME/ollama/models`
+flutter | ~/.flutter, ~/.flutter_settings, ~/.flutter_tool_state, ~/.pub-cache | https://github.com/flutter/flutter/issues/59430
+dart | ~/.dart, ~/.dart-tool, ~/.dartServer | https://github.com/dart-lang/sdk/issues/41560
+nvidia-settings | ~/.nvidia-settings-rc | https://github.com/NVIDIA/nvidia-settings/issues/30
+adb & Android Studio | ~/.android/ | Despite appearances otherwise, adb will always generate ~/.android/adbkeys, though it will try keys in ADB_VENDOR_KEYS as well.
+Java OpenJDK | ~/.java/fonts | https://bugzilla.redhat.com/show_bug.cgi?id=1154277, https://bugs.openjdk.org/browse/JDK-8290140
+maven | ~/.m2 | https://github.com/apache/maven/issues/8634
+
 Empty or minimal folders (for example: distro/debian, desktop/kde) are intentional
 and serve as examples.
 
