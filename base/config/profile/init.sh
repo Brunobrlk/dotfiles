@@ -18,6 +18,7 @@ export PASSWORD_STORE_DIR="${XDG_DATA_HOME}/pass"
 export PLATFORMIO_CORE_DIR="${XDG_DATA_HOME}/platformio"
 export COOKIECUTTER_CONFIG="${XDG_CONFIG_HOME}/cookiecutter/config.yml"
 export AICHAT_ENV_FILE="${XDG_DATA_HOME}/secure/ai-keys-env"
+export FZF_DEFAULT_OPTS_FILE="${XDG_CONFIG_HOME}/fzf/config"
 
 ## Docker
 export DOCKER_CONFIG="${XDG_CONFIG_HOME}/docker"

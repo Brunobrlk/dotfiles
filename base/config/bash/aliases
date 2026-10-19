@@ -50,10 +50,9 @@ alias cddev='cd ~/Development'
 alias cddown='cd ~/Downloads'
 alias cddoc='cd ~/Documents'
 alias cdnotes='cd ~/Documents/Vault'
-alias cdutil='cd ~/.utils'
 
 # Edit Files
-alias chprof='$EDITOR ~/.config/alacritty/alacritty.toml'
+alias chprof='$EDITOR ~/.config/profile/init.sh'
 alias chbash='$EDITOR ~/.bashrc'
 alias chalias='$EDITOR ~/.config/bash/aliases'
 alias chenv='$EDITOR ~/.config/bash/env'
@@ -71,16 +70,35 @@ alias dklog='docker logs'
 alias dkps='docker ps'
 alias dkpsa='docker ps -a'
 
-alias dkrm='docker rm'
 alias dkrmall='docker rm $(docker ps -a -q)'
 
 alias dkstart='docker start'
-alias dkstop='docker stop'
 alias dkstopall='docker stop $(docker ps -a -q)'
+# Select a docker container to start and attach to
+function dkattach() {
+  local cid
+  cid=$(docker ps -a | sed 1d | fzf -1 -q "$1" | awk '{print $1}')
+
+  [ -n "$cid" ] && docker start "$cid" && docker attach "$cid"
+}
+# Select a running docker container to stop
+function dkstop() {
+  local cid
+  cid=$(docker ps | sed 1d | fzf -q "$1" | awk '{print $1}')
+
+  [ -n "$cid" ] && docker stop "$cid"
+}
+# Select a docker containers to remove
+function dkrm() {
+  docker ps -a | sed 1d | fzf -q "$1" --no-sort -m --tac | awk '{ print $1 }' | xargs -r docker rm
+}
+# Select a docker image or images to remove
+function dkrmimg() {
+  docker images | sed 1d | fzf -q "$1" --no-sort -m --tac | awk '{ print $3 }' | xargs -r docker rmi
+}
 
 alias dkimg='docker image'
 alias dkimgs='docker images'
-alias dkrmimg='docker rmi'
 alias dkrmimgs='docker rmi $(docker images --quiet --filter "dangling=true")'
 
 alias dkvol='docker volume'
@@ -93,9 +111,9 @@ alias dkup='docker compose up'
 alias dkdown='docker compose down'
 
 # System information
-alias sysinfo='inxi -v 8'
+alias ls-sys='inxi -v 8'
 alias duh='du -ha --max-depth=1 | sort -rh'
-alias gpgls="gpg --list-secret-keys --keyid-format=long"
+alias ls-gpg="gpg --list-secret-keys --keyid-format=long"
 psgrep() {
     ps aux | grep -- "$@"
 }
@@ -105,19 +123,18 @@ p() {
 psg() {
     psgrep "$@"
 }
-lspath() {
+ls-path() {
     printf '%s\n' "$PATH" | tr ':' '\n'
 }
 
 # Networking
-alias ipinfo='curl ipinfo.io && echo && echo "Local IP: $(hostname -I)"'
-alias ports='netstat -tulanp'
-alias wports='watch -n 1 netstat -tulanp'
+alias ls-ip='curl ipinfo.io && echo && echo "Local IP: $(hostname -I)"'
+alias ls-ports='ss -tulanp'
 
 # Python
 alias py='python'
 alias pyapp='python app.py'
-alias pysrv='python -m SimpleHTTPServer'
+alias pysrv='python -m http.server --bind 127.0.0.1'
 alias pyvenv='[ -d .venv ] && { read -p "A virtual environment already exists. Do you want to recreate it? (y/n): " -n 1 -r && echo ""; [[ $REPLY =~ ^[Yy]$ ]] && rm -rf .venv; } || python -m venv .venv'
 alias pyon='source .venv/bin/activate'
 alias pyoff='deactivate'
@@ -146,7 +163,7 @@ alias lv='lvim'
 alias cat='bat -p'
 alias weather='curl wttr.in/Barreiras'
 alias reminders='atq'
-alias ram="free -mh | bat -l cpuinfo -p"
+alias ls-ram="free -mh | bat -l cpuinfo -p"
 alias sensors="sensors | bat -l cpuinfo -p"
 alias clean-notebook='sudo timeout 2m evtest --grab /dev/input/event4 >/dev/null 2>&1'
 h(){
@@ -165,7 +182,7 @@ rmall() {
 }
 
 # Best video + best audio + embedded English subtitles to ~/Videos
-alias ytv='yt-dlp -f "bv*+ba/b" -P "$HOME/Videos" --merge-output-format mkv --write-subs --write-auto-subs --sub-langs "^en$" --sub-format "srt/best" --convert-subs srt --embed-subs --compat-options no-keep-subs --sleep-subtitles 2'
+alias ytv='yt-dlp -f "bv*+ba/b" -P "$HOME/Videos" --merge-output-format mkv --write-subs --write-auto-subs --sub-langs "^en-orig$" --sub-format "srt/best" --convert-subs srt --embed-subs --compat-options no-keep-subs --sleep-subtitles 2'
 
 # Best video + best audio, no subtitles, to ~/Videos
 alias ytvonly='yt-dlp -f "bv*+ba/b" -P "$HOME/Videos" --merge-output-format mkv --no-write-subs --no-write-auto-subs --no-embed-subs'
@@ -180,9 +197,9 @@ alias screenlight='xrandr --output HDMI-0 --brightness'
 alias gemini='npx https://github.com/google-gemini/gemini-cli'
 
 alias ls='ls --color=auto'
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
+alias ll='ls -lhaF'
+alias la='ls -AF'
+alias l='ll'
 
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'

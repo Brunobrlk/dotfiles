@@ -97,6 +97,7 @@ format = '[[($all_status$ahead_behind )](fg:white)]($style)'
 symbol = ""
 style = "fg:teal"
 format = '[[$symbol( $version) ](fg:teal)]($style)'
+detect_files = ['.node-version', '.nvmrc']
 
 [c]
 symbol = ""
