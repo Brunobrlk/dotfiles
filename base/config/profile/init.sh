@@ -20,6 +20,21 @@ export COOKIECUTTER_CONFIG="${XDG_CONFIG_HOME}/cookiecutter/config.yml"
 export AICHAT_ENV_FILE="${XDG_DATA_HOME}/secure/ai-keys-env"
 export FZF_DEFAULT_OPTS_FILE="${XDG_CONFIG_HOME}/fzf/config"
 
+# Dev
+export EDITOR="nvim"
+export GRADLE_USER_HOME="${XDG_DATA_HOME}/gradle"
+export ANDROID_SDK_ROOT="${HOME}/opt/android-sdk"
+export ANDROID_HOME="${ANDROID_SDK_ROOT}" # Compatibility with tools that still read ANDROID_HOME
+export ANDROID_USER_HOME="${XDG_CONFIG_HOME}/android"
+export ANDROID_EMULATOR_HOME="${ANDROID_USER_HOME}"
+export ANDROID_AVD_HOME="${ANDROID_EMULATOR_HOME}/avd"
+
+# Desktop
+export CHROME_EXECUTABLE="${XDG_DATA_HOME}/flatpak/exports/bin/com.google.Chrome"
+export MPD_HOST="127.0.0.1"
+export BITWARDEN_SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/bitwarden-ssh-agent.sock"
+export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/bitwarden-ssh-agent.sock"
+
 ## Docker
 export DOCKER_CONFIG="${XDG_CONFIG_HOME}/docker"
 
@@ -41,22 +56,6 @@ export ANSIBLE_GALAXY_CACHE_DIR="${XDG_CACHE_HOME}/ansible/galaxy_cache"
 export ANSIBLE_LOCAL_TEMP="${XDG_CACHE_HOME}/ansible/tmp"
 export ANSIBLE_SSH_CONTROL_PATH_DIR="${XDG_CACHE_HOME}/ansible/cp"
 export ANSIBLE_ASYNC_DIR="${XDG_CACHE_HOME}/ansible_async"
-
-# Dev
-export EDITOR="nvim"
-
-export ANDROID_SDK_ROOT="${HOME}/opt/android-sdk"
-export ANDROID_HOME="${ANDROID_SDK_ROOT}" # Compatibility with tools that still read ANDROID_HOME
-
-export ANDROID_USER_HOME="${XDG_CONFIG_HOME}/android"
-export ANDROID_EMULATOR_HOME="${ANDROID_USER_HOME}"
-export ANDROID_AVD_HOME="${ANDROID_EMULATOR_HOME}/avd"
-
-export GRADLE_USER_HOME="${XDG_DATA_HOME}/gradle"
-
-# Desktop
-export CHROME_EXECUTABLE="${XDG_DATA_HOME}/flatpak/exports/bin/com.google.Chrome"
-export MPD_HOST="127.0.0.1"
 
 # Path
 export PATH="${PATH}:${ANDROID_HOME}/platform-tools"

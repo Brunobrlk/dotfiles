@@ -1,0 +1,36 @@
+path = "/home/brunobrlk/.local/share/espressif"
+idf_path = "/home/brunobrlk/.local/share/espressif/v5.5/esp-idf"
+
+esp_idf_json_path = "/home/brunobrlk/.local/share/espressif/tools"
+
+tool_download_folder_name = "/home/brunobrlk/.local/share/espressif/dist"
+tool_install_folder_name = "/home/brunobrlk/.local/share/espressif/tools"
+
+activation_script_path_override = "/home/brunobrlk/.local/share/espressif/tools"
+create_bat_activation_script = false
+
+python_env_folder_name = "python_env"
+
+cleanup = true
+
+target = ["esp32s3", "esp32c3"]
+idf_versions = ["v5.5.5"]
+
+tools_json_file = "tools/tools.json"
+
+config_file_save_path = "/home/brunobrlk/.config/espressif/eim_config.toml"
+
+non_interactive = true
+wizard_all_questions = false
+
+mirror = "https://github.com"
+idf_mirror = "https://github.com"
+pypi_mirror = "https://pypi.org/simple"
+
+recurse_submodules = true
+install_all_prerequisites = true
+
+skip_prerequisites_check = false
+skip_components_download = false
+
+idf_features = []

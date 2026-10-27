@@ -1,0 +1,4 @@
+PROMPT_LIBRARY_DIR="$HOME/Documents/Vault/.library/prompts"
+CODE_GISTS_DIR="$HOME/Documents/Vault/.library/code-gists"
+NOTES_DIR="$HOME/Documents/Vault/.library/quick-notes"
+SHORTCUTS_DIR="$HOME/Documents/Vault/.library/shortcuts"

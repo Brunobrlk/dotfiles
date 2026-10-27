@@ -1,0 +1,9 @@
+default_context:
+    full_name: "Bruno Guimaraes"
+    email: "brunoguimaraes.dev@gmail.com"
+    github_username: "Brunobrlk"
+cookiecutters_dir: "$XDG_DATA_HOME/cookiecutter"
+replay_dir: "$XDG_CACHE_HOME/cookiecutter_replay"
+abbreviations:
+    pp: https://github.com/audreyfeldroy/cookiecutter-pypackage.git
+    gh: https://github.com/{0}.git
