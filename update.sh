@@ -58,9 +58,13 @@ update_config() {
 
   rsync -ai "$HOME/.config/bat" "$SCRIPT_DIR/base/config/"
   rsync -ai "$HOME/.config/btop" "$SCRIPT_DIR/base/config/"
+  rsync -ai "$HOME/.config/cookiecutter" "$SCRIPT_DIR/base/config/"
   rsync -ai "$HOME/.config/environment.d" "$SCRIPT_DIR/base/config/"
+  rsync -ai "$HOME/.config/espressif" "$SCRIPT_DIR/base/config/"
   rsync -ai "$HOME/.config/flameshot" "$SCRIPT_DIR/base/config/"
+  rsync -ai "$HOME/.config/fzf" "$SCRIPT_DIR/base/config/"
   rsync -ai "$HOME/.config/git" "$SCRIPT_DIR/base/config/"
+  rsync -ai "$HOME/.config/i3" "$SCRIPT_DIR/base/config/"
   rsync -ai "$HOME/.config/ideavim" "$SCRIPT_DIR/base/config/"
   rsync -ai "$HOME/.config/less" "$SCRIPT_DIR/base/config/"
   rsync -ai "$HOME/.config/lvim" "$SCRIPT_DIR/base/config/"
@@ -76,6 +80,7 @@ update_config() {
   rsync -ai "$HOME/.config/readline" "$SCRIPT_DIR/base/config/"
   rsync -ai "$HOME/.config/rmpc" "$SCRIPT_DIR/base/config/"
   rsync -ai "$HOME/.config/rofi" "$SCRIPT_DIR/base/config/"
+  rsync -ai "$HOME/.config/shell-scripts" "$SCRIPT_DIR/base/config/"
   rsync -ai "$HOME/.config/starship" "$SCRIPT_DIR/base/config/"
 
   rsync -ai --exclude='user/*.wants/' \
