@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+#MISE description="Collect Android project context for LLM prompts"
+#MISE dir="{{cwd}}"
+#MISE hide=true
+
+set -euo pipefail
+
+if [[ ! -f gradlew ||
+      ( ! -f settings.gradle.kts && ! -f settings.gradle ) ]]; then
+    printf 'Error: run inside an Android Gradle project root.\n' >&2
+    exit 2
+fi
+
+printf '===== Project structure =====\n'
+tree -a -L 6 \
+    -I '.git|.gradle|.idea|build|.kotlin|.cxx|.externalNativeBuild' .
+
+for file in \
+    README.md \
+    AGENTS.md \
+    settings.gradle.kts \
+    settings.gradle \
+    build.gradle.kts \
+    build.gradle \
+    gradle/libs.versions.toml \
+    gradle.properties \
+    app/build.gradle.kts \
+    app/build.gradle \
+    app/src/main/AndroidManifest.xml
+do
+    [[ -f "$file" ]] || continue
+
+    printf '\n===== %s =====\n' "$file"
+    cat -- "$file"
+done
+
+printf '\n===== Gradle Wrapper =====\n'
+grep -E \
+    '^(distributionUrl|distributionSha256Sum)=' \
+    gradle/wrapper/gradle-wrapper.properties || true

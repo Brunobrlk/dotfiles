@@ -1,26 +1,41 @@
 [tools]
-aichat = "latest"
-codex = "0.117.0"
-cookiecutter = "latest"
-firebase = "15.16.0"
-flutter = "latest"
-gcloud = "latest"
-gemini = "latest"
-gemini-cli = "latest"
-git-cliff = "latest"
-go = "latest"
-gradle = "latest"
-java = "openjdk-17.0.2"
-kotlin = "latest"
-node = "22"
-opencode = "latest"
-pipx = "latest"
-python = "3.12"
-ruby = "3.4.9"
+# Frequently updated CLI tools
+aichat = { version = "latest", auto_update = "1d" }
+codex = { version = "latest", auto_update = "1d" }
+cookiecutter = { version = "latest", auto_update = "1d" }
+firebase = { version = "latest", auto_update = "1d" }
+gcloud = { version = "latest", auto_update = "1d" }
+gemini-cli = { version = "latest", auto_update = "1d" }
+git-cliff = { version = "latest", auto_update = "1d" }
+opencode = { version = "latest", auto_update = "1d" }
+vercel = { version = "latest", auto_update = "1d", allow_builds = ["esbuild"] }
+wrangler = { version = "latest", auto_update = "1d", allow_builds = ["esbuild", "sharp", "workerd"] }
+yt-dlp = { version = "latest", auto_update = "1d" }
+
+# General runtimes and build tools
+go = "1.27"
+node = ["24", "22", "26"]
+pnpm = "12"
+ruby = "3.4"
 rust = "latest"
+
+# Development toolchains
+flutter = ["3.47", "3.44"]
+gradle = ["9", "8", "7"]
+java = ["temurin-17", "temurin-25", "temurin-21", "temurin-11"]
+kotlin = ["2.4", "2.3", "2.2", "1.9"]
+python = ["3.12", "3.14", "3.13", "3.15"]
+
+# Other development utilities
+pipx = "latest"
 sqlite = "latest"
 usage = "latest"
 uv = "latest"
-vercel = { version = "latest", allow_builds = ["esbuild"] }
-wrangler = { version = "latest", allow_builds = ["esbuild", "sharp", "workerd"] }
-yt-dlp = { version = "latest", rename_exe = "yt-dlp" }
+
+[settings]
+# Read package manager versions from package.json
+idiomatic_version_file_enable_tools = ["npm", "pnpm", "yarn"]
+
+[tasks.ollama-update]
+description = "Update Ollama using the official installer"
+run = "curl -fsSL https://ollama.com/install.sh | sh"

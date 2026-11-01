@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+#MISE dir="{{cwd}}"
+#MISE description="Collect project context for LLM prompts"
+
+set -euo pipefail
+
+project_type=""
+
+# Flutter
+if [[ -f pubspec.yaml ]] && grep -q 'sdk: flutter' pubspec.yaml; then
+    project_type="flutter"
+
+# Kotlin Multiplatform
+elif [[ -d shared/src/commonMain ]] ||
+    { [[ -f shared/build.gradle.kts ]] && grep -q 'multiplatform' shared/build.gradle.kts; }; then
+    project_type="kmp"
+
+# Android
+elif [[ -f app/src/main/AndroidManifest.xml ]]; then
+    project_type="android"
+
+# Spring Boot
+elif [[ -f backend.iml ]] ||
+    { [[ -f build.gradle.kts ]] && grep -q 'plugin.spring' build.gradle.kts; }; then
+    project_type="springboot"
+
+# C++
+elif [[ -f CMakeLists.txt ]] || [[ -f Makefile ]]; then
+    project_type="cpp"
+fi
+
+if [[ -z "$project_type" ]]; then
+    echo "Could not identify project type: $PWD" >&2
+    exit 1
+fi
+
+exec mise run "context:$project_type" "$@"

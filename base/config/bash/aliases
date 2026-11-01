@@ -164,7 +164,7 @@ alias cat='bat -p'
 alias weather='curl wttr.in/Barreiras'
 alias reminders='atq'
 alias ls-ram="free -mh | bat -l cpuinfo -p"
-alias sensors="sensors | bat -l cpuinfo -p"
+alias ls-sensors="sensors | bat -l cpuinfo -p"
 alias clean-notebook='sudo timeout 2m evtest --grab /dev/input/event4 >/dev/null 2>&1'
 h(){
     "$@" --help 2>&1 | bat --plain --language=help
@@ -207,8 +207,6 @@ alias egrep='egrep --color=auto'
 
 # Add an "alert" alias for long running commands.  Use like so: $ sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
-alias ollama-update='curl -fsSL https://ollama.com/install.sh | sh'
 
 # Markdown viewer
 md(){

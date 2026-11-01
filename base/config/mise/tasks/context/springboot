@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#MISE hide=true
+
+echo "hello spring"
