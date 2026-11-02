@@ -1,3 +1,0 @@
-services:
-  openjdk:
-    image: openjdk:latest

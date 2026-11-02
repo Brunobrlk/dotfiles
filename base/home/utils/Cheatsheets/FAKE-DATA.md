@@ -1,4 +1,0 @@
-# Sites
-    Chat GPT
-    Mockaroo
-
