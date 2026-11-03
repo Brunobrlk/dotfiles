@@ -131,7 +131,7 @@ install_distro_common() {
 }
 
 install_secrets() {
-  local secure_dir="$HOME/.local/share/secure"
+  local secure_dir="$HOME/.local/share/private"
 
   [[ -d "$secure_dir" ]] || {
     logw "Secure directory not found: $secure_dir"
