@@ -1,3 +1,5 @@
+-- Global defaults
+
 local opt = vim.opt
 local g = vim.g
 
@@ -44,11 +46,11 @@ opt.signcolumn = "yes" -- Always show the sign column (for LSP, gitigns, etc.)
 -- Clipboard
 opt.clipboard = "unnamedplus" -- Sync with system clipboard
 
--- Identation
-opt.tabstop = 4 -- A tab character consumes 4 spaces
-opt.shiftwidth = 4 -- Amount of space to indent in (e.g., for autoindent, <<, >>)
+-- Indentation
 opt.expandtab = true -- Use spaces instead of tabs
-opt.softtabstop = 4
+opt.tabstop = 8 -- A tab character consumes 4 spaces
+opt.shiftwidth = 2 -- Amount of space to indent in (e.g., for autoindent, <<, >>)
+opt.softtabstop = -1
 opt.smartindent = false -- Smart indent
 opt.autoindent = true -- Auto indent new lines
 
@@ -77,11 +79,11 @@ opt.completeopt = { "menu", "menuone", "noselect" }
 -- whitespace format
 opt.list = true
 opt.listchars = {
-	tab = "»·",
-	trail = "·",
-	extends = "→",
-	precedes = "←",
-	nbsp = "␣",
+    tab = "»·",
+    trail = "·",
+    extends = "→",
+    precedes = "←",
+    nbsp = "␣",
 }
 
 opt.confirm = true -- confirm before closing unsaved buffers

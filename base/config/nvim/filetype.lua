@@ -1,14 +1,16 @@
+-- Filename detection
+
 vim.filetype.add({
     filename = {
-        ["Fastfile"]       = "ruby",
-        ["Appfile"]        = "ruby",
-        ["Matchfile"]      = "ruby",
-        ["Gymfile"]        = "ruby",
-        ["Deliverfile"]    = "ruby",
-        ["Pluginfile"]     = "ruby",
-        ["Scanfile"]       = "ruby",
+        ["Fastfile"] = "ruby",
+        ["Appfile"] = "ruby",
+        ["Matchfile"] = "ruby",
+        ["Gymfile"] = "ruby",
+        ["Deliverfile"] = "ruby",
+        ["Pluginfile"] = "ruby",
+        ["Scanfile"] = "ruby",
         ["Screengrabfile"] = "ruby",
-        ["Snapfile"]       = "ruby",
-        ["Podfile"]        = "ruby",
+        ["Snapfile"] = "ruby",
+        ["Podfile"] = "ruby",
     },
 })

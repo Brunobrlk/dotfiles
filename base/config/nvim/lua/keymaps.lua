@@ -1,3 +1,5 @@
+-- Central keymaps definition
+
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
@@ -23,26 +25,26 @@ nmap("<leader>q", "<cmd>quit<cr>", "Quit")
 nmap("<leader>Q", "<cmd>quitall<cr>", "Quit all")
 nmap("<leader>w", "<cmd>w<cr>", "Save")
 local function reveal_current_file_in_neotree()
-	local current_buf = vim.api.nvim_get_current_buf()
-	local buftype = vim.bo[current_buf].buftype
-	local filepath = vim.api.nvim_buf_get_name(current_buf)
+    local current_buf = vim.api.nvim_get_current_buf()
+    local buftype = vim.bo[current_buf].buftype
+    local filepath = vim.api.nvim_buf_get_name(current_buf)
 
-	if buftype ~= "" or filepath == "" then
-		return
-	end
+    if buftype ~= "" or filepath == "" then
+        return
+    end
 
-	local ok, command = pcall(require, "neo-tree.command")
-	if not ok then
-		return
-	end
+    local ok, command = pcall(require, "neo-tree.command")
+    if not ok then
+        return
+    end
 
-	command.execute({
-		action = "focus",
-		source = "filesystem",
-		position = "left",
-		reveal_file = filepath,
-		focus = true,
-	})
+    command.execute({
+        action = "focus",
+        source = "filesystem",
+        position = "left",
+        reveal_file = filepath,
+        focus = true,
+    })
 end
 
 nmap("<C-A-l>", reveal_current_file_in_neotree, "Reveal current file in Neo-tree")
@@ -52,17 +54,17 @@ vmap("<leader>/", "gc", "Toggle comment", { remap = true })
 
 -- Move
 nmap("<M-j>", function()
-	require("mini.move").move_line("down")
+    require("mini.move").move_line("down")
 end)
 nmap("<M-k>", function()
-	require("mini.move").move_line("up")
+    require("mini.move").move_line("up")
 end)
 
 vmap("<M-j>", function()
-	require("mini.move").move_selection("down")
+    require("mini.move").move_selection("down")
 end)
 vmap("<M-k>", function()
-	require("mini.move").move_selection("up")
+    require("mini.move").move_selection("up")
 end)
 
 -- TmuxNavigator
@@ -92,8 +94,8 @@ tmap("<C-l>", [[<C-\><C-n><cmd>TmuxNavigateRight<CR>]], "Window right")
 nmap("<leader>aa", "<cmd>CodeCompanionActions<cr>", "Actions")
 nmap("<leader>ac", "<cmd>CodeCompanionChat Toggle<cr>", "Chat")
 nmap("<leader>ao", function()
-	local opencode = require("toggleterm.terminal").Terminal:new({ cmd = "opencode", direction = "vertical" })
-	opencode:toggle()
+    local opencode = require("toggleterm.terminal").Terminal:new({ cmd = "opencode", direction = "vertical" })
+    opencode:toggle()
 end, "OpenCode")
 nmap("<leader>at", "<cmd>CodeCompanionCLI<cr>", "Terminal")
 
@@ -107,17 +109,17 @@ vmap("<leader>af", "<cmd>CodeCompanionChat /fix<cr>", "Fix")
 -- [B]uffer Actions
 -- ======================
 nmap("<leader>bf", function()
-	require("conform").format({ async = true })
+    require("conform").format({ async = true })
 end, "Format (Conform)")
 local function reload_current_buffer()
-	if vim.bo.modified then
-		vim.notify("Buffer has unsaved changes", vim.log.levels.WARN)
-		return
-	end
+    if vim.bo.modified then
+        vim.notify("Buffer has unsaved changes", vim.log.levels.WARN)
+        return
+    end
 
-	vim.cmd("checktime")
-	vim.cmd("edit")
-	vim.notify("Buffer reloaded from disk")
+    vim.cmd("checktime")
+    vim.cmd("edit")
+    vim.notify("Buffer reloaded from disk")
 end
 
 nmap("<leader>bu", reload_current_buffer, "Update from disk")
@@ -128,31 +130,31 @@ nmap("<M-l>", "<cmd>BufferLineCycleNext<CR>", "Next Buffer")
 nmap("<M-h>", "<cmd>BufferLineCyclePrev<CR>", "Previous Buffer")
 
 nmap("<leader>c", function()
-	require("mini.bufremove").delete(0, false)
+    require("mini.bufremove").delete(0, false)
 end, "Close buffer")
 
 -- ======================
 -- [C]olorscheme
 -- ======================
 vim.keymap.set("n", "<leader>Ct", function()
-	local c = require("catppuccin")
-	c.options.transparent_background = not c.options.transparent_background
-	c.compile()
-	vim.cmd("colorscheme catppuccin")
+    local c = require("catppuccin")
+    c.options.transparent_background = not c.options.transparent_background
+    c.compile()
+    vim.cmd("colorscheme catppuccin")
 end, { desc = "Toggle Transparency" })
 
 -- ======================
 -- [G]itsigns
 -- ======================
 nmap(
-	"]c",
-	"<cmd>lua if vim.wo.diff then vim.cmd.normal({']c', bang = true}) else require('gitsigns').nav_hunk('next') end<CR>",
-	"Next Hunk"
+    "]c",
+    "<cmd>lua if vim.wo.diff then vim.cmd.normal({']c', bang = true}) else require('gitsigns').nav_hunk('next') end<CR>",
+    "Next Hunk"
 )
 nmap(
-	"[c",
-	"<cmd>lua if vim.wo.diff then vim.cmd.normal({'[c', bang = true}) else require('gitsigns').nav_hunk('prev') end<CR>",
-	"Prev Hunk"
+    "[c",
+    "<cmd>lua if vim.wo.diff then vim.cmd.normal({'[c', bang = true}) else require('gitsigns').nav_hunk('prev') end<CR>",
+    "Prev Hunk"
 )
 
 nmap("<leader>gr", "<cmd>lua require('gitsigns').reset_hunk()<CR>", "Reset Hunk")
@@ -194,37 +196,40 @@ nmap("<leader>Lr", "<cmd>Lazy restore<cr>", "Restore")
 -- [M]arkdown
 -- ======================
 local markdown_mappings = function()
-	nmap("<leader>mp", "<cmd>MarkdownPreview<cr>", "Preview")
-	nmap("<leader>ms", "<cmd>MarkdownPreviewStop<cr>", "Stop Preview")
-	nmap("<leader>mt", "<cmd>MarkdownPreviewToggle<cr>", "Toggle Preview")
-	nmap("<leader>ms", function()
-	    vim.notify("Syncing markdown notes...")
-		vim.fn.jobstart({ "rclone", "sync", vim.fn.expand("~/Documents/Vault"), "google-drive:notes", "--update" }, { detach = true })
-	end, "Sync Notes")
+    nmap("<leader>mp", "<cmd>MarkdownPreview<cr>", "Preview")
+    nmap("<leader>ms", "<cmd>MarkdownPreviewStop<cr>", "Stop Preview")
+    nmap("<leader>mt", "<cmd>MarkdownPreviewToggle<cr>", "Toggle Preview")
+    nmap("<leader>ms", function()
+        vim.notify("Syncing markdown notes...")
+        vim.fn.jobstart(
+            { "rclone", "sync", vim.fn.expand("~/Documents/Vault"), "google-drive:notes", "--update" },
+            { detach = true }
+        )
+    end, "Sync Notes")
 end
 
 local platformio_mappings = function(buf)
-	local file = vim.api.nvim_buf_get_name(buf)
-	local root = vim.fs.root(file, { "platformio.ini" })
+    local file = vim.api.nvim_buf_get_name(buf)
+    local root = vim.fs.root(file, { "platformio.ini" })
 
-	if not root or vim.fn.exists(":Piocmdf") ~= 2 then
-		return false
-	end
+    if not root or vim.fn.exists(":Piocmdf") ~= 2 then
+        return false
+    end
 
-	local function buf_nmap(lhs, rhs, desc)
-		map("n", lhs, rhs, opts(desc, { buffer = buf }))
-	end
+    local function buf_nmap(lhs, rhs, desc)
+        map("n", lhs, rhs, opts(desc, { buffer = buf }))
+    end
 
-	buf_nmap("<leader>rc", "<cmd>Piocmdf run -t clean<cr>", "PlatformIO: Clean")
-	buf_nmap("<leader>rt", "<cmd>PioTermList<cr>", "PlatformIO: Terminals")
+    buf_nmap("<leader>rc", "<cmd>Piocmdf run -t clean<cr>", "PlatformIO: Clean")
+    buf_nmap("<leader>rt", "<cmd>PioTermList<cr>", "PlatformIO: Terminals")
     buf_nmap("<leader>rb", "<cmd>Piocmdf run<cr>", "PlatformIO: Build")
     buf_nmap("<leader>ru", "<cmd>Piocmdf run -t upload<cr>", "PlatformIO: Upload")
     buf_nmap("<leader>rm", "<cmd>Piocmdh run -t monitor<cr>", "PlatformIO: Monitor")
-	buf_nmap("<leader>rd", "<cmd>Piocmdf device list<cr>", "PlatformIO: Devices")
-	buf_nmap("<leader>rp", "<cmd>Piocmdf pkg list<cr>", "PlatformIO: Packages")
-	buf_nmap("<leader>rs", "<cmd>Piocmdf pkg update<cr>", "PlatformIO: Update packages")
-	buf_nmap("<leader>rB", "<cmd>Piocmdf run -t compiledb<cr>", "PlatformIO: Build Compiler DB")
-	return true
+    buf_nmap("<leader>rd", "<cmd>Piocmdf device list<cr>", "PlatformIO: Devices")
+    buf_nmap("<leader>rp", "<cmd>Piocmdf pkg list<cr>", "PlatformIO: Packages")
+    buf_nmap("<leader>rs", "<cmd>Piocmdf pkg update<cr>", "PlatformIO: Update packages")
+    buf_nmap("<leader>rB", "<cmd>Piocmdf run -t compiledb<cr>", "PlatformIO: Build Compiler DB")
+    return true
 end
 
 -- ======================
@@ -248,18 +253,18 @@ nmap("<leader>pl", "<cmd>lua require('persistence').load({ last = true })<cr>", 
 -- ======================
 local flutter_mappings = function()
     nmap("<leader>rr", "<cmd>FlutterRun<cr>", "Flutter: Run")
-	nmap("<leader>rc", "<cmd>FlutterCopyProfilerUrl<cr>", "Flutter: Copy Profiler Url")
-	nmap("<leader>rC", "<cmd>Telescope flutter commands<CR>", "Flutter: Commands")
-	nmap("<leader>rd", "<cmd>FlutterDevices<cr>", "Flutter: Devices")
-	nmap("<leader>re", "<cmd>FlutterEmulators<cr>", "Flutter: Emulators")
-	nmap("<leader>rh", "<cmd>FlutterReload<cr>", "Flutter: Hot Reload")
-	nmap("<leader>rH", "<cmd>FlutterRestart<cr>", "Flutter: Hot Restart")
-	nmap("<leader>rl", "<cmd>FlutterLogToggle<cr>", "Flutter: Log Toggle")
-	nmap("<leader>ro", "<cmd>FlutterOutlineToggle<cr>", "Flutter: Outline")
-	nmap("<leader>rp", "<cmd>FlutterPubGet<cr>", "Flutter: Pub Get")
-	nmap("<leader>rq", "<cmd>FlutterQuit<cr>", "Flutter: Quit")
-	nmap("<leader>rt", "<cmd>FlutterDevTools<cr>", "Flutter: Dev Tools")
-	nmap("<leader>rx", "<cmd>FlutterLogClear<cr>", "Flutter: Log Clear")
+    nmap("<leader>rc", "<cmd>FlutterCopyProfilerUrl<cr>", "Flutter: Copy Profiler Url")
+    nmap("<leader>rC", "<cmd>Telescope flutter commands<CR>", "Flutter: Commands")
+    nmap("<leader>rd", "<cmd>FlutterDevices<cr>", "Flutter: Devices")
+    nmap("<leader>re", "<cmd>FlutterEmulators<cr>", "Flutter: Emulators")
+    nmap("<leader>rh", "<cmd>FlutterReload<cr>", "Flutter: Hot Reload")
+    nmap("<leader>rH", "<cmd>FlutterRestart<cr>", "Flutter: Hot Restart")
+    nmap("<leader>rl", "<cmd>FlutterLogToggle<cr>", "Flutter: Log Toggle")
+    nmap("<leader>ro", "<cmd>FlutterOutlineToggle<cr>", "Flutter: Outline")
+    nmap("<leader>rp", "<cmd>FlutterPubGet<cr>", "Flutter: Pub Get")
+    nmap("<leader>rq", "<cmd>FlutterQuit<cr>", "Flutter: Quit")
+    nmap("<leader>rt", "<cmd>FlutterDevTools<cr>", "Flutter: Dev Tools")
+    nmap("<leader>rx", "<cmd>FlutterLogClear<cr>", "Flutter: Log Clear")
 end
 
 -- DAP (Debug)
@@ -268,116 +273,116 @@ end
 -- Alt + a - View all break points = Not Supported
 -- Alt + f - Mute/Unmute all breakpoints = Not Supported
 local function dap_support()
-	-- Step into
-	nmap("<A-w>", function()
-		require("dap").step_into()
-	end, "DAP: Step Into")
+    -- Step into
+    nmap("<A-w>", function()
+        require("dap").step_into()
+    end, "DAP: Step Into")
 
-	-- Evaluate expression
-	nmap("<A-e>", function()
-		require("dapui").eval()
-	end, "DAP: Eval")
+    -- Evaluate expression
+    nmap("<A-e>", function()
+        require("dapui").eval()
+    end, "DAP: Eval")
 
-	-- Resume / Continue
-	nmap("<A-r>", function()
-		require("dap").continue()
-	end, "DAP: Continue")
+    -- Resume / Continue
+    nmap("<A-r>", function()
+        require("dap").continue()
+    end, "DAP: Continue")
 
-	-- Step over
-	nmap("<A-s>", function()
-		require("dap").step_over()
-	end, "DAP: Step Over")
+    -- Step over
+    nmap("<A-s>", function()
+        require("dap").step_over()
+    end, "DAP: Step Over")
 
-	-- Step out (closest valid to "drop frame")
-	nmap("<A-d>", function()
-		require("dap").step_out()
-	end, "DAP: Step Out")
+    -- Step out (closest valid to "drop frame")
+    nmap("<A-d>", function()
+        require("dap").step_out()
+    end, "DAP: Step Out")
 
-	-- REPL (closest valid "execution interaction")
-	nmap("<A-x>", function()
-		require("dap").repl.open()
-	end, "DAP: REPL")
+    -- REPL (closest valid "execution interaction")
+    nmap("<A-x>", function()
+        require("dap").repl.open()
+    end, "DAP: REPL")
 
-	-- Run to cursor
-	nmap("<A-c>", function()
-		require("dap").run_to_cursor()
-	end, "DAP: Run to Cursor")
+    -- Run to cursor
+    nmap("<A-c>", function()
+        require("dap").run_to_cursor()
+    end, "DAP: Run to Cursor")
 
-	-- Toggle breakpoint (line)
-	nmap("<A-v>", function()
-		require("dap").toggle_breakpoint()
-	end, "DAP: Toggle Breakpoint")
+    -- Toggle breakpoint (line)
+    nmap("<A-v>", function()
+        require("dap").toggle_breakpoint()
+    end, "DAP: Toggle Breakpoint")
 
-	-- Start / Select config
-	nmap("<leader>rd", function()
-		require("dap").continue()
-	end, "Run Debugging")
+    -- Start / Select config
+    nmap("<leader>rd", function()
+        require("dap").continue()
+    end, "Run Debugging")
 
-	-- Toggle UI manually
-	nmap("<A-5>", function()
-		require("dapui").toggle()
-	end, "DAP: Toggle UI")
+    -- Toggle UI manually
+    nmap("<A-5>", function()
+        require("dapui").toggle()
+    end, "DAP: Toggle UI")
 end
 
 local python_mappings = function()
-	nmap("<leader>rr", function()
-		local terminal = require("toggleterm.terminal").Terminal:new({
-			cmd = (vim.fn.executable("python") == 1 and "python" or "python3") .. " main.py",
-			dir = vim.fn.getcwd(),
-			direction = "float",
-			close_on_exit = false,
-		})
+    nmap("<leader>rr", function()
+        local terminal = require("toggleterm.terminal").Terminal:new({
+            cmd = (vim.fn.executable("python") == 1 and "python" or "python3") .. " main.py",
+            dir = vim.fn.getcwd(),
+            direction = "float",
+            close_on_exit = false,
+        })
 
-		terminal:toggle()
-	end, "Python: Run main.py")
-	nmap("<leader>rv", "<cmd>VenvSelect<cr>", "Python: Venv select")
-	dap_support()
+        terminal:toggle()
+    end, "Python: Run main.py")
+    nmap("<leader>lv", "<cmd>VenvSelect<cr>", "Python: Venv select")
+    dap_support()
 end
 
 local cpp_mappings = function(buf)
-	if platformio_mappings(buf) then
-		return
-	end
+    if platformio_mappings(buf) then
+        return
+    end
 
-	nmap("<leader>rr", function()
-		local file = vim.api.nvim_buf_get_name(buf)
-		local filename = vim.fn.fnamemodify(file, ":t")
-		local terminal = require("toggleterm.terminal").Terminal:new({
-			cmd = "buildcpp " .. vim.fn.shellescape(filename),
-			dir = vim.fn.getcwd(),
-			direction = "float",
-			close_on_exit = false,
-		})
+    nmap("<leader>rr", function()
+        local file = vim.api.nvim_buf_get_name(buf)
+        local filename = vim.fn.fnamemodify(file, ":t")
+        local terminal = require("toggleterm.terminal").Terminal:new({
+            cmd = "buildcpp " .. vim.fn.shellescape(filename),
+            dir = vim.fn.getcwd(),
+            direction = "float",
+            close_on_exit = false,
+        })
 
-		terminal:toggle()
-	end, "C++: Run current file")
+        terminal:toggle()
+    end, "C++: Run current file")
 end
 
 local c_mappings = function(buf)
-	if platformio_mappings(buf) then
-		return
-	end
+    if platformio_mappings(buf) then
+        return
+    end
 
-	nmap("<leader>rr", function()
-		local file = vim.api.nvim_buf_get_name(buf)
-		local filename = vim.fn.fnamemodify(file, ":t")
-		local terminal = require("toggleterm.terminal").Terminal:new({
-			cmd = "buildc " .. vim.fn.shellescape(filename),
-			dir = vim.fn.getcwd(),
-			direction = "float",
-			close_on_exit = false,
-		})
+    nmap("<leader>rr", function()
+        local file = vim.api.nvim_buf_get_name(buf)
+        local filename = vim.fn.fnamemodify(file, ":t")
+        local terminal = require("toggleterm.terminal").Terminal:new({
+            cmd = "buildc " .. vim.fn.shellescape(filename),
+            dir = vim.fn.getcwd(),
+            direction = "float",
+            close_on_exit = false,
+        })
 
-		terminal:toggle()
-	end, "C: Run current file")
+        terminal:toggle()
+    end, "C: Run current file")
 end
 
 local languages_registry = { -- Trigger keymaps per filetype
-	c = c_mappings,
-	cpp = cpp_mappings,
-	python = python_mappings,
-	dart = flutter_mappings,
-	markdown = markdown_mappings,
+    c = c_mappings,
+    cpp = cpp_mappings,
+    python = python_mappings,
+    dart = flutter_mappings,
+    markdown = markdown_mappings,
 }
 
 -- ======================
@@ -406,9 +411,9 @@ nmap("<leader>sT", "<cmd>lua require('telescope.builtin').builtin()<CR>", "Searc
 nmap("<leader>sw", "<cmd>lua require('telescope.builtin').grep_string()<CR>", "Search current Word")
 nmap("<leader>su", "<cmd>Telescope undo<cr>", "Search Undo History")
 nmap("<leader>sn", function()
-	require("telescope.builtin").find_files({
-		cwd = vim.fn.stdpath("config"),
-	})
+    require("telescope.builtin").find_files({
+        cwd = vim.fn.stdpath("config"),
+    })
 end, "Search Neovim files")
 
 -- ======================
@@ -418,10 +423,10 @@ nmap("<leader>tb", "<cmd>Telescope bookmarks list<cr>", "Bookmarks")
 nmap("<leader>tn", "<cmd>NoiceTelescope<CR>", "Noice Messages")
 
 nmap("<leader>tc", function()
-	require("telescope.builtin").live_grep({
-		prompt_title = "Cheatsheets",
-		cwd = vim.fn.expand("~/.utils/Cheatsheets"),
-	})
+    require("telescope.builtin").live_grep({
+        prompt_title = "Cheatsheets",
+        cwd = vim.fn.expand("~/.utils/Cheatsheets"),
+    })
 end, "Cheatsheet")
 
 -- ======================
@@ -440,31 +445,30 @@ nmap("<leader>yl", "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
 local M = {}
 
 function M.setup_lsp_keymaps(buf, client)
-	local telescope = require("telescope.builtin")
+    local telescope = require("telescope.builtin")
 
-	local function lmap(mode, lhs, rhs, desc, extra)
-		map(mode, lhs, rhs, utils.opts(desc, vim.tbl_extend("force", { buffer = buf }, extra or {})))
-	end
+    local function lmap(mode, lhs, rhs, desc, extra)
+        map(mode, lhs, rhs, utils.opts(desc, vim.tbl_extend("force", { buffer = buf }, extra or {})))
+    end
 
     -- Docs
     lmap("n", "gK", vim.lsp.buf.signature_help, "Signature Help")
 
     -- Navigation and actions
-	lmap({ "n", "x" }, "<leader>la", vim.lsp.buf.code_action, "Code Action")
-	lmap("n", "<leader>lf", function()
-		require("conform").format({ async = true })
-	end, "Format (Conform)")
-	lmap("n", "<leader>lX", "<cmd>LspRestart<cr>", "Restart LSP")
+    lmap({ "n", "x" }, "<leader>la", vim.lsp.buf.code_action, "Code Action")
+    lmap("n", "<leader>lf", function()
+        require("conform").format({ async = true })
+    end, "Format (Conform)")
+    lmap("n", "<leader>lX", "<cmd>LspRestart<cr>", "Restart LSP")
     lmap("n", "<leader>lr", vim.lsp.buf.rename, "Rename")
-	lmap("n", "<leader>lR", telescope.lsp_references, "References")
-	lmap("n", "<leader>li", telescope.lsp_implementations, "Implementation")
-	lmap("n", "<leader>ld", telescope.lsp_definitions, "Definitions")
-	lmap("n", "<leader>lD", vim.lsp.buf.declaration, "Declaration")
-	lmap("n", "<leader>ls", telescope.lsp_document_symbols, "Document Symbols")
-	lmap("n", "<leader>lS", telescope.lsp_dynamic_workspace_symbols, "Workspace Symbols")
-	lmap("n", "<leader>lt", telescope.lsp_type_definitions, "Type Definition")
-	lmap("n", "<leader>ll", vim.diagnostic.open_float, "Line Diagnostics")
-    
+    lmap("n", "<leader>lR", telescope.lsp_references, "References")
+    lmap("n", "<leader>li", telescope.lsp_implementations, "Implementation")
+    lmap("n", "<leader>ld", telescope.lsp_definitions, "Definitions")
+    lmap("n", "<leader>lD", vim.lsp.buf.declaration, "Declaration")
+    lmap("n", "<leader>ls", telescope.lsp_document_symbols, "Document Symbols")
+    lmap("n", "<leader>lS", telescope.lsp_dynamic_workspace_symbols, "Workspace Symbols")
+    lmap("n", "<leader>lt", telescope.lsp_type_definitions, "Type Definition")
+    lmap("n", "<leader>ll", vim.diagnostic.open_float, "Line Diagnostics")
 
     if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
         lmap("n", "<leader>lh", function()
@@ -474,19 +478,19 @@ function M.setup_lsp_keymaps(buf, client)
 end
 
 function M.setup_language_keymaps(buf)
-	if vim.b[buf].keymaps_loaded then -- prevent duplicate execution
-		return
-	end
-	vim.b[buf].keymaps_loaded = true
+    if vim.b[buf].keymaps_loaded then -- prevent duplicate execution
+        return
+    end
+    vim.b[buf].keymaps_loaded = true
 
-	local ft = vim.bo[buf].filetype
-	local fn = languages_registry[ft]
+    local ft = vim.bo[buf].filetype
+    local fn = languages_registry[ft]
 
-	if not fn then
-		return
-	end
+    if not fn then
+        return
+    end
 
-	fn(buf)
+    fn(buf)
 end
 
 return M

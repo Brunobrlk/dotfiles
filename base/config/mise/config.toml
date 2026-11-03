@@ -36,6 +36,9 @@ uv = "latest"
 # Read package manager versions from package.json
 idiomatic_version_file_enable_tools = ["npm", "pnpm", "yarn"]
 
+[env]
+_.file = { path = "{{cwd}}/.env", find_up = true }
+
 [tasks.ollama-update]
 description = "Update Ollama using the official installer"
 run = "curl -fsSL https://ollama.com/install.sh | sh"

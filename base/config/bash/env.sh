@@ -1,0 +1,68 @@
+# Bash specific environment
+
+# XDG defaults
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
+export XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache}"
+export XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
+export XDG_STATE_HOME="${XDG_STATE_HOME:-$HOME/.local/state}"
+
+XDG_BASH_CONFIG="${XDG_CONFIG_HOME}/bash"
+
+# =========================
+# Base
+# =========================
+export EDITOR="nvim"
+
+# =========================
+# Bash history behavior
+# =========================
+HISTSIZE=100000
+HISTFILESIZE=200000
+HISTCONTROL=ignoreboth:erasedups
+HISTIGNORE="ls:ll:la:l:cd:pwd:exit:history:clear"
+
+HISTFILE="$XDG_CACHE_HOME/bash/history"
+LESSHISTFILE="$XDG_CONFIG_HOME/less/lesshst"
+
+PROMPT_COMMAND="history -a; history -n${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
+
+# =========================
+# Pager / CLI tools
+# =========================
+export MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p -lman'"
+
+# =========================
+# Local convenience variables
+# =========================
+export IP=192.168.1.58
+export IP_WIFI=192.168.1.52
+export IP_PHONE=192.168.1.17
+export IP_SRV=192.168.122.200
+export IP_LUBUNTU=192.168.122.100
+export IP_UBUNTU=192.168.122.101
+export IP_POPOS=192.168.122.102
+
+export PORT=17000
+export PORT1=17001
+export PORT2=17002
+
+export DK_MYSQL=17006
+export DK_POSTGRES=17032
+export DK_NEXTCLOUD=17080
+export DK_NEXTCLOUD_DB=17081
+export DK_NGINX=17082
+export DK_JENKINS=17083
+
+# =========================
+# Debug
+# =========================
+export DBG_BASH_ENV="Hello World from .config/bash/env"
+
+# =========================
+# Additional fragments: display server, desktop and other specific/variable configuration
+# =========================
+for f in "${XDG_BASH_CONFIG}"/env.d/*.sh; do
+  if [ -r "${f}" ]; then
+    . "${f}"
+  fi
+done
