@@ -91,6 +91,7 @@ update_config() {
   rsync -ai --exclude='plugins' \
     "$HOME/.config/tmux" "$SCRIPT_DIR/base/config/"
 
+  rsync -ai "$HOME/.config/vimiumc" "$SCRIPT_DIR/base/config/"
   rsync -ai "$HOME/.config/wget" "$SCRIPT_DIR/base/config/"
   rsync -ai "$HOME/.config/yazi" "$SCRIPT_DIR/base/config/"
   rsync -ai "$HOME/.config/yt-dlp" "$SCRIPT_DIR/base/config/"
