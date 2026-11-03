@@ -74,6 +74,7 @@ update_config() {
   rsync -ai "$HOME/.config/neofetch" "$SCRIPT_DIR/base/config/"
   rsync -ai "$HOME/.config/npm" "$SCRIPT_DIR/base/config/"
   rsync -ai "$HOME/.config/nvim" "$SCRIPT_DIR/base/config/"
+  rsync -ai "$HOME/.config/nvim-dev" "$SCRIPT_DIR/base/config/"
   rsync -ai "$HOME/.config/PCSX2" "$SCRIPT_DIR/base/config/"
   rsync -ai "$HOME/.config/polybar" "$SCRIPT_DIR/base/config/"
   rsync -ai "$HOME/.config/profile" "$SCRIPT_DIR/base/config/"

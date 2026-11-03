@@ -14,4 +14,4 @@
 - [ ] Check whether brave config can be useful
 - [ ] Check whether export bruno config
 - [ ] dconf and rofi
-- [ ] copy nvim-dev on config or create again? Problem with links?
+- [x] copy nvim-dev on config or create again? Problem with links?
