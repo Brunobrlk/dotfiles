@@ -138,24 +138,7 @@ install_secrets() {
     return 0
   }
 
-  # SSH
-  mkdir -p "$HOME/.ssh"
-  rsync -av "$secure_dir/ssh/" "$HOME/.ssh/"
-
-  chmod 700 "$HOME/.ssh"
-  find "$HOME/.ssh" -type f ! -name '*.pub' -exec chmod 600 {} +
-
-  if command -v ssh-add >/dev/null; then
-    ssh-add "$HOME/.ssh"/id_* 2>/dev/null || true
-  fi
-
-  # GPG
-  mkdir -p "$HOME/.gnupg"
-  chmod 700 "$HOME/.gnupg"
-  rsync -av "$secure_dir/gpg/" "$HOME/.gnupg/"
-
-  find "$HOME/.gnupg" -type d -exec chmod 700 {} +
-  find "$HOME/.gnupg" -type f -exec chmod 600 {} +
+  "$secure_dir/import.sh"
 }
 
 # ──────────────────────────────────────────────────────────────────────────────
