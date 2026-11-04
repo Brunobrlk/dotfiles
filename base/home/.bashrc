@@ -30,3 +30,8 @@ fi
 if [ -f "$XDG_BASH_CONFIG/options.sh" ]; then
   . "$XDG_BASH_CONFIG/options.sh"
 fi
+# BEGIN dev-genesis mise
+if command -v mise >/dev/null 2>&1; then
+  eval "$(mise activate bash)"
+fi
+# END dev-genesis mise

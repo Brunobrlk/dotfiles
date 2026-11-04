@@ -101,4 +101,4 @@
     insteadOf = "gh:"
 
 [include]
-    path = ~/.local/share/secure/git/config.local
+    path = ~/.local/share/private/git/config.local
