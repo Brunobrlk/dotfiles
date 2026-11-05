@@ -15,3 +15,4 @@
 - [ ] Check whether brave config can be useful
 - [ ] Check whether export bruno config
 - [ ] dconf and rofi
+- [ ] migrate neofetch to distro-specific instead of global(kde doesn't apply it)

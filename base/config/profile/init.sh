@@ -15,3 +15,4 @@ done
 
 # Base initialization
 mkdir -p "${XDG_CACHE_HOME:-$HOME/.cache}/bash"
+mkdir -p "${XDG_CONFIG_HOME:-$HOME/.config}/gtk-2.0"
