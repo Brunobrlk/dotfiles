@@ -2,8 +2,8 @@
 XDG_PROFILE_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/profile"
 
 # Common environment
-if [ -r "${XDG_PROFILE_CONFIG}/env" ]; then
-  . "${XDG_PROFILE_CONFIG}/env"
+if [ -r "${XDG_PROFILE_CONFIG}/env.sh" ]; then
+  . "${XDG_PROFILE_CONFIG}/env.sh"
 fi
 
 # Environment fragments

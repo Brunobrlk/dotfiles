@@ -46,7 +46,6 @@ update_config() {
 
   rsync -ai "$HOME/.config/aichat" "$SCRIPT_DIR/base/config/"
   rsync -ai "$HOME/.config/alacritty" "$SCRIPT_DIR/base/config/"
-  rsync -ai "$HOME/.config/asdf/tool-versions" "$SCRIPT_DIR/base/config/asdf/"
 
   mkdir -p "$SCRIPT_DIR/base/config/bash/aliases.d"
   rsync -ai "$HOME/.config/bash/aliases.d/android.sh" "$SCRIPT_DIR/base/config/bash/aliases.d/"
@@ -64,6 +63,7 @@ update_config() {
   rsync -ai "$HOME/.config/flameshot" "$SCRIPT_DIR/base/config/"
   rsync -ai "$HOME/.config/fzf" "$SCRIPT_DIR/base/config/"
   rsync -ai "$HOME/.config/git" "$SCRIPT_DIR/base/config/"
+  rsync -ai "$HOME/.config/gtk-2.0" "$SCRIPT_DIR/base/config/"
   rsync -ai "$HOME/.config/i3" "$SCRIPT_DIR/base/config/"
   rsync -ai "$HOME/.config/ideavim" "$SCRIPT_DIR/base/config/"
   rsync -ai "$HOME/.config/less" "$SCRIPT_DIR/base/config/"

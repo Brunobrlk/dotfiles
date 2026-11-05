@@ -65,4 +65,4 @@ export PATH="${PATH}:${ANDROID_HOME}/cmdline-tools/latest/bin"
 export PATH="${PATH}:${HOME}/.local/bin"
 
 # Debug
-export DBG_PROFILE="Hello/from/envd"
+export DBG_PROFILE="Hello/from/home/brunobrlk/.config/profile/env.sh"
