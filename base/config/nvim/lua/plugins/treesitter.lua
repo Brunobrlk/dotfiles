@@ -1,11 +1,39 @@
 return {
     "nvim-treesitter/nvim-treesitter",
+    branch = "main",
     lazy = false,
     build = ":TSUpdate",
-    event = { "BufReadPre", "BufNewFile" },
     config = function()
-        require("nvim-treesitter").setup({
-            ensure_installed = {
+        local parsers = {
+            "kotlin",
+            "java",
+            "xml",
+            "groovy",
+            "dart",
+            "c",
+            "cpp",
+            "cmake",
+            "c_sharp",
+            "lua",
+            "python",
+            "bash",
+            "json",
+            "toml",
+            "yaml",
+            "ruby",
+            "html",
+            "css",
+            "javascript",
+
+            -- Markdown
+            "markdown",
+            "markdown_inline",
+        }
+
+        require("nvim-treesitter").install(parsers)
+
+        vim.api.nvim_create_autocmd("FileType", {
+            pattern = {
                 "kotlin",
                 "java",
                 "xml",
@@ -14,10 +42,10 @@ return {
                 "c",
                 "cpp",
                 "cmake",
-                "c_sharp",
+                "cs",
                 "lua",
                 "python",
-                "bash",
+                "sh",
                 "json",
                 "toml",
                 "yaml",
@@ -25,49 +53,11 @@ return {
                 "html",
                 "css",
                 "javascript",
+                "markdown",
             },
-            sync_install = false,
-            auto_install = true,
-            highlight = {
-                enable = true,
-                additional_vim_regex_highlighting = false,
-            },
-            indent = { enable = true },
-            textobjects = {
-                select = {
-                    enable = true,
-                    lookahead = true, -- Strip whitespace in textobjects
-                },
-                swap = {
-                    enable = true,
-                    swap_next = {
-                        ["<leader>a"] = "@parameter.inner",
-                    },
-                    swap_previous = {
-                        ["<leader>A"] = "@parameter.inner",
-                    },
-                },
-                move = {
-                    enable = true,
-                    set_jumps = true,
-                    goto_next_start = {
-                        ["]f"] = "@function.outer",
-                        ["]c"] = "@class.outer",
-                    },
-                    goto_next_end = {
-                        ["]F"] = "@function.outer",
-                        ["]C"] = "@class.outer",
-                    },
-                    goto_previous_start = {
-                        ["[f"] = "@function.outer",
-                        ["[c"] = "@class.outer",
-                    },
-                    goto_previous_end = {
-                        ["[F"] = "@function.outer",
-                        ["[C"] = "@class.outer",
-                    },
-                },
-            },
+            callback = function(args)
+                vim.treesitter.start(args.buf)
+            end,
         })
     end,
 }

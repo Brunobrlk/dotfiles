@@ -11,7 +11,7 @@ function M.load_secrets(path)
     if _secrets_loaded then
         return true
     end
-    path = vim.fn.expand(path or "~/.local/share/secure/env")
+    path = vim.fn.expand(path or "~/.local/share/private/env")
     local file = io.open(path, "r")
     if not file then
         vim.notify("[utils] secrets not found: " .. path, vim.log.levels.WARN)

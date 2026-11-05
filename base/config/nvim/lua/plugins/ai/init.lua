@@ -1,4 +1,4 @@
-local ok = require("utils").load_secrets("~/.local/share/secure/ai-keys")
+local ok = require("utils").load_secrets("~/.local/share/private/ai-keys")
 
 if not ok then
     return {}

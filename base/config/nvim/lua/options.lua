@@ -1,5 +1,4 @@
 -- Global defaults
-
 local opt = vim.opt
 local g = vim.g
 
@@ -10,7 +9,7 @@ opt.backspace = "indent,eol,start" -- Allow backspace over anything
 opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp", "folds" }
 
 -- UI Options
-opt.conceallevel = 2 -- Hide special characters (e.g., Markdown formatting)
+opt.conceallevel = 0 -- Hide special characters (e.g., Markdown formatting)
 opt.laststatus = 3 -- Always show the status line (nvim-lualine)
 opt.pumheight = 10 -- Completion pop-up menu height
 
