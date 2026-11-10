@@ -31,6 +31,7 @@ pipx = "latest"
 sqlite = "latest"
 usage = "latest"
 uv = "latest"
+antigravity-cli = "latest"
 
 [settings]
 # Read package manager versions from package.json

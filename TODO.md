@@ -16,3 +16,5 @@
 - [ ] Check whether export bruno config
 - [ ] dconf and rofi
 - [ ] migrate neofetch to distro-specific instead of global(kde doesn't apply it)
+- [ ] Libvirt:
+    - [ ] network-config

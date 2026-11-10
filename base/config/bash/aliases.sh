@@ -243,3 +243,8 @@ remind() {
   local message="$*"
   echo "notify-send 'Reminder' '$message'; paplay /usr/share/sounds/freedesktop/stereo/complete.oga" | at "$time"
 }
+
+get-mac() {
+  MAC="52:54:00:$(python -c 'import secrets; print(":".join(f"{secrets.randbelow(256):02x}" for _ in range(3)))')"
+  echo "$MAC"
+}

@@ -163,8 +163,6 @@ View Style=DetailTree
 [Shortcuts]
 New=
 Print=
-RotateUp=Up; Ctrl+P
-Up=Ctrl+N; Alt+Up
 
 [WM]
 activeBackground=39,44,49
