@@ -26,6 +26,19 @@ install_home() {
 install_config() {
   mkdir -p "$HOME/.config"
   rsync -av "$SCRIPT_DIR/base/config/" "$HOME/.config/"
+
+  # External repo configs
+  install_neovim_config
+}
+
+install_neovim_config() {
+  local nvim_config="$HOME/.config/nvim"
+
+  if [[ -d "$nvim_config" ]]; then
+    rm -rf "$nvim_config.bkp"
+    mv "$nvim_config" "$nvim_config.bkp"
+  fi
+  git clone --depth 1 https://github.com/Brunobrlk/nvim.git "$nvim_config"
 }
 
 install_bash_scope() {
