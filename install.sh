@@ -19,12 +19,8 @@ source /etc/os-release
 logw() { printf '\033[1;33m[BRLK WARNING]\033[0m - %s\n' "$1"; }
 
 install_home() {
-  # .bashrc, .profile, .utils/ and opt/
+  # .bashrc, .profile  and opt/
   rsync -av "$SCRIPT_DIR/base/home/" "$HOME/"
-
-  if [[ -d "$HOME/utils" && ! -d "$HOME/.utils" ]]; then
-    mv "$HOME/utils" "$HOME/.utils"
-  fi
 }
 
 install_config() {

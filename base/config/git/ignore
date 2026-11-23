@@ -1,7 +1,6 @@
-# Android
-## Gradle files
-.gradle
-build
+# Android / Gradle
+.gradle/
+build/
 
 # Local files
 local.properties
@@ -32,13 +31,6 @@ fastlane/test_output/
 config.local
 *.log
 history
-# Idk - Might need in future
-# *.log
-# *.hprof
-# captures
-# .externalNativeBuild/
-# .cxx/
-# output-metadata.json
 
 # Python
 .venv

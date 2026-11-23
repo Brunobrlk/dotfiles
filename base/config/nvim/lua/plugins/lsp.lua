@@ -54,6 +54,7 @@ return {
             "lua_ls",
             "bashls",
             "pyright",
+            "terraformls",
         })
     end,
 }

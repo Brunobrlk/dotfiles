@@ -29,6 +29,7 @@ return {
                     "lua-language-server",
                     "bash-language-server",
                     "pyright",
+                    "terraform-ls",
 
                     -- Linters
                     "shellcheck",

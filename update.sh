@@ -29,15 +29,6 @@ update_home() {
 
   mkdir -p "$SCRIPT_DIR/base/home/opt/android-sdk/emulator/skins"
   rsync -ai "$HOME/opt/android-sdk/emulator/skins/" "$SCRIPT_DIR/base/home/opt/android-sdk/emulator/skins"
-
-  mkdir -p "$SCRIPT_DIR/base/home/utils"
-  rsync -ai \
-    --include='Cheatsheets/***' \
-    --include='DockerContainers/***' \
-    --include='CodeGists/***' \
-    --include='Gitignore-Templates/***' \
-    --exclude='*' \
-    "$HOME/.utils/" "$SCRIPT_DIR/base/home/utils/"
 }
 
 update_config() {

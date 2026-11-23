@@ -21,6 +21,8 @@ return {
                 css = { "prettier" },
                 cmake = { "gersemi", "cmake_format" },
                 yaml = { "prettier" },
+                terraform = { "terraform_fmt" },
+                ["terraform-vars"] = { "terraform_fmt" },
             },
             formatters = {
                 stylua = {

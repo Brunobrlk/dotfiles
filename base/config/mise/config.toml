@@ -32,6 +32,7 @@ sqlite = "latest"
 usage = "latest"
 uv = "latest"
 antigravity-cli = "latest"
+terraform = "latest"
 
 [settings]
 # Read package manager versions from package.json
