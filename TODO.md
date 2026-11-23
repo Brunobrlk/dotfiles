@@ -13,7 +13,8 @@
 - [x] Fix bash/history not found = mkdir ~/.cache/bash
 - [x] copy nvim-dev on config or create again? Problem with links?
 - [x] Add server dotfiles
-- [ ] Migrate nvim to outside repo: remove and clone on install.sh
+- [x] Migrate nvim to outside repo: remove and clone on install.sh
+- [x] Migrate tmux to outside repo
 - [ ] Add an initial history file to bash with great commands
 - [ ] Check whether brave config can be useful
 - [ ] Check whether export bruno config

@@ -23,22 +23,37 @@ install_home() {
   rsync -av "$SCRIPT_DIR/base/home/" "$HOME/"
 }
 
+install_external_config() {
+  local repository="$1"
+  local config="$2"
+  local bkp="$config.bkp"
+  local had_config=false
+
+  if [[ -d "$config" ]]; then
+    rm -rf "$bkp"
+    mv "$config" "$bkp"
+    had_config=true
+  fi
+
+  if ! git clone --depth 1 "$repository" "$config"; then
+    rm -rf "$config"
+
+    if [[ "$had_config" == true ]]; then
+      mv "$bkp" "$config"
+      logw "Couldn't fetch external config. Existing config was preserved."
+    else
+      logw "Couldn't fetch external config: $repository"
+    fi
+  fi
+}
+
 install_config() {
   mkdir -p "$HOME/.config"
   rsync -av "$SCRIPT_DIR/base/config/" "$HOME/.config/"
 
-  # External repo configs
-  install_neovim_config
-}
-
-install_neovim_config() {
-  local nvim_config="$HOME/.config/nvim"
-
-  if [[ -d "$nvim_config" ]]; then
-    rm -rf "$nvim_config.bkp"
-    mv "$nvim_config" "$nvim_config.bkp"
-  fi
-  git clone --depth 1 https://github.com/Brunobrlk/nvim.git "$nvim_config"
+  # External configs
+  install_external_config "https://github.com/Brunobrlk/nvim.git" "$HOME/.config/nvim"
+  install_external_config "https://github.com/Brunobrlk/tmux.git" "$HOME/.config/tmux"
 }
 
 install_bash_scope() {
