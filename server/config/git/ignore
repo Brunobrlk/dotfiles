@@ -1,0 +1,40 @@
+# Android / Gradle
+.gradle/
+build/
+
+# Local files
+local.properties
+.tool-versions
+
+# IDE
+.idea/
+
+# Secrets
+*.jks
+*.keystore
+secrets.properties
+google-services.json
+google-play-service-account.json
+
+# Generated
+release/
+
+# fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/
+fastlane/test_output/
+
+# Other
+*.db
+.env
+config.local
+*.log
+history
+
+# Python
+.venv
+
+# Personal
+notes.md
+todo.md

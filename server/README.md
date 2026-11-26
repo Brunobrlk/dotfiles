@@ -1,19 +1,16 @@
 # Core
 
 - bat
-- btop
-- fzf
-- less
-- rclone 
+- git
 - readline
-- starship
-- wget
-- yazi?
 
 ## Simplify - new version
 
-- [ ] nvim
-- [ ] git
-- [ ] tmux
-- [ ] bash: alias, env, init
-- [ ] profile/environment.d
+- [x] git
+- [x] bash: alias, env, init
+- [x] profile/environment.d
+
+## External repos - branches
+
+- [x] nvim
+- [x] tmux

@@ -26,6 +26,7 @@ install_home() {
 install_external_config() {
   local repository="$1"
   local config="$2"
+  local branch="${3:-}"
   local bkp="$config.bkp"
   local had_config=false
 
@@ -35,7 +36,13 @@ install_external_config() {
     had_config=true
   fi
 
-  if ! git clone --depth 1 "$repository" "$config"; then
+  local -a clone_args=(clone --depth 1)
+
+  if [[ -n "$branch" ]]; then
+    clone_args+=(--branch "$branch" --single-branch)
+  fi
+
+  if ! git "${clone_args[@]}" "$repository" "$config"; then
     rm -rf "$config"
 
     if [[ "$had_config" == true ]]; then
@@ -64,7 +71,7 @@ install_bash_scope() {
 
   [[ -d "$src" ]] || return 0
 
-  mkdir -p "$HOME/.config/bash/env.d" "$HOME/.config/bash/aliases.d"  "$HOME/.cache/bash"
+  mkdir -p "$HOME/.config/bash/env.d" "$HOME/.config/bash/aliases.d" "$HOME/.cache/bash"
 
   rsync -av "$src/env.d/" "$HOME/.config/bash/env.d/" 2>/dev/null || true
   rsync -av "$src/aliases.d/" "$HOME/.config/bash/aliases.d/" 2>/dev/null || true
@@ -72,10 +79,10 @@ install_bash_scope() {
 
 install_desktop() {
   case "$XDG_CURRENT_DESKTOP" in
-    *GNOME*)    install_gnome ;;
-    *KDE*)      install_kde ;;
-    *Cinnamon*) install_cinnamon ;;
-    *) logw "Unknown desktop: $XDG_CURRENT_DESKTOP" ;;
+  *GNOME*) install_gnome ;;
+  *KDE*) install_kde ;;
+  *Cinnamon*) install_cinnamon ;;
+  *) logw "Unknown desktop: $XDG_CURRENT_DESKTOP" ;;
   esac
 }
 
@@ -114,9 +121,9 @@ install_cinnamon() {
 
 install_display() {
   case "$XDG_SESSION_TYPE" in
-    x11)     install_xorg ;;
-    wayland) install_wayland ;;
-    *) logw "Unknown session type: $XDG_SESSION_TYPE" ;;
+  x11) install_xorg ;;
+  wayland) install_wayland ;;
+  *) logw "Unknown session type: $XDG_SESSION_TYPE" ;;
   esac
 }
 
@@ -135,11 +142,11 @@ install_wayland() {
 
 install_distro() {
   case "$ID" in
-    fedora) install_distro_common "fedora" ;;
-    debian) install_distro_common "debian" ;;
-    ubuntu) install_distro_common "ubuntu" ;;
-    mint)   install_distro_common "mint" ;;
-    *) logw "Distro not supported: $ID" ;;
+  fedora) install_distro_common "fedora" ;;
+  debian) install_distro_common "debian" ;;
+  ubuntu) install_distro_common "ubuntu" ;;
+  mint) install_distro_common "mint" ;;
+  *) logw "Distro not supported: $ID" ;;
   esac
 }
 
@@ -165,10 +172,45 @@ install_secrets() {
   "$secure_dir/import.sh"
 }
 
+install_server() {
+  # Install home - aliases, env, init
+  local profile="$SCRIPT_DIR/server/home/.server_profile.sh"
+  local bashrc="$HOME/.bashrc"
+
+  if [[ -f "$profile" ]]; then
+    logw "Server profile not found: $profile"
+    rsync -av "$profile" "$HOME/"
+
+    ## Ensure .server_profile.sh is sourced
+    cat >>"$bashrc" <<'EOF'
+
+    # Server profile
+    if [[ -r "$HOME/.server_profile.sh" ]]; then
+      source "$HOME/.server_profile.sh"
+    fi
+EOF
+
+    logi "Added server profile to .bashrc"
+  fi
+
+  # Install config
+  mkdir -p "$HOME/.config"
+  rsync -av "$SCRIPT_DIR/server/config/" "$HOME/.config/"
+
+  ## External configs
+  install_external_config "https://github.com/Brunobrlk/nvim.git" "$HOME/.config/nvim" "server"
+  install_external_config "https://github.com/Brunobrlk/tmux.git" "$HOME/.config/tmux" "server"
+}
+
 # ──────────────────────────────────────────────────────────────────────────────
 # Main
 # ──────────────────────────────────────────────────────────────────────────────
 main() {
+  if [[ "${1:-}" == "--server" ]]; then
+    install_server
+    exit 0
+  fi
+
   install_home
   install_config
   install_desktop

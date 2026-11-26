@@ -3,7 +3,7 @@
   email = brunoguimaraes.dev@gmail.com
 
 [core]
-  editor = lvim
+  editor = nvim
 
 [commit]
   template = ~/.config/git/conventional-commits
@@ -85,10 +85,8 @@
   ch = checkout
   clforce = clean -df
 
+  wt = worktree
   wtls = worktree list
-  wtadd = worktree add
-  wtrm = worktree remove
-  wtb = "!f() { if [ -z \"$1\" ]; then echo 'Error: Branch name is required'; else git worktree add ../$(basename $(pwd))-$(echo $1 | tr '/' '-'); fi; }; f"
 
 # URL Shortcuts
 [url "git@github.com:Brunobrlk/"]
