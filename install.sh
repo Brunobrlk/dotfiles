@@ -17,6 +17,7 @@ source /etc/os-release
 # Functions
 # ──────────────────────────────────────────────────────────────────────────────
 logw() { printf '\033[1;33m[BRLK WARNING]\033[0m - %s\n' "$1"; }
+logi() { printf '\033[0;34m[BRLK INFO]\033[0m - %s\n' "$1"; }
 
 install_home() {
   # .bashrc, .profile  and opt/
